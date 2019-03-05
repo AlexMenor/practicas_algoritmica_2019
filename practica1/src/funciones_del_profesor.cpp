@@ -1,12 +1,14 @@
 
 /**********************************************************************/
+#ifndef FUNCIONES_DEL_PROFESOR
+#define FUNCIONES_DEL_PROFESOR
 
-#include <ctime>
 #include <cstdlib>
 #include <climits>
 #include <cassert>
 #include <cmath>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 static int const MAX_LONG  = 10;
@@ -15,7 +17,7 @@ static int const UMBRAL_QS  = 50;
 
 /**********************************************************************/
 
-void burbuja(int T[], int inicial, int final)
+void burbuja_lims(int T[], int inicial, int final)
 {
   int i, j;
   int aux;
@@ -27,6 +29,10 @@ void burbuja(int T[], int inicial, int final)
 	  T[j] = T[j-1];
 	  T[j-1] = aux;
 	}
+}
+
+void burbuja (int T[], int nelem){
+  burbuja_lims(T, 0, nelem);
 }
 
 /**********************************************************************/
@@ -144,7 +150,7 @@ void heapsort(int T[], int num_elem)
   
 /**********************************************************************/	
 
-void insercion(int T[], int inicial, int final)
+void insercion_lims(int T[], int inicial, int final)
 {
   int i, j;
   int aux;
@@ -159,6 +165,9 @@ void insercion(int T[], int inicial, int final)
   };
 }
 
+void insercion (int T[], int nelem){
+  insercion_lims (T, 0, nelem);
+}
 /**********************************************************************/	
 
 void fusion(int T[], int inicial, int final, int U[], int V[])
@@ -179,11 +188,11 @@ void fusion(int T[], int inicial, int final, int U[], int V[])
 
 /**********************************************************************/	
 
-void mergesort(int T[], int inicial, int final)
+void mergesort_lims(int T[], int inicial, int final)
 {
   if (final - inicial < UMBRAL_MS)
     {
-      insercion(T, inicial, final);
+      insercion_lims(T, inicial, final);
     } else {
       int k = (final - inicial)/2;
 
@@ -200,12 +209,16 @@ void mergesort(int T[], int inicial, int final)
 	V[l] = T[l2];
       V[l] = INT_MAX;
 
-      mergesort(U, 0, k);
-      mergesort(V, 0, final - k);
+      mergesort_lims(U, 0, k);
+      mergesort_lims(V, 0, final - k);
       fusion(T, inicial, final, U, V);
       delete [] U;
       delete [] V;
     };
+}
+
+void mergesort (int T[], int nelem){
+  mergesort_lims (T, 0, nelem);
 }
 
 /**********************************************************************/	
@@ -239,21 +252,25 @@ void dividir_qs(int T[], int inicial, int final, int & pp)
 
 /**********************************************************************/	
 
-void quicksort(int T[], int inicial, int final)
+void quicksort_lims(int T[], int inicial, int final)
 {
   int k;
   if (final - inicial < UMBRAL_QS) {
-    insercion(T, inicial, final);
+    insercion_lims(T, inicial, final);
   } else {
     dividir_qs(T, inicial, final, k);
-    quicksort(T, inicial, k);
-    quicksort(T, k + 1, final);
+    quicksort_lims(T, inicial, k);
+    quicksort_lims(T, k + 1, final);
   };
+}
+
+void quicksort (int T[], int nelem){
+  quicksort_lims(T, 0, nelem);
 }
 
 /**********************************************************************/	
 
-void seleccion(int T[], int inicial, int final)
+void seleccion_lims(int T[], int inicial, int final)
 {
   int i, j, indice_menor;
   int menor, aux;
@@ -271,4 +288,9 @@ void seleccion(int T[], int inicial, int final)
   }
 }
 
+void seleccion (int T[], int nelem){
+  seleccion_lims(T, 0, nelem);
+}
+
 /**********************************************************************/	
+#endif

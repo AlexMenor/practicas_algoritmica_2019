@@ -1,14 +1,11 @@
 SRC = src
-OBJ = obj
 BIN = bin
-
+DAT = datos
 
 all: $(BIN)/genera_tiempos
 
-$(BIN)/genera_tiempos: $(OBJ)/funciones_del_profesor.o
-
-$(OBJ)/funciones_del_profesor.o: $(SRC)/funciones_del_profesor.cpp
-	g++ -c $< -o $@
+$(BIN)/genera_tiempos:  $(SRC)/genera_tiempos.cpp $(SRC)/funciones_del_profesor.cpp
+	g++ -o $@ $< -std=c++11
 
 clean:
-	rm $(OBJ)/* $(BIN)/*
+	rm $(BIN)/* $(DAT)/*
