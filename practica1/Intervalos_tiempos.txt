@@ -1,0 +1,4 @@
+INTERVALOS USADOS EN LOS ALGORITMOS:
+-Burbuja, selección, inserción, heapsort, mergesort y quicksort: 0-25000 incremento 500
+-Floyd: 1-1020 incremento 20
+-Fibonacci: 0-50 incremento 1
