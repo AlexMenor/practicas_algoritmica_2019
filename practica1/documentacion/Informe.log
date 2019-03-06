@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.5)  6 MAR 2019 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.5)  6 MAR 2019 19:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -523,26 +523,46 @@ Overfull \hbox (75.52846pt too wide) in alignment at lines 61--74
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./Informe.aux
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (64.66734pt too wide) in alignment at lines 79--100
+ [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 100
+ []
+
+
+Overfull \hbox (64.66734pt too wide) in alignment at lines 100--120
+ [] [] [] [] 
+ []
+
+[2]
+Overfull \hbox (64.66734pt too wide) in alignment at lines 120--133
+ [] [] [] [] 
+ []
+
+[3] (./Informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 2727 strings out of 494788
- 35788 string characters out of 6177223
- 121965 words of memory out of 5000000
- 6034 multiletter control sequences out of 15000+600000
+ 2728 strings out of 494788
+ 35793 string characters out of 6177223
+ 127965 words of memory out of 5000000
+ 6035 multiletter control sequences out of 15000+600000
  7587 words of font info for 27 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
  41i,7n,30p,274b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Informe.pdf (2 pages, 55915 bytes).
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
+Output written on Informe.pdf (3 pages, 70296 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 34 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
