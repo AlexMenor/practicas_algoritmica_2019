@@ -1,0 +1,21 @@
+Arquitectura:          x86_64
+modo(s) de operación de las CPUs:32-bit, 64-bit
+Orden de bytes:        Little Endian
+CPU(s):                4
+On-line CPU(s) list:   0-3
+Hilo(s) de procesamiento por núcleo:2
+Núcleo(s) por «socket»:2
+Socket(s):             1
+Modo(s) NUMA:          1
+ID de fabricante:      GenuineIntel
+Familia de CPU:        6
+Modelo:                61
+Revisión:             4
+CPU MHz:               2199.914
+BogoMIPS:              4393.58
+Virtualización:       VT-x
+Caché L1d:            32K
+Caché L1i:            32K
+Caché L2:             256K
+Caché L3:             3072K
+NUMA node0 CPU(s):     0-3
