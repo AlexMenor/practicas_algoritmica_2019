@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.5)  7 MAR 2019 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.24)  7 MAR 2019 20:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Informe.tex
 (./Informe.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 10 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -524,45 +524,100 @@ Overfull \hbox (75.52846pt too wide) in alignment at lines 61--73
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (64.66734pt too wide) in alignment at lines 78--99
+<img/ordenacion_rapida.png, id=10, 549.55313pt x 360.59718pt>
+File: img/ordenacion_rapida.png Graphic file (type png)
+<use img/ordenacion_rapida.png>
+Package pdftex.def Info: img/ordenacion_rapida.png  used on input line 79.
+(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
+
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 79--80
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (64.66734pt too wide) in alignment at lines 85--106
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 99
+Underfull \vbox (badness 10000) detected at line 106
  []
 
 
-Overfull \hbox (64.66734pt too wide) in alignment at lines 99--119
+Overfull \hbox (64.66734pt too wide) in alignment at lines 106--126
  [] [] [] [] 
  []
 
 [2]
-Overfull \hbox (64.66734pt too wide) in alignment at lines 119--131
+Overfull \hbox (64.66734pt too wide) in alignment at lines 126--138
  [] [] [] [] 
  []
 
-[3] (./Informe.aux
+<img/ordenacion_lenta.png, id=15, 549.55313pt x 360.59718pt>
+File: img/ordenacion_lenta.png Graphic file (type png)
+<use img/ordenacion_lenta.png>
+Package pdftex.def Info: img/ordenacion_lenta.png  used on input line 141.
+(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
+
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 141--142
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/ordenacion.png, id=16, 549.55313pt x 360.59718pt>
+File: img/ordenacion.png Graphic file (type png)
+<use img/ordenacion.png>
+Package pdftex.def Info: img/ordenacion.png  used on input line 147.
+(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
+
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 147--148
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/ordenacion_zoom.png, id=17, 549.55313pt x 360.59718pt>
+File: img/ordenacion_zoom.png Graphic file (type png)
+<use img/ordenacion_zoom.png>
+Package pdftex.def Info: img/ordenacion_zoom.png  used on input line 153.
+(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
+
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 153--154
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] [4 <./img/ordenacion_rapida.png (PNG copy)> <./img/ordenacion_lenta.png (PN
+G copy)>] [5 <./img/ordenacion.png (PNG copy)> <./img/ordenacion_zoom.png (PNG 
+copy)>] (./Informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 2728 strings out of 494788
- 35793 string characters out of 6177223
- 128039 words of memory out of 5000000
- 6035 multiletter control sequences out of 15000+600000
+ 2755 strings out of 492982
+ 36403 string characters out of 6134896
+ 132616 words of memory out of 5000000
+ 6290 multiletter control sequences out of 15000+600000
  7587 words of font info for 27 fonts, out of 8000000 for 9000
- 85 hyphenation exceptions out of 8191
+ 1141 hyphenation exceptions out of 8191
  41i,7n,30p,274b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
-Output written on Informe.pdf (3 pages, 70021 bytes).
+Output written on Informe.pdf (5 pages, 146061 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 44 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
