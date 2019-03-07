@@ -14,6 +14,7 @@ using namespace std;
 static int const MAX_LONG  = 10;
 static int const UMBRAL_MS  = 100;
 static int const UMBRAL_QS  = 50;
+static int const VECES = 5;
 
 /**********************************************************************/
 

@@ -7,11 +7,15 @@ void probarFibo (int desde, int hasta, int incremento, ostream & salida){
     duration<double> transcurrido;
 
     for (int i = desde ; i <= hasta ; i += incremento){
-        tantes = high_resolution_clock::now();
-        fibo(i);
-        tdespues = high_resolution_clock::now();
-        transcurrido = duration_cast<duration<double>> (tdespues - tantes);
-        salida << i << " " << transcurrido.count() << endl;
+	double sum = 0.0;
+	for (int j = 0 ; j < VECES ; j++){
+		tantes = high_resolution_clock::now();
+		fibo(i);
+		tdespues = high_resolution_clock::now();
+		transcurrido = duration_cast<duration<double>> (tdespues - tantes);
+		sum += transcurrido.count();
+	}
+        salida << i << " " << sum / VECES << endl;
     }
 }
 
@@ -21,13 +25,17 @@ void probarFloyd (int desde, int hasta, int incremento, ostream & salida){
     int ** M ;
     for (int i = desde ; i <= hasta ; i+= incremento){
         M = ReservaMatriz(i);
-        RellenaMatriz(M,i);
-        tantes = high_resolution_clock::now();
-        Floyd(M,i);
-        tdespues = high_resolution_clock::now();
+	double sum = 0.0;
+	for (int j = 0 ; j < VECES ; j++){
+		RellenaMatriz(M,i);
+		tantes = high_resolution_clock::now();
+		Floyd(M,i);
+		tdespues = high_resolution_clock::now();
 
-        transcurrido = duration_cast<duration<double>> (tdespues - tantes);
-        salida << i << " " << transcurrido.count() << endl;
+		transcurrido = duration_cast<duration<double>> (tdespues - tantes);
+		sum += transcurrido.count();
+	}
+        salida << i << " " << sum/VECES << endl;
 
         LiberaMatriz(M,i);
     }
@@ -39,20 +47,24 @@ void probarOrdenacion (void (*f)(int*, int), int desde, int hasta, int increment
     int * T;
     for (int i = desde ; i <= hasta ; i += incremento){
         T = new int [i];
-        assert(T);
-        srandom(time(0));
+	double sum = 0.0;
+	for (int j = 0 ; j < VECES ; j++){
+		assert(T);
+		srandom(time(0));
 
-        for (int j = 0; j < i; j++)
-        {
-            T[j] = random();
-        }
-            
-        tantes = high_resolution_clock::now();
-        f(T, i);
-        tdespues = high_resolution_clock::now();
+		for (int j = 0; j < i; j++)
+		{
+		    T[j] = random();
+		}
+		    
+		tantes = high_resolution_clock::now();
+		f(T, i);
+		tdespues = high_resolution_clock::now();
 
-        transcurrido = duration_cast<duration<double>> (tdespues - tantes);
-        salida << i << " " << transcurrido.count() << endl;
+		transcurrido = duration_cast<duration<double>> (tdespues - tantes);
+		sum += transcurrido.count();
+	}
+        salida << i << " " << sum/VECES << endl;
         
         delete [] T;
     }
