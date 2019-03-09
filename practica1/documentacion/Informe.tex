@@ -3,6 +3,7 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{longtable}
+\usepackage{float}
 \graphicspath{{./img/}}
 
 \title{Práctica 1. Análisis de eficiencia de algoritmos}
@@ -16,7 +17,13 @@
 	\maketitle
 	\section{Introducción}
 	\section{Eficiencia empírica}
-	\subsection{Algoritmos de ordenación rápidos}
+	Vamos a medir el tiempo que tarda en ejecutarse cada uno de los ocho algoritmos: Quicksort, Mergesort, Heapsort, Inserción, Selección, Burbuja, Floyd y Fibonacci.
+	
+	\
+	Además, los compararemos entre ellos cuando sea interesante hacerlo.
+	\subsection{Algoritmos de ordenación}
+	\subsubsection{Ordenación rápida}
+	Empezamos con los algoritmos de ordenación rápidos. Estos pertenecen al orden de eficiencia $O(n*log(n))$ es decir, "superlineales".
 		\begin{longtable}{|c|c|c|c|}
 			\hline
 			Tamaño del vector & Tiempo con Quicksort & Tiempo con Mergesort & Tiempo con Heapsort \\ \hline
@@ -74,14 +81,15 @@
 		\begin{center}
 		\tiny Tabla comparativa de tiempos
 		\end{center}
-		\begin{figure}[h]
+		\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ordenacion_rapida}
 		\caption{Comparación gráfica del rendimiento de los algoritmos de ordenación rápida}
 		\label{fig:ordenacion_rapida}
 		\end{figure}
 		\
-	\subsection{Algoritmos de ordenación lentos}
+	\subsubsection{Ordenación lentos}
+		Estos algoritmos de ordenación, menos sofisticados, son de orden $O(n ^2)$ es decir, cuadráticos.
 		\begin{longtable}{|c|c|c|c|}
 			\hline
 			Tamaño del vector & Tiempo con Burbuja & Tiempo con Selección & Tiempo con Inserción \\ \hline
@@ -136,22 +144,89 @@
 			24500  &	1.7148	    &  0.770377	       &  0.635088   \\ \hline
 			25000  &	1.78348	    &  0.79409	       &  0.638414   \\ \hline
 		\end{longtable}
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ordenacion_lenta}
 		\caption{Comparación gráfica del rendimiento de los algoritmos de ordenación lenta}
 		\label{fig:ordenacion_lenta}
 	\end{figure}
-	\begin{figure}[h]
+Por último, en las figuras \ref{fig:ordenacion} y \ref{fig:ordenacion_zoom}, se muestra el rendimiento de todos los algoritmos de ordenación, rápidos y lentos.
+	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ordenacion}
 		\caption{Comparación gráfica del rendimiento de los algoritmos de ordenación}
 		\label{fig:ordenacion}
 	\end{figure}
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ordenacion_zoom}
-		\caption{Zoom en el intervalo [0-15000] de la figura \ref{fig:ordenacion}}
+		\caption{\textit{Zoom} en el intervalo [0-15000] de la figura \ref{fig:ordenacion}}
 		\label{fig:ordenacion_zoom}
 	\end{figure}
+\subsection{Floyd}
+Dado un conjunto de nodos de un grafo dirigido, el algoritmo de Floyd calcula el costo del camino mínimo entre cada par. Pertenece al orden de eficiencia $O(n ^3)$, se muestra una gráfica en la figura \ref{fig:floyd}.
+% TODO: Tabla con los tiempos de Floyd
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/floyd}
+	\caption{Tiempos de ejecución en el algoritmo de Floyd}
+	\label{fig:floyd}
+\end{figure}
+\subsection{Fibonacci}
+Este algoritmo calcula los números de la sucesión de Fibonacci. 
+\
+
+Hace uso de la recursión y como hemos visto en clase, esto puede derivar muy facilmente en un algoritmo de orden exponencial, es este uno de esos casos.
+\
+
+$fib(n) \in O((\frac{1+\sqrt5}{2})^n)$
+
+%TODO: Tabla con los tiempos de Fibonacci
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/fibonacci}
+	\caption{Tiempos de ejecución en el algoritmo de Fibonacci}
+	\label{fig:fibonacci}
+\end{figure}
+
+\subsection{Probando en distintas condiciones}
+\subsubsection{Distintos ordenadores}
+Hemos probado la misma implementación de un algoritmo en dos ordenadores distintos y así de paso demostrar el principio de invarianza.
+\
+
+En la figura \ref{fig:compSeleccion} se muestran los tiempos de ambos ordenadores en la misma gráfica y en la figura \ref{fig:compSeleccion_cociente}, la función cociente entre los tiempos de las dos ejecuciones.
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/compSeleccion}
+	\caption{Equipos diferentes, tiempos distintos}
+	\label{fig:compSeleccion}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/compSeleccion_cociente}
+	\caption{Demostrando el principio de invarianza}
+	\label{fig:compSeleccion_cociente}
+\end{figure}
+\subsubsection{Distintas opciones de compilación}
+En este caso hemos probado el algoritmo de Floyd en el mismo equipo, pero compilando con y sin optimización. (Hemos utilizado el \textit{switch} -O3 para la versión optimizada).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/optimizacion_floyd}
+	\caption{Tiempos de ejecución compilando con y sin optimización}
+	\label{fig:optimizacion_floyd}
+\end{figure}
+
+A pesar de todo, como se muestra en la figura \ref{fig:optimizacion_cociente}, sólo se diferencian en una constante $k \approx 0.141 $.
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/optimizacion_cociente}
+	\caption{El principio de invarianza, esta vez aplicado a las opciones del compilador.}
+	\label{fig:optimizacion_cociente}
+\end{figure}
+%TODO: Estaría bien una tercera subsubsection con algo que se os ocurra
+
+\section{Eficiencia híbrida}
+%TODO: Esto
 \end{document}
