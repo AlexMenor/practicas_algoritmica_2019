@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.10)  10 MAR 2019 02:18
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.24)  9 MAR 2019 19:12
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -400,43 +404,59 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@tables=\count93
 \c@LT@chunks=\count94
 \LT@p@ftn=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count95
+\float@exts=\toks19
+\float@box=\box30
+\@float@everytoks=\toks20
+\@floatcapt=\box31
 ) (./Informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
 \openout1 = `Informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Info: Redefining \. on input line 15.
-LaTeX Info: Redefining \% on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
+\scratchcounter=\count96
 \scratchdimen=\dimen107
-\scratchbox=\box30
-\nofMPsegments=\count96
-\nofMParguments=\count97
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count98
+\scratchbox=\box32
+\nofMPsegments=\count97
+\nofMParguments=\count98
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count99
 \MPscratchDim=\dimen108
+<<<<<<< HEAD
 \MPnumerator=\count99
 \makeMPintoPDFobject=\count100
 \everyMPtoPDFconversion=\toks20
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
+=======
+\MPnumerator=\count100
+\makeMPintoPDFobject=\count101
+\everyMPtoPDFconversion=\toks22
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
@@ -483,108 +503,151 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 16.
+(Font)              <12> on input line 17.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 16.
+(Font)              <8> on input line 17.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 16.
+(Font)              <6> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 26.
 
-Overfull \hbox (75.52846pt too wide) in alignment at lines 20--41
+Overfull \hbox (75.52846pt too wide) in alignment at lines 27--48
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 41
+Underfull \vbox (badness 10000) detected at line 48
  []
 
 
-Overfull \hbox (75.52846pt too wide) in alignment at lines 41--61
- [] [] [] [] 
- []
-
-
-Overfull \hbox (75.52846pt too wide) in alignment at lines 61--73
+Overfull \hbox (75.52846pt too wide) in alignment at lines 48--68
  [] [] [] [] 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<img/ordenacion_rapida.png, id=10, 549.55313pt x 360.59718pt>
+Overfull \hbox (75.52846pt too wide) in alignment at lines 68--80
+ [] [] [] [] 
+ []
+
+<img/ordenacion_rapida.png, id=13, 549.55313pt x 360.59718pt>
 File: img/ordenacion_rapida.png Graphic file (type png)
 
 <use img/ordenacion_rapida.png>
+<<<<<<< HEAD
 Package pdftex.def Info: img/ordenacion_rapida.png used on input line 79.
+=======
+Package pdftex.def Info: img/ordenacion_rapida.png  used on input line 86.
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 79--80
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 86--87
  [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (64.66734pt too wide) in alignment at lines 85--106
- [] [] [] [] 
- []
-
-
-Underfull \vbox (badness 10000) detected at line 106
- []
-
-
-Overfull \hbox (64.66734pt too wide) in alignment at lines 106--126
- [] [] [] [] 
  []
 
 [2]
-Overfull \hbox (64.66734pt too wide) in alignment at lines 126--138
+Overfull \hbox (64.66734pt too wide) in alignment at lines 93--114
  [] [] [] [] 
  []
 
-<img/ordenacion_lenta.png, id=15, 549.55313pt x 360.59718pt>
+
+Underfull \vbox (badness 10000) detected at line 114
+ []
+
+
+Overfull \hbox (64.66734pt too wide) in alignment at lines 114--134
+ [] [] [] [] 
+ []
+
+[3 <./img/ordenacion_rapida.png (PNG copy)>]
+Overfull \hbox (64.66734pt too wide) in alignment at lines 134--146
+ [] [] [] [] 
+ []
+
+<img/ordenacion_lenta.png, id=22, 549.55313pt x 360.59718pt>
 File: img/ordenacion_lenta.png Graphic file (type png)
 
 <use img/ordenacion_lenta.png>
+<<<<<<< HEAD
 Package pdftex.def Info: img/ordenacion_lenta.png used on input line 141.
+=======
+Package pdftex.def Info: img/ordenacion_lenta.png  used on input line 149.
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 141--142
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 149--150
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<img/ordenacion.png, id=16, 549.55313pt x 360.59718pt>
+[4]
+<img/ordenacion.png, id=26, 549.55313pt x 360.59718pt>
 File: img/ordenacion.png Graphic file (type png)
 
 <use img/ordenacion.png>
+<<<<<<< HEAD
 Package pdftex.def Info: img/ordenacion.png used on input line 147.
+=======
+Package pdftex.def Info: img/ordenacion.png  used on input line 156.
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 147--148
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 156--157
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<img/ordenacion_zoom.png, id=17, 549.55313pt x 360.59718pt>
+<img/ordenacion_zoom.png, id=27, 549.55313pt x 360.59718pt>
 File: img/ordenacion_zoom.png Graphic file (type png)
 
 <use img/ordenacion_zoom.png>
+<<<<<<< HEAD
 Package pdftex.def Info: img/ordenacion_zoom.png used on input line 153.
+=======
+Package pdftex.def Info: img/ordenacion_zoom.png  used on input line 162.
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 153--154
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 162--163
  [][] 
  []
 
+[5 <./img/ordenacion_lenta.png (PNG copy)>]
+<img/floyd.png, id=31, 481.8pt x 361.35pt>
+File: img/floyd.png Graphic file (type png)
+<use img/floyd.png>
+Package pdftex.def Info: img/floyd.png  used on input line 171.
+(pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
+ [6 <./img/ordenacion.png (PNG copy)> <./img/ordenacion_zoom.png (PNG copy)>]
+<img/fibonacci.png, id=36, 481.8pt x 361.35pt>
+File: img/fibonacci.png Graphic file (type png)
+<use img/fibonacci.png>
+Package pdftex.def Info: img/fibonacci.png  used on input line 188.
+(pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
+ [7 <./img/floyd.png (PNG copy)>]
+<img/compSeleccion.png, id=43, 1003.75pt x 602.25pt>
+File: img/compSeleccion.png Graphic file (type png)
+<use img/compSeleccion.png>
+Package pdftex.def Info: img/compSeleccion.png  used on input line 201.
+(pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 201--202
+ [][] 
+ []
 
+<img/compSeleccion_cociente.png, id=44, 1003.75pt x 602.25pt>
+File: img/compSeleccion_cociente.png Graphic file (type png)
+<use img/compSeleccion_cociente.png>
+Package pdftex.def Info: img/compSeleccion_cociente.png  used on input line 207
+.
+(pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
+
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 207--208
+ [][] 
+ []
+
+<<<<<<< HEAD
 [3]
 Underfull \vbox (badness 10000) detected at line 171
  []
@@ -947,10 +1010,28 @@ ados.png>] [11 <./img/Fibonacci_ajustada.png> <./img/Floyd_ajustada.png>]
 [14 <./img/compMergesort.png> <./img/compHeapsort.png>] [15 <./img/compQuicksor
 t.png> <./img/compBurbuja.png>] [16 <./img/compInsercion.png> <./img/compSelecc
 ion.png>] [17 <./img/compFloyd.png> <./img/compFibonacci.png>] (./Informe.aux
+=======
+[8 <./img/fibonacci.png (PNG copy)>] [9 <./img/compSeleccion.png> <./img/compSe
+leccion_cociente.png>]
+<img/optimizacion_floyd.png, id=53, 481.8pt x 361.35pt>
+File: img/optimizacion_floyd.png Graphic file (type png)
+<use img/optimizacion_floyd.png>
+Package pdftex.def Info: img/optimizacion_floyd.png  used on input line 216.
+(pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
+<img/optimizacion_cociente.png, id=54, 481.8pt x 361.35pt>
+File: img/optimizacion_cociente.png Graphic file (type png)
+<use img/optimizacion_cociente.png>
+Package pdftex.def Info: img/optimizacion_cociente.png  used on input line 224.
+
+(pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
+ [10 <./img/optimizacion_floyd.png (PNG copy)>] [11 <./img/optimizacion_cocient
+e.png (PNG copy)>] (./Informe.aux
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  2839 strings out of 493029
  39069 string characters out of 6136234
  132343 words of memory out of 5000000
@@ -969,4 +1050,31 @@ PDF statistics:
  54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+ 2866 strings out of 492982
+ 38265 string characters out of 6134896
+ 123047 words of memory out of 5000000
+ 6389 multiletter control sequences out of 15000+600000
+ 8241 words of font info for 29 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,7n,30p,274b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+>
+Output written on Informe.pdf (11 pages, 294870 bytes).
+PDF statistics:
+ 100 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 

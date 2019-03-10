@@ -8,4 +8,4 @@ $(BIN)/genera_tiempos:  $(SRC)/genera_tiempos.cpp $(SRC)/funciones_del_profesor.
 	g++ -o $@ $< -std=c++11
 
 clean:
-	rm $(BIN)/* $(DAT)/*
+	rm $(BIN)/* 
