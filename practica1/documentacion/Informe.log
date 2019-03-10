@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.5)  10 MAR 2019 19:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.5)  10 MAR 2019 22:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -890,7 +890,7 @@ Here is how much of TeX's memory you used:
  6246 multiletter control sequences out of 15000+600000
  8347 words of font info for 30 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
- 41i,7n,30p,384b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,30p,322b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
@@ -903,7 +903,7 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/la
 sy10.pfb>
-Output written on Informe.pdf (29 pages, 589445 bytes).
+Output written on Informe.pdf (29 pages, 589301 bytes).
 PDF statistics:
  186 PDF objects out of 1000 (max. 8388607)
  101 compressed objects within 2 object streams
