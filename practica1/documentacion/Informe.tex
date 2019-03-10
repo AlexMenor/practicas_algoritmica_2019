@@ -417,10 +417,63 @@ Para el algoritmo Insercion:
 		\label{fig:compFibonacci}
 	\end{figure}
 	
-=======
 \subsection{Floyd}
 Dado un conjunto de nodos de un grafo dirigido, el algoritmo de Floyd calcula el costo del camino mínimo entre cada par. Pertenece al orden de eficiencia $O(n ^3)$, se muestra una gráfica en la figura \ref{fig:floyd}.
-% TODO: Tabla con los tiempos de Floyd
+\begin{longtable}{|c||c|}
+	\hline
+	Tamaño & Tiempo  \\ \hline
+	1       & 1.954e-07    \\ \hline
+	21      & 0.000155079 \\ \hline
+	41      & 0.00103966 \\ \hline
+	61      & 0.00231581 \\ \hline
+	81      & 0.00315898 \\ \hline
+	101     & 0.00603818 \\ \hline
+	121     & 0.0102868 \\ \hline
+	141     & 0.0163929 \\ \hline
+	161     & 0.0241221 \\ \hline
+	181     & 0.0351787 \\ \hline
+	201     & 0.0473705 \\ \hline
+	221     & 0.0620468 \\ \hline
+	241     & 0.0834537 \\ \hline
+	261     & 0.103527 \\ \hline
+	281     & 0.128019 \\ \hline
+	301     & 0.1575 \\ \hline
+	321     & 0.194009 \\ \hline
+	341     & 0.231567 \\ \hline
+	361     & 0.275895 \\ \hline
+	381     & 0.32918 \\ \hline
+	401     & 0.367902 \\ \hline
+	421     & 0.4349 \\ \hline
+	441     & 0.490013 \\ \hline
+	461     & 0.562313 \\ \hline
+	481     & 0.631398 \\ \hline
+	501     & 0.716334 \\ \hline
+	521     & 0.832386 \\ \hline
+	541     & 0.918103 \\ \hline
+	561     & 1.03886 \\ \hline
+	581     & 1.12256 \\ \hline
+	601     & 1.23978 \\ \hline
+	621     & 1.36486 \\ \hline
+	641     & 1.5045 \\ \hline
+	661     & 1.64389 \\ \hline
+	681     & 1.79002 \\ \hline
+	701     & 1.96247 \\ \hline
+	721     & 2.16406 \\ \hline
+	741     & 2.39603 \\ \hline
+	761     & 2.64711 \\ \hline
+	781     & 2.81278 \\ \hline
+	801     & 3.1552 \\ \hline
+	821     & 3.19514 \\ \hline
+	841     & 3.45967 \\ \hline
+	861     & 3.82836 \\ \hline
+	881     & 3.88608 \\ \hline
+	901     & 4.45056 \\ \hline
+	921     & 4.35145 \\ \hline
+	941     & 4.50856 \\ \hline
+	961     & 4.88424 \\ \hline
+	981     & 5.52174 \\ \hline
+	1001    & 5.60464 \\ \hline
+\end{longtable}
 \begin{figure}[H]
 	\centering
 	\includegraphics[totalheight=8cm]{img/floyd}
@@ -436,7 +489,61 @@ Hace uso de la recursión y como hemos visto en clase, esto puede derivar muy fa
 
 $fib(n) \in O((\frac{1+\sqrt5}{2})^n)$
 
-%TODO: Tabla con los tiempos de Fibonacci
+\begin{longtable}{|c||c|}
+	\hline
+	Tamaño & Tiempo  \\ \hline
+	0   & 2.856e-07  \\ \hline
+	1   & 1.512e-07  \\ \hline
+	2   & 2.096e-07  \\ \hline
+	3   & 2.086e-07  \\ \hline
+	4   & 2.698e-07  \\ \hline
+	5   & 3.788e-07  \\ \hline
+	6   & 5.074e-07  \\ \hline
+	7   & 7.382e-07  \\ \hline
+	8   & 1.0928e-06  \\ \hline
+	9   & 1.599e-06  \\ \hline
+	10  &  2.4596e-06  \\ \hline
+	11  &  3.8526e-06  \\ \hline
+	12  &  6.078e-06  \\ \hline
+	13  &  9.6922e-06  \\ \hline
+	14  &  1.44386e-05  \\ \hline
+	15  &  2.0433e-05  \\ \hline
+	16  &  3.66042e-05  \\ \hline
+	17  &  4.68404e-05  \\ \hline
+	18  &  7.15016e-05  \\ \hline
+	19  &  0.000113647  \\ \hline
+	20  &  0.000181842  \\ \hline
+	21  &  0.000291334  \\ \hline
+	22  &  0.000485881  \\ \hline
+	23  &  0.000766585  \\ \hline
+	24  &  0.00061927  \\ \hline
+	25  &  0.000491851  \\ \hline
+	26  &  0.000754886  \\ \hline
+	27  &  0.0013577  \\ \hline
+	28  &  0.00209638  \\ \hline
+	29  &  0.00339488  \\ \hline
+	30  &  0.00540311  \\ \hline
+	31  &  0.00876756  \\ \hline
+	32  &  0.0143048  \\ \hline
+	33  &  0.0226266  \\ \hline
+	34  &  0.036777  \\ \hline
+	35  &  0.0581737  \\ \hline
+	36  &  0.0948025  \\ \hline
+	37  &  0.158607  \\ \hline
+	38  &  0.260101  \\ \hline
+	39  &  0.40173  \\ \hline
+	40  &  0.654265  \\ \hline
+	41  &  1.06958  \\ \hline
+	42  &  1.70722  \\ \hline
+	43  &  2.74853  \\ \hline
+	44  &  4.60926  \\ \hline
+	45  &  7.51057  \\ \hline
+	46  &  11.6822  \\ \hline
+	47  &  18.6488  \\ \hline
+	48  &  30.9733  \\ \hline
+	49  &  52.57  \\ \hline
+	50  &  83.3349  \\ \hline
+\end{longtable}
 
 \begin{figure}[H]
 	\centering
@@ -484,5 +591,4 @@ A pesar de todo, como se muestra en la figura \ref{fig:optimizacion_cociente}, s
 
 \section{Eficiencia híbrida}
 %TODO: Esto
->>>>>>> ec06cd0d4715a3c1cda0eccb909332c34c42501a
 \end{document}
