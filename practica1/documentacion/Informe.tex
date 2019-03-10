@@ -14,6 +14,7 @@
 		\and Jesús Torres Sánchez}
 \begin{document}
 	\maketitle
+	\tableofcontents
 	\section{Introducción}
 	El objetivo de esta práctica será analizar la eficiencia de distintos algoritmos de distintos órdenes de eficiencia ($n*log(n)$,$n^2$,$n^3$ y $(\frac{1+\sqrt{5}}{2})^n$). Vamos a calcular su eficiencia empírica e híbrida y comprobaremos su eficiencia en distintas condiciones.
 	\section{Eficiencia empírica}
@@ -656,7 +657,6 @@ A pesar de todo, como se muestra en la figura \ref{fig:optimizacion_cociente}, s
 	\caption{El principio de invarianza, esta vez aplicado a las opciones del compilador.}
 	\label{fig:optimizacion_cociente}
 \end{figure}
-%TODO: Estaría bien una tercera subsubsection con algo que se os ocurra
 \section{Notas}
 Los tiempos han sido calculados con {\bf std::chrono} y para las gráficas se ha usado la herramienta {\bf gnuplot}.
 \
@@ -688,5 +688,30 @@ Para el cálculo de estos tiempos hemos usado un equipo con las siguientes prest
 	\item Caché L3:                            6144K
 	\item CPU(s) del nodo NUMA 0:              0-7
 \end{itemize}
-
+En el apartado 3.6.1 hemos usado un segundo ordenador para comparar, estas son sus características:
+\begin{itemize}
+	\item Arquitectura:          x86\_64
+	\item modo(s) de operación de las CPUs:32-bit, 64-bit
+	\item Orden de bytes:        Little Endian
+	\item CPU(s):                1
+	\item On-line CPU(s) list:   0
+	\item Hilo(s) de procesamiento por núcleo:1
+	\item Núcleo(s) por «socket»:1
+	\item Socket(s):             1
+	\item Modo(s) NUMA:          1
+	\item ID de fabricante:      GenuineIntel
+	\item Familia de CPU:        6
+	\item Modelo:                142
+	\item Model name:            Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+	\item Revisión:             9
+	\item CPU MHz:               2904.000
+	\item BogoMIPS:              5808.00
+	\item Fabricante del hipervisor:KVM
+	\item Tipo de virtualización:lleno
+	\item Caché L1d:            32K
+	\item Caché L1i:            32K
+	\item Caché L2:             256K
+	\item Caché L3:             4096K
+	\item NUMA node0 CPU(s):     0
+\end{itemize}
 \end{document}
