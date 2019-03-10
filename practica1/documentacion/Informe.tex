@@ -154,4 +154,257 @@
 		\caption{Zoom en el intervalo [0-15000] de la figura \ref{fig:ordenacion}}
 		\label{fig:ordenacion_zoom}
 	\end{figure}
+
+	\section{Eficiencia híbrida}
+	Ajuste de las diferentes funciones de acuerdo a la eficiencia teórica de los algoritmos y los datos obtenidos en la eficiencia empírica.
+	
+	\subsection{Algoritmos de ordenación rápidos}
+	
+	
+	Para el algoritmo Mergesort:
+
+	\begin{longtable}{|c|c|c|}
+		\hline
+	 	Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 3.66473e-12	& 12.16 \\ \hline
+		a1              & 8.67345e-08	& 13.28 \\ \hline
+		a2              & 0.000308646	& 20.18 \\ \hline
+	\end{longtable}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Mergesort_ajustada}
+		\caption{Ajuste función Mergesort}
+		\label{fig:Mergesort_ajustada}
+	\end{figure}
+
+	Para el algoritmo Heapsort:
+
+	\begin{longtable}{|c|c|c|}
+		\hline
+		Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 2.32227e-12	& 14.09 \\ \hline
+		a1              & 9.24005e-08	& 9.152 \\ \hline
+		a2              & 0.000224702	& 20.34 \\ \hline
+	\end{longtable}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Heapsort_ajustada}
+		\caption{Ajuste función Heapsort}
+		\label{fig:Heapsort_ajustada}
+	\end{figure}
+
+	Para el algoritmo Quicksort:
+
+	\begin{longtable}{|c|c|c|}
+		\hline
+		Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 1.37793e-12	& 18.84 \\ \hline
+		a1              & 7.47827e-08	& 8.974 \\ \hline
+		a2              & 0.000181972	& 19.93 \\ \hline
+	\end{longtable}
+	
+	
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Quicksort_ajustada}
+		\caption{Ajuste función Quicksort}
+		\label{fig:Quicksort_ajustada}
+	\end{figure}
+	
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/AlgOrdenacionRapidos_ajustados}
+		\caption{Comparativa ajuste para algoritmos de ordenación rápidos}
+		\label{fig:AlgOrdenacionRapidos_ajustados}
+	\end{figure}
+
+	\subsection{Algoritmos de ordenación lentos}
+
+
+Para el algoritmo Burbuja:
+
+	\begin{longtable}{|c|c|c|}
+		\hline
+		Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 3.25024e-09	& 1.809 \\ \hline
+		a1              & -9.48063e-06	& 16.03 \\ \hline
+		a2              & 0.0160101		& 51.32 \\ \hline
+	\end{longtable}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Burbuja_ajustada}
+		\caption{Ajuste función Burbuja}
+		\label{fig:Burbuja_ajustada}
+	\end{figure}
+
+Para el algoritmo Insercion:
+
+	\begin{longtable}{|c|c|c|}
+		\hline
+		Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 1.02502e-09	& 1.459 \\ \hline
+		a1              & 8.53837e-07	& 45.29 \\ \hline
+		a2              & -0.00285116	& 73.31 \\ \hline
+	\end{longtable}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Insercion_ajustada}
+		\caption{Ajuste función Inserción}
+		\label{fig:Insercion_ajustada}
+	\end{figure}
+
+	Para el algoritmo de Seleccion:
+
+	\begin{longtable}{|c|c|c|}
+		\hline
+		Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 1.28478e-09	& 0.5517 \\ \hline
+		a1              & -1.91843e-07	& 95.52 \\ \hline
+		a2              & 0.00095162	& 104.1 \\ \hline
+	\end{longtable}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Seleccion_ajustada}
+		\caption{Ajuste función Selección}
+		\label{fig:Seleccion_ajustada}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/AlgOrdenacionLentos_ajustados}
+		\caption{Comparativa ajuste para algoritmos de ordenación lentos}
+		\label{fig:AlgOrdenacionLentos_ajustados}
+	\end{figure}
+	
+	
+	\subsection{Algoritmo de Fibonacci}
+	
+	
+	\begin{longtable}{|c|c|c|}
+		\hline
+		Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 2.9613e-09	& 0.2375 \\ \hline
+	\end{longtable}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Fibonacci_ajustada}
+		\caption{Ajuste función de Fibonacci}
+		\label{fig:Fibonacci_ajustada}
+	\end{figure}
+	
+	\subsection{Algoritmo de Floyd}
+	
+	
+	\begin{longtable}{|c|c|c|}
+		\hline
+		Constante		& Valor			& Error estándar	\\ \hline
+		a0              & 4.5232e-09	& 12.19 \\ \hline
+		a1              & 1.64e-06		& 51.27 \\ \hline
+		a2              & -0.000541551	& 66.61 \\ \hline
+		a3              & 0.0340052		& 121.6 \\ \hline
+	\end{longtable}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/Floyd_ajustada}
+		\caption{Ajuste función de Floyd}
+		\label{fig:Floyd_ajustada}
+	\end{figure}
+	
+	\subsection{Ajustes de tiempos con funciones no correspondientes}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/ajusteFibonacci_cuadratico}
+		\caption{Ajuste Fibonacci con función cuadrática}
+		\label{fig:ajusteFibonacci_cuadratico}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/ajusteFloyd_cuadratico}
+		\caption{Ajuste Floyd con función cuadrática}
+		\label{fig:ajusteFloyd_cuadratico}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/ajusteInsercion_lineal}
+		\caption{Ajuste Inserción con función lineal}
+		\label{fig:ajusteInsercion_lineal}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/ajusteMergesort_lineal}
+		\caption{Ajuste Mergesort con función lineal}
+		\label{fig:ajusteMergesort_lineal}
+	\end{figure}
+	
+	\section{Comparacion tiempos distintos computadores}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compMergesort}
+		\caption{Comparación Mergesort entre distintos computadores}
+		\label{fig:compMergesort}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compHeapsort}
+		\caption{Comparación Heapsort entre distintos computadores}
+		\label{fig:compHeapsort}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compQuicksort}
+		\caption{Comparación Quicksort entre distintos computadores}
+		\label{fig:compQuicksort}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compBurbuja}
+		\caption{Comparación Burbuja entre distintos computadores}
+		\label{fig:compBurbuja}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compInsercion}
+		\caption{Comparación Inserción entre distintos computadores}
+		\label{fig:compInsercion}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compSeleccion}
+		\caption{Comparación Selección entre distintos computadores}
+		\label{fig:compSeleccion}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compFloyd}
+		\caption{Comparación Floyd entre distintos computadores}
+		\label{fig:compFloyd}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[totalheight=8cm]{img/compFibonacci}
+		\caption{Comparación Fibonacci entre distintos computadores}
+		\label{fig:compFibonacci}
+	\end{figure}
+	
 \end{document}
