@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.5)  10 MAR 2019 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.5)  10 MAR 2019 19:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -420,20 +420,20 @@ LaTeX Info: Redefining \% on input line 6.
 )
 \openout1 = `Informe.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -505,348 +505,392 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <12> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 17.
+(Font)              <6> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 26.
+(Font)              <7> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 26.
+(Font)              <5> on input line 18.
 
-Overfull \hbox (75.52846pt too wide) in alignment at lines 27--48
+Overfull \hbox (75.52846pt too wide) in alignment at lines 30--51
  [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 48
+Underfull \vbox (badness 10000) detected at line 51
  []
 
 
-Overfull \hbox (75.52846pt too wide) in alignment at lines 48--68
+Overfull \hbox (75.52846pt too wide) in alignment at lines 51--71
  [] [] [] [] 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (75.52846pt too wide) in alignment at lines 68--80
+Overfull \hbox (75.52846pt too wide) in alignment at lines 71--83
  [] [] [] [] 
- []
-
-<img/ordenacion_rapida.png, id=13, 549.55313pt x 360.59718pt>
-File: img/ordenacion_rapida.png Graphic file (type png)
-<use img/ordenacion_rapida.png>
-Package pdftex.def Info: img/ordenacion_rapida.png  used on input line 86.
-(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
-
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 86--87
- [][] 
  []
 
 [2]
-Overfull \hbox (64.66734pt too wide) in alignment at lines 93--114
- [] [] [] [] 
+<img/ordenacion_rapida.png, id=19, 549.55313pt x 360.59718pt>
+File: img/ordenacion_rapida.png Graphic file (type png)
+<use img/ordenacion_rapida.png>
+Package pdftex.def Info: img/ordenacion_rapida.png  used on input line 88.
+(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
+
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 88--89
+ [][] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 114
+Overfull \hbox (19.08397pt too wide) in alignment at lines 95--116
+ [] [] 
  []
 
 
-Overfull \hbox (64.66734pt too wide) in alignment at lines 114--134
- [] [] [] [] 
+Underfull \vbox (badness 10000) detected at line 116
+ []
+
+
+Overfull \hbox (19.08397pt too wide) in alignment at lines 116--136
+ [] [] 
  []
 
 [3 <./img/ordenacion_rapida.png (PNG copy)>]
-Overfull \hbox (64.66734pt too wide) in alignment at lines 134--146
+Overfull \hbox (19.08397pt too wide) in alignment at lines 136--148
+ [] [] 
+ []
+
+
+Overfull \hbox (64.66734pt too wide) in alignment at lines 152--173
  [] [] [] [] 
  []
 
-<img/ordenacion_lenta.png, id=22, 549.55313pt x 360.59718pt>
-File: img/ordenacion_lenta.png Graphic file (type png)
-<use img/ordenacion_lenta.png>
-Package pdftex.def Info: img/ordenacion_lenta.png  used on input line 149.
-(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 149--150
- [][] 
+Underfull \vbox (badness 10000) detected at line 173
  []
 
 [4]
-<img/ordenacion.png, id=26, 549.55313pt x 360.59718pt>
-File: img/ordenacion.png Graphic file (type png)
-<use img/ordenacion.png>
-Package pdftex.def Info: img/ordenacion.png  used on input line 156.
+Overfull \hbox (64.66734pt too wide) in alignment at lines 173--193
+ [] [] [] [] 
+ []
+
+
+Overfull \hbox (64.66734pt too wide) in alignment at lines 193--205
+ [] [] [] [] 
+ []
+
+[5]
+<img/ordenacion_lenta.png, id=29, 549.55313pt x 360.59718pt>
+File: img/ordenacion_lenta.png Graphic file (type png)
+<use img/ordenacion_lenta.png>
+Package pdftex.def Info: img/ordenacion_lenta.png  used on input line 208.
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 156--157
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 208--209
  [][] 
  []
 
-<img/ordenacion_zoom.png, id=27, 549.55313pt x 360.59718pt>
-File: img/ordenacion_zoom.png Graphic file (type png)
-<use img/ordenacion_zoom.png>
-Package pdftex.def Info: img/ordenacion_zoom.png  used on input line 162.
-(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
-Overfull \hbox (1.89952pt too wide) in paragraph at lines 162--163
- [][] 
+Overfull \hbox (8.41728pt too wide) in alignment at lines 213--234
+ [] [] 
  []
 
-[5 <./img/ordenacion_lenta.png (PNG copy)>] [6 <./img/ordenacion.png (PNG copy)
-> <./img/ordenacion_zoom.png (PNG copy)>]
-Underfull \vbox (badness 10000) detected at line 189
+
+Underfull \vbox (badness 10000) detected at line 234
+ []
+
+
+Overfull \hbox (8.41728pt too wide) in alignment at lines 234--254
+ [] [] 
+ []
+
+[6 <./img/ordenacion_lenta.png (PNG copy)>]
+Overfull \hbox (8.41728pt too wide) in alignment at lines 254--266
+ [] [] 
  []
 
 [7]
-<img/floyd.png, id=39, 481.8pt x 361.35pt>
+<img/ordenacion.png, id=37, 549.55313pt x 360.59718pt>
+File: img/ordenacion.png Graphic file (type png)
+<use img/ordenacion.png>
+Package pdftex.def Info: img/ordenacion.png  used on input line 274.
+(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
+
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 274--275
+ [][] 
+ []
+
+<img/ordenacion_zoom.png, id=38, 549.55313pt x 360.59718pt>
+File: img/ordenacion_zoom.png Graphic file (type png)
+<use img/ordenacion_zoom.png>
+Package pdftex.def Info: img/ordenacion_zoom.png  used on input line 280.
+(pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
+
+Overfull \hbox (1.89952pt too wide) in paragraph at lines 280--281
+ [][] 
+ []
+
+[8 <./img/ordenacion.png (PNG copy)>]
+Underfull \vbox (badness 10000) detected at line 308
+ []
+
+[9 <./img/ordenacion_zoom.png (PNG copy)>]
+<img/floyd.png, id=46, 481.8pt x 361.35pt>
 File: img/floyd.png Graphic file (type png)
 <use img/floyd.png>
-Package pdftex.def Info: img/floyd.png  used on input line 225.
+Package pdftex.def Info: img/floyd.png  used on input line 344.
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
-
-Underfull \vbox (badness 10000) detected at line 259
+ [10]
+Underfull \vbox (badness 10000) detected at line 378
  []
 
-[8 <./img/floyd.png (PNG copy)>] [9]
-<img/fibonacci.png, id=48, 481.8pt x 361.35pt>
+[11 <./img/floyd.png (PNG copy)>]
+<img/fibonacci.png, id=53, 481.8pt x 361.35pt>
 File: img/fibonacci.png Graphic file (type png)
 <use img/fibonacci.png>
-Package pdftex.def Info: img/fibonacci.png  used on input line 296.
+Package pdftex.def Info: img/fibonacci.png  used on input line 415.
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
-
-Underfull \vbox (badness 10000) detected at line 316
+ [12]
+Underfull \vbox (badness 10000) detected at line 435
  []
 
-[10 <./img/fibonacci.png (PNG copy)>]
-<img/Mergesort_ajustada.png, id=52, 1003.75pt x 602.25pt>
+<img/Mergesort_ajustada.png, id=57, 1003.75pt x 602.25pt>
 File: img/Mergesort_ajustada.png Graphic file (type png)
 <use img/Mergesort_ajustada.png>
-Package pdftex.def Info: img/Mergesort_ajustada.png  used on input line 320.
+Package pdftex.def Info: img/Mergesort_ajustada.png  used on input line 439.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 320--321
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 439--440
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) detected at line 333
+[13 <./img/fibonacci.png (PNG copy)>]
+Underfull \vbox (badness 10000) detected at line 452
  []
 
-<img/Heapsort_ajustada.png, id=53, 1003.75pt x 602.25pt>
+<img/Heapsort_ajustada.png, id=62, 1003.75pt x 602.25pt>
 File: img/Heapsort_ajustada.png Graphic file (type png)
 <use img/Heapsort_ajustada.png>
-Package pdftex.def Info: img/Heapsort_ajustada.png  used on input line 337.
+Package pdftex.def Info: img/Heapsort_ajustada.png  used on input line 456.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 337--338
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 456--457
  [][] 
  []
 
-[11 <./img/Mergesort_ajustada.png>]
-Underfull \vbox (badness 10000) detected at line 350
+[14 <./img/Mergesort_ajustada.png>]
+Underfull \vbox (badness 10000) detected at line 469
  []
 
-<img/Quicksort_ajustada.png, id=58, 1003.75pt x 602.25pt>
+<img/Quicksort_ajustada.png, id=67, 1003.75pt x 602.25pt>
 File: img/Quicksort_ajustada.png Graphic file (type png)
 <use img/Quicksort_ajustada.png>
-Package pdftex.def Info: img/Quicksort_ajustada.png  used on input line 356.
+Package pdftex.def Info: img/Quicksort_ajustada.png  used on input line 475.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 356--357
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 475--476
  [][] 
  []
 
-[12 <./img/Heapsort_ajustada.png>]
-<img/AlgOrdenacionRapidos_ajustados.png, id=63, 1003.75pt x 602.25pt>
+[15 <./img/Heapsort_ajustada.png>]
+<img/AlgOrdenacionRapidos_ajustados.png, id=72, 1003.75pt x 602.25pt>
 File: img/AlgOrdenacionRapidos_ajustados.png Graphic file (type png)
 <use img/AlgOrdenacionRapidos_ajustados.png>
 Package pdftex.def Info: img/AlgOrdenacionRapidos_ajustados.png  used on input 
-line 364.
+line 483.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 364--365
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 483--484
  [][] 
  []
 
-[13 <./img/Quicksort_ajustada.png> <./img/AlgOrdenacionRapidos_ajustados.png>]
-Underfull \vbox (badness 10000) detected at line 380
+[16 <./img/Quicksort_ajustada.png> <./img/AlgOrdenacionRapidos_ajustados.png>]
+Underfull \vbox (badness 10000) detected at line 503
  []
 
-<img/Burbuja_ajustada.png, id=70, 1003.75pt x 602.25pt>
+<img/Burbuja_ajustada.png, id=78, 1003.75pt x 602.25pt>
 File: img/Burbuja_ajustada.png Graphic file (type png)
 <use img/Burbuja_ajustada.png>
-Package pdftex.def Info: img/Burbuja_ajustada.png  used on input line 384.
+Package pdftex.def Info: img/Burbuja_ajustada.png  used on input line 507.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 384--385
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 507--508
  [][] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 397
+Underfull \vbox (badness 10000) detected at line 520
  []
 
-<img/Insercion_ajustada.png, id=71, 1003.75pt x 602.25pt>
+<img/Insercion_ajustada.png, id=79, 1003.75pt x 602.25pt>
 File: img/Insercion_ajustada.png Graphic file (type png)
 <use img/Insercion_ajustada.png>
-Package pdftex.def Info: img/Insercion_ajustada.png  used on input line 401.
+Package pdftex.def Info: img/Insercion_ajustada.png  used on input line 524.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 401--402
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 524--525
  [][] 
  []
 
-[14 <./img/Burbuja_ajustada.png>]
-Underfull \vbox (badness 10000) detected at line 414
+[17 <./img/Burbuja_ajustada.png>]
+Underfull \vbox (badness 10000) detected at line 537
  []
 
-<img/Seleccion_ajustada.png, id=76, 1003.75pt x 602.25pt>
+<img/Seleccion_ajustada.png, id=84, 1003.75pt x 602.25pt>
 File: img/Seleccion_ajustada.png Graphic file (type png)
 <use img/Seleccion_ajustada.png>
-Package pdftex.def Info: img/Seleccion_ajustada.png  used on input line 418.
+Package pdftex.def Info: img/Seleccion_ajustada.png  used on input line 541.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 418--419
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 541--542
  [][] 
  []
 
-[15 <./img/Insercion_ajustada.png>]
-<img/AlgOrdenacionLentos_ajustados.png, id=81, 1003.75pt x 602.25pt>
+[18 <./img/Insercion_ajustada.png>]
+<img/AlgOrdenacionLentos_ajustados.png, id=89, 1003.75pt x 602.25pt>
 File: img/AlgOrdenacionLentos_ajustados.png Graphic file (type png)
 <use img/AlgOrdenacionLentos_ajustados.png>
 Package pdftex.def Info: img/AlgOrdenacionLentos_ajustados.png  used on input l
-ine 425.
+ine 548.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 425--426
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 548--549
  [][] 
  []
 
-[16 <./img/Seleccion_ajustada.png> <./img/AlgOrdenacionLentos_ajustados.png>]
-Underfull \vbox (badness 10000) detected at line 438
+[19 <./img/Seleccion_ajustada.png> <./img/AlgOrdenacionLentos_ajustados.png>]
+Underfull \vbox (badness 10000) detected at line 562
  []
 
-<img/Fibonacci_ajustada.png, id=87, 1003.75pt x 602.25pt>
+<img/Fibonacci_ajustada.png, id=96, 1003.75pt x 602.25pt>
 File: img/Fibonacci_ajustada.png Graphic file (type png)
 <use img/Fibonacci_ajustada.png>
-Package pdftex.def Info: img/Fibonacci_ajustada.png  used on input line 442.
+Package pdftex.def Info: img/Fibonacci_ajustada.png  used on input line 566.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 442--443
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 566--567
  [][] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 457
+Underfull \vbox (badness 10000) detected at line 581
  []
 
-<img/Floyd_ajustada.png, id=88, 1003.75pt x 602.25pt>
+<img/Floyd_ajustada.png, id=97, 1003.75pt x 602.25pt>
 File: img/Floyd_ajustada.png Graphic file (type png)
 <use img/Floyd_ajustada.png>
-Package pdftex.def Info: img/Floyd_ajustada.png  used on input line 461.
+Package pdftex.def Info: img/Floyd_ajustada.png  used on input line 585.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 461--462
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 585--586
  [][] 
  []
 
-[17 <./img/Fibonacci_ajustada.png>]
-<img/ajusteFibonacci_cuadratico.png, id=93, 1003.75pt x 602.25pt>
+[20 <./img/Fibonacci_ajustada.png>]
+<img/ajusteFibonacci_cuadratico.png, id=102, 1003.75pt x 602.25pt>
 File: img/ajusteFibonacci_cuadratico.png Graphic file (type png)
 <use img/ajusteFibonacci_cuadratico.png>
 Package pdftex.def Info: img/ajusteFibonacci_cuadratico.png  used on input line
- 470.
+ 596.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 470--471
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 596--597
  [][] 
  []
 
-<img/ajusteFloyd_cuadratico.png, id=94, 1003.75pt x 602.25pt>
+[21 <./img/Floyd_ajustada.png>]
+<img/ajusteFloyd_cuadratico.png, id=107, 1003.75pt x 602.25pt>
 File: img/ajusteFloyd_cuadratico.png Graphic file (type png)
 <use img/ajusteFloyd_cuadratico.png>
-Package pdftex.def Info: img/ajusteFloyd_cuadratico.png  used on input line 477
+Package pdftex.def Info: img/ajusteFloyd_cuadratico.png  used on input line 603
 .
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 477--478
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 603--604
  [][] 
  []
 
-[18 <./img/Floyd_ajustada.png> <./img/ajusteFibonacci_cuadratico.png>]
-<img/ajusteInsercion_lineal.png, id=100, 1003.75pt x 602.25pt>
+[22 <./img/ajusteFibonacci_cuadratico.png>]
+<img/ajusteInsercion_lineal.png, id=112, 1003.75pt x 602.25pt>
 File: img/ajusteInsercion_lineal.png Graphic file (type png)
 <use img/ajusteInsercion_lineal.png>
-Package pdftex.def Info: img/ajusteInsercion_lineal.png  used on input line 484
+Package pdftex.def Info: img/ajusteInsercion_lineal.png  used on input line 610
 .
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 484--485
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 610--611
  [][] 
  []
 
-<img/ajusteMergesort_lineal.png, id=101, 1003.75pt x 602.25pt>
+[23 <./img/ajusteFloyd_cuadratico.png>]
+<img/ajusteMergesort_lineal.png, id=117, 1003.75pt x 602.25pt>
 File: img/ajusteMergesort_lineal.png Graphic file (type png)
 <use img/ajusteMergesort_lineal.png>
-Package pdftex.def Info: img/ajusteMergesort_lineal.png  used on input line 491
+Package pdftex.def Info: img/ajusteMergesort_lineal.png  used on input line 617
 .
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 491--492
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 617--618
  [][] 
  []
 
-[19 <./img/ajusteFloyd_cuadratico.png> <./img/ajusteInsercion_lineal.png>]
-<img/compSeleccion.png, id=108, 1003.75pt x 602.25pt>
+[24 <./img/ajusteInsercion_lineal.png>]
+<img/compSeleccion.png, id=122, 1003.75pt x 602.25pt>
 File: img/compSeleccion.png Graphic file (type png)
 <use img/compSeleccion.png>
-Package pdftex.def Info: img/compSeleccion.png  used on input line 506.
+Package pdftex.def Info: img/compSeleccion.png  used on input line 632.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 506--507
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 632--633
  [][] 
  []
 
-<img/compSeleccion_cociente.png, id=109, 1003.75pt x 602.25pt>
+<img/compSeleccion_cociente.png, id=123, 1003.75pt x 602.25pt>
 File: img/compSeleccion_cociente.png Graphic file (type png)
 <use img/compSeleccion_cociente.png>
-Package pdftex.def Info: img/compSeleccion_cociente.png  used on input line 512
+Package pdftex.def Info: img/compSeleccion_cociente.png  used on input line 638
 .
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
-Overfull \hbox (34.37663pt too wide) in paragraph at lines 512--513
+Overfull \hbox (34.37663pt too wide) in paragraph at lines 638--639
  [][] 
  []
 
-[20 <./img/ajusteMergesort_lineal.png>] [21 <./img/compSeleccion.png> <./img/co
+[25 <./img/ajusteMergesort_lineal.png>] [26 <./img/compSeleccion.png> <./img/co
 mpSeleccion_cociente.png>]
-<img/optimizacion_floyd.png, id=119, 481.8pt x 361.35pt>
+<img/optimizacion_floyd.png, id=134, 481.8pt x 361.35pt>
 File: img/optimizacion_floyd.png Graphic file (type png)
 <use img/optimizacion_floyd.png>
-Package pdftex.def Info: img/optimizacion_floyd.png  used on input line 521.
+Package pdftex.def Info: img/optimizacion_floyd.png  used on input line 647.
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
-<img/optimizacion_cociente.png, id=120, 481.8pt x 361.35pt>
+<img/optimizacion_cociente.png, id=135, 481.8pt x 361.35pt>
 File: img/optimizacion_cociente.png Graphic file (type png)
 <use img/optimizacion_cociente.png>
-Package pdftex.def Info: img/optimizacion_cociente.png  used on input line 529.
+Package pdftex.def Info: img/optimizacion_cociente.png  used on input line 655.
 
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
- [22 <./img/optimizacion_floyd.png (PNG copy)>]
-[23 <./img/optimizacion_cociente.png (PNG copy)>] (./Informe.aux
+ [27 <./img/optimizacion_floyd.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for U+lasy on input line 672.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [28 <./img/optimizacion_cociente.png (PNG copy)>] [29] (./Informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 2960 strings out of 494788
- 40900 string characters out of 6177223
- 119098 words of memory out of 5000000
- 6234 multiletter control sequences out of 15000+600000
- 8241 words of font info for 29 fonts, out of 8000000 for 9000
+ 2976 strings out of 494788
+ 41250 string characters out of 6177223
+ 127169 words of memory out of 5000000
+ 6246 multiletter control sequences out of 15000+600000
+ 8347 words of font info for 30 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
- 41i,7n,30p,274b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,7n,30p,384b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
@@ -854,15 +898,15 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
->
-Output written on Informe.pdf (23 pages, 577505 bytes).
+public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/la
+sy10.pfb>
+Output written on Informe.pdf (29 pages, 589445 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 186 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
