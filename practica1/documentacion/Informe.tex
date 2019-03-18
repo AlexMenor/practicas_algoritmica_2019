@@ -10,12 +10,13 @@
 \author{Noelia Escalera Mejías \\
 		\and Alejandro Menor Molinero \\
 		\and Javier Núñez Suárez \\
-		\and Adra Sánnnnchez Ruiz \\
+		\and Adra Sánchez Ruiz \\
 		\and Jesús Torres Sánchez}
-	
 \begin{document}
 	\maketitle
+	\tableofcontents
 	\section{Introducción}
+	El objetivo de esta práctica será analizar la eficiencia de distintos algoritmos de distintos órdenes de eficiencia ($n*log(n)$,$n^2$,$n^3$ y $(\frac{1+\sqrt{5}}{2})^n$). Vamos a calcular su eficiencia empírica e híbrida y la probaremos en distintas condiciones.
 	\section{Eficiencia empírica}
 	Vamos a medir el tiempo que tarda en ejecutarse cada uno de los ocho algoritmos: Quicksort, Mergesort, Heapsort, Inserción, Selección, Burbuja, Floyd y Fibonacci.
 	
@@ -24,6 +25,9 @@
 	\subsection{Algoritmos de ordenación}
 	\subsubsection{Ordenación rápida}
 	Empezamos con los algoritmos de ordenación rápidos. Estos pertenecen al orden de eficiencia $O(n*log(n))$ es decir, "superlineales".
+	
+	\
+	He aquí una tabla comparativa del tiempo que tarda cada algoritmo según el tamaño del vector a ordenar.
 		\begin{longtable}{|c|c|c|c|}
 			\hline
 			Tamaño del vector & Tiempo con Quicksort & Tiempo con Mergesort & Tiempo con Heapsort \\ \hline
@@ -79,7 +83,6 @@
 			25000	 &  0.00282962	 &  0.0048426	 &  0.00392208  \\ \hline
 		\end{longtable}
 		\begin{center}
-		\tiny Tabla comparativa de tiempos
 		\end{center}
 		\begin{figure}[H]
 		\centering
@@ -88,6 +91,63 @@
 		\label{fig:ordenacion_rapida}
 		\end{figure}
 		\
+		Podemos apreciar que el más rápido de estos tres algoritmos sería Quicksort, seguido por Heapsort y por último, Mergesort. Vamos a concretar estos datos:
+		\
+		\begin{longtable}{|c||c|}
+			\hline
+			Tiempos Heapsort/Tiempos Quicksort & Tiempos Mergesort/Tiempos Heapsort \\ \hline
+			1.52990316312554	&  0.963604753452395  \\ \hline
+			1.63838209602158	&  0.875412808537825  \\ \hline
+			1.68354539161156	&  1.07862982698432  \\ \hline
+			1.63973164845004	&  1.05280013138446  \\ \hline
+			0.599169212237104	&  1.0877444859653  \\ \hline
+			0.639711808319021	&  1.29565003300192  \\ \hline
+			1.24940712267541	&  1.05501950509461  \\ \hline
+			1.43734357642839	&  1.1995418738477  \\ \hline
+			1.41358047733476	&  1.145477081315  \\ \hline
+			1.23538728895781	&  1.24343683321585  \\ \hline
+			1.28270065639709	&  1.32591869046172  \\ \hline
+			1.31241202476854	&  1.32753511534753  \\ \hline
+			1.31103335644685	&  1.07432434783516  \\ \hline
+			1.30075794159021	&  1.07851334381426  \\ \hline
+			1.32090686882658	&  1.11687299541381  \\ \hline
+			1.30503827520371	&  1.13862846502023  \\ \hline
+			1.31229459558152	&  1.14269689301646  \\ \hline
+			1.30516398370463	&  1.12656831322779  \\ \hline
+			1.29330896376351	&  1.17705837173579  \\ \hline
+			1.31509600784208	&  1.19264694060991  \\ \hline
+			1.29367913299505	&  1.22297086962236  \\ \hline
+			1.29623587390602	&  1.23531995227919  \\ \hline
+			1.29549584318266	&  1.29645743083053  \\ \hline
+			1.31119646599612	&  1.29115368160859  \\ \hline
+			1.31297642065027	&  1.29627623561273  \\ \hline
+			1.31096097681129	&  1.03294485213199  \\ \hline
+			1.33247097294948	&  1.04761239081924  \\ \hline
+			1.30434981954897	&  1.0494579163298  \\ \hline
+			1.31105789886022	&  1.0578962840166  \\ \hline
+			1.32522229717299	&  1.07396901491874  \\ \hline
+			1.32667457727677	&  1.0773620260184  \\ \hline
+			1.32243675669509	&  1.08507481355918  \\ \hline
+			1.33118745406621	&  1.08773728627112  \\ \hline
+			1.33458032450151	&  1.0910192868222  \\ \hline
+			1.32836401146607	&  1.12287328692286  \\ \hline
+			1.30324970367444	&  1.13689831060853  \\ \hline
+			1.33271718134918	&  1.13803415353681  \\ \hline
+			1.32715263748066	&  1.16029062077767  \\ \hline
+			1.32735228554916	&  1.16797285343064  \\ \hline
+			1.36227350633891	&  1.1510569452885  \\ \hline
+			1.3530005931555	    &  1.14030071700643  \\ \hline
+			1.3721418849949	    &  1.15451710691902  \\ \hline
+			1.37084213578559	&  1.16419538580084  \\ \hline
+			1.3680624584985	    &  1.17356733334706  \\ \hline
+			1.3621344451702	    &  1.18257571189424  \\ \hline
+			1.35231856172436	&  1.21124221154411  \\ \hline
+			1.34202190840702	&  1.21611676582911  \\ \hline
+			1.37909646053988	&  1.21874104294298  \\ \hline
+			1.34089293406128	&  1.21822635911579  \\ \hline
+			1.38608010969671	&  1.23470199485987  \\ \hline
+		\end{longtable}
+	Podemos ver que Heapsort es aproximadamente 1.3 veces más lento que Quicksort y que Mergesort es aproximadamente 1.2 veces más lento que Heapsort.
 	\subsubsection{Ordenación lentos}
 		Estos algoritmos de ordenación, menos sofisticados, son de orden $O(n ^2)$ es decir, cuadráticos.
 		\begin{longtable}{|c|c|c|c|}
@@ -150,6 +210,65 @@
 		\caption{Comparación gráfica del rendimiento de los algoritmos de ordenación lenta}
 		\label{fig:ordenacion_lenta}
 	\end{figure}
+Aquí vemos que el más lento es con diferencia Burbuja, seguido de Seleción y finalmente de Inserción. Volvemos a concretar estas diferencias con una tabla:
+\begin{longtable}{|c||c|}
+	\hline
+	Tiempos Burbuja/Tiempos Selección & Tiempos Selección/Tiempos Inserción \\ \hline
+	1.20977050424039	&  1.29466446837619 \\ \hline
+	1.26859394368691	&  1.3059591468597 \\ \hline
+	1.448143451338	    &  1.34319372748905 \\ \hline
+	1.49551985125108	&  1.29836466188613 \\ \hline
+	1.53645778782707	&  1.28737129142429 \\ \hline
+	1.55516334381453	&  1.28164808895341 \\ \hline
+	1.60138482395125	&  1.2626097806786 \\ \hline
+	1.64108449848024	&  1.29428907730171 \\ \hline
+	1.62662968306695	&  1.32923172985911 \\ \hline
+	1.66371790850304	&  1.2657555165305 \\ \hline
+	1.69820864119976	&  1.30234400363613 \\ \hline
+	1.76581292093218	&  1.30000556606924 \\ \hline
+	1.82270106322701	&  1.27566788709106 \\ \hline
+	1.85094975172134	&  1.25924607460414 \\ \hline
+	1.88054080329374	&  1.25288192735763 \\ \hline
+	1.90518789015031	&  1.24304133669617 \\ \hline
+	1.91878708862874	&  1.19999713650166 \\ \hline
+	1.93538050475812	&  1.1990254298277 \\ \hline
+	1.95657843265093	&  1.17215561082824 \\ \hline
+	1.97575420046123	&  1.22673517893055 \\ \hline
+	1.9875437747345	    &  1.1443325839768 \\ \hline
+	2.01043680188887	&  1.1759330592444 \\ \hline
+	1.99282789877292	&  1.20516502312224 \\ \hline
+	2.02561151863871	&  1.15527594180618 \\ \hline
+	2.03689016882027	&  1.18252326783868 \\ \hline
+	2.05226650808621	&  1.20837497052648 \\ \hline
+	2.06217167777773	&  1.18568194940499 \\ \hline
+	2.0763373776092	    &  1.15906291970871 \\ \hline
+	2.08218957912835	&  1.19720232155403 \\ \hline
+	2.17803060736156	&  1.16703356733443 \\ \hline
+	2.1051357381683	    &  1.18501661245488 \\ \hline
+	2.12997770968554	&  1.17382357075154 \\ \hline
+	2.12169414564823	&  1.16252690537033 \\ \hline
+	2.1194150079737	    &  1.17932621484484 \\ \hline
+	2.10112222925902	&  1.22435750308609 \\ \hline
+	2.13282835867896	&  1.17254797259683 \\ \hline
+	2.14488217206051	&  1.20635774368301 \\ \hline
+	2.13937419051111	&  1.21320489031018 \\ \hline
+	2.21548101137476	&  1.22032105006654 \\ \hline
+	2.13140332956662	&  1.22351152786276 \\ \hline
+	2.12442039049698	&  1.21618324567558 \\ \hline
+	2.17781941470378	&  1.18795258364848 \\ \hline
+	2.24758415838229	&  1.2217033177455 \\ \hline
+	2.24902836919547	&  1.22753439766397 \\ \hline
+	2.40598771655297	&  1.20184348924941 \\ \hline
+	2.26277078955358	&  1.18618084242488 \\ \hline
+	2.28657524014785	&  1.17642906012718 \\ \hline
+	2.26332480159688	&  1.21571083299901 \\ \hline
+	2.22592315191134	&  1.21302402186784 \\ \hline
+	2.24594189575489	&  1.243848035914 \\ \hline
+\end{longtable}
+Aquí vemos que Burbuja es aproximadamente 2 veces más lento que Selección y que éste es aproximadamente 1.2 veces más lento que inserción.
+
+\
+
 Por último, en las figuras \ref{fig:ordenacion} y \ref{fig:ordenacion_zoom}, se muestra el rendimiento de todos los algoritmos de ordenación, rápidos y lentos.
 	\begin{figure}[H]
 		\centering
@@ -163,6 +282,7 @@ Por último, en las figuras \ref{fig:ordenacion} y \ref{fig:ordenacion_zoom}, se
 		\caption{\textit{Zoom} en el intervalo [0-15000] de la figura \ref{fig:ordenacion}}
 		\label{fig:ordenacion_zoom}
 	\end{figure}
+Se puede apreciar claramente la gran diferencia entre los algoritmos $O(n*log(n))$ y $O(n^2)$.
 \subsection{Floyd}
 Dado un conjunto de nodos de un grafo dirigido, el algoritmo de Floyd calcula el costo del camino mínimo entre cada par. Pertenece al orden de eficiencia $O(n ^3)$, se muestra una gráfica en la figura \ref{fig:floyd}.
 \begin{longtable}{|c||c|}
@@ -366,6 +486,10 @@ $fib(n) \in O((\frac{1+\sqrt5}{2})^n)$
 		\label{fig:AlgOrdenacionRapidos_ajustados}
 	\end{figure}
 
+	\
+	
+	Podemos ver que los tiempos se ajustan bastante bien a sus respectivas curvas teóricas (quizá Mergesort sea el que menos se ajusta, aunque no hay un error muy grande) excepto al principio con los tamaños más pequeños.
+
 	\subsection{Algoritmos de ordenación lentos}
 
 
@@ -427,6 +551,7 @@ Para el algoritmo Insercion:
 		\label{fig:AlgOrdenacionLentos_ajustados}
 	\end{figure}
 	
+	Vemos aquí como los tiempos de estos tres algoritmos sí que se ajustan casi perfectamente a la curva teórica.
 	
 	\subsection{Algoritmo de Fibonacci}
 	
@@ -463,29 +588,31 @@ Para el algoritmo Insercion:
 		\label{fig:Floyd_ajustada}
 	\end{figure}
 	
-	\subsection{Ajustes de tiempos con funciones no correspondientes}
+	Tanto para Floyd como para Fibonacci, el ajuste es de nuevo casi perfecto.
 	
+	\subsection{Ajustes de tiempos con funciones no correspondientes}
+	En este apartado vamos a ajustar nuestros tiempos con funciones teóricas que no se corresponden con su orden de eficiencia.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ajusteFibonacci_cuadratico}
 		\caption{Ajuste Fibonacci con función cuadrática}
 		\label{fig:ajusteFibonacci_cuadratico}
 	\end{figure}
-	
+	Aquí vemos que este ajuste es bastante malo. La gráfica cuadrática no se corresponde en prácticamente ningún punto con nuestros tiempos. Cuando empezamos a tener un tamaño de problema superior a 40, Fibonacci se dispara, mientras que la función cuadrática crece mucho más lentamente.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ajusteFloyd_cuadratico}
 		\caption{Ajuste Floyd con función cuadrática}
 		\label{fig:ajusteFloyd_cuadratico}
 	\end{figure}
-	
+	Este ajuste es bastante mejor. Puede ser debido a que el crecimiento de $n^3$ no se dispara hasta que no se alcanzan tamaños más grandes. 
 	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ajusteInsercion_lineal}
 		\caption{Ajuste Inserción con función lineal}
 		\label{fig:ajusteInsercion_lineal}
 	\end{figure}
-	
+	Aquí tenemos otro mal ajuste. Los algoritmos con $O(n^2)$ distan mucho de tener un comportamiento lineal.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=8cm]{img/ajusteMergesort_lineal}
@@ -493,7 +620,7 @@ Para el algoritmo Insercion:
 		\label{fig:ajusteMergesort_lineal}
 	\end{figure}
 	
-	
+	Por último, en esta figura vemos como los algoritmos de ordenación rápida (Mergesort en este caso) sí que pueden comportarse más o menos como un algoritmo lineal aunque sean un poco más lentos.
 
 \subsection{Probando en distintas condiciones}
 \subsubsection{Distintos ordenadores}
@@ -530,6 +657,61 @@ A pesar de todo, como se muestra en la figura \ref{fig:optimizacion_cociente}, s
 	\caption{El principio de invarianza, esta vez aplicado a las opciones del compilador.}
 	\label{fig:optimizacion_cociente}
 \end{figure}
-%TODO: Estaría bien una tercera subsubsection con algo que se os ocurra
+\section{Notas}
+Los tiempos han sido calculados con {\bf std::chrono} y para las gráficas se ha usado la herramienta {\bf gnuplot}.
+\
 
+Para el cálculo de estos tiempos hemos usado un equipo con las siguientes prestaciones:
+\begin{itemize}
+	\item Arquitectura:                        x86\_64
+	\item modo(s) de operación de las CPUs:    32-bit, 64-bit
+	\item Orden de los bytes:                  Little Endian
+	\item CPU(s):                              8
+	\item Lista de la(s) CPU(s) en línea:      0-7
+	\item Hilo(s) de procesamiento por núcleo: 2
+	\item Núcleo(s) por «socket»:              4
+	\item «Socket(s)»                          1
+	\item Modo(s) NUMA:                        1
+	\item ID de fabricante:                    GenuineIntel
+	\item Familia de CPU:                      6
+	\item Modelo:                              60
+	\item Nombre del modelo:                   Intel(R) Core(TM) i7-4700MQ CPU @ 2.40GHz
+	\item Revisión:                            3
+	\item CPU MHz:                             1910.940
+	\item CPU MHz máx.:                        3400,0000
+	\item CPU MHz mín.:                        800,0000
+	\item BogoMIPS:                            4788.59
+	\item Virtualización:                      VT-x
+	\item Caché L1d:                           32K
+	\item Caché L1i:                           32K
+	\item Caché L2:                            256K
+	\item Caché L3:                            6144K
+	\item CPU(s) del nodo NUMA 0:              0-7
+\end{itemize}
+En el apartado 3.6.1 hemos usado un segundo ordenador para comparar, estas son sus características:
+\begin{itemize}
+	\item Arquitectura:          x86\_64
+	\item modo(s) de operación de las CPUs:32-bit, 64-bit
+	\item Orden de bytes:        Little Endian
+	\item CPU(s):                1
+	\item On-line CPU(s) list:   0
+	\item Hilo(s) de procesamiento por núcleo:1
+	\item Núcleo(s) por «socket»:1
+	\item Socket(s):             1
+	\item Modo(s) NUMA:          1
+	\item ID de fabricante:      GenuineIntel
+	\item Familia de CPU:        6
+	\item Modelo:                142
+	\item Model name:            Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+	\item Revisión:             9
+	\item CPU MHz:               2904.000
+	\item BogoMIPS:              5808.00
+	\item Fabricante del hipervisor:KVM
+	\item Tipo de virtualización:lleno
+	\item Caché L1d:            32K
+	\item Caché L1i:            32K
+	\item Caché L2:             256K
+	\item Caché L3:             4096K
+	\item NUMA node0 CPU(s):     0
+\end{itemize}
 \end{document}
