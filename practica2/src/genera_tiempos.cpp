@@ -1,3 +1,5 @@
+/**********************************************************************/
+
 #include <chrono>
 #include <iostream>
 #include <fstream>
@@ -5,6 +7,8 @@
 #include "funciones_del_profesor.cpp"
 using namespace std::chrono;
 using namespace std;
+
+/**********************************************************************/
 
 pair <int, int> sumaObvia(int * v, int n, int x){
     pair <int, int> sol(0,0);
@@ -18,6 +22,8 @@ pair <int, int> sumaObvia(int * v, int n, int x){
     return sol;
 }
 
+/**********************************************************************/
+
 pair<int,int> sumaDivideYVenceras(int * v, int izda, int dcha, int x){
     int sum = v[izda] + v[dcha];
     if (dcha - izda == 1 || sum == x)
@@ -29,13 +35,14 @@ pair<int,int> sumaDivideYVenceras(int * v, int izda, int dcha, int x){
 
 }
 
+/**********************************************************************/
+
 pair <int, int> sumaDivideYVenceras (int * v, int n, int x){
     int izda = 0;
     int dcha = n - 1;
 
     while ((izda != dcha) && (v[izda] + v[dcha] != x)){
-        int sum = v[izda] + v[dcha];
-        if (sum > x)
+        if (v[izda] + v[dcha] > x)
             dcha--;
         else
             izda++;
@@ -44,27 +51,7 @@ pair <int, int> sumaDivideYVenceras (int * v, int n, int x){
     return izda == dcha ? pair<int,int> (0,0) : pair<int,int> (v[izda], v[dcha]);
 }
 
-double uniforme() //Genera un n�mero uniformemente distribuido en el
-                  //intervalo [0,1) a partir de uno de los generadores
-                  //disponibles en C.
-{
- int t = rand();
- double f = ((double)RAND_MAX+1.0);
- return (double)t/f;
-}
-
-int generador(int * v, int n){
-
-    for (int j=0; j<n; j++) {
-        double u=uniforme();
-        int k=(int)(2*n*u);
-        v[j]=k;
-    }
-
-    double u=uniforme();
-    return (int)(3*n*u);
-}
-
+/**********************************************************************/
 
 int main (int argc, char ** argv){
     const int VECES = 100;
@@ -87,13 +74,22 @@ int main (int argc, char ** argv){
     cout << "¿Desde que tamaño?" << endl;
     cin >> desde;
     while(desde<2){
-     cout << "Introduce un tamaño mayor que 2 " << endl;
+     cout << "Introduce un tamaño mayor que 1 " << endl;
      cin >> desde;
     }
     cout << "¿Hasta que tamaño?" << endl;
     cin >> hasta;
+    while (hasta < desde){
+        cout << "Introduce un tamaño mayor o igual que " << desde<< endl;
+        cin >> hasta;
+    }
     cout << "¿Qué incremento?" << endl;
     cin >> incremento;
+    while (incremento <= 0){
+        cout << "Introduce un incremento mayor que 0" << endl;
+        cin >> incremento;
+    }
+
     cout << "Empezamos: \n" << endl;
 
     high_resolution_clock::time_point tantes, tdespues;
@@ -111,8 +107,10 @@ int main (int argc, char ** argv){
             }
             else{
                 quicksort(v, tam);
-                //sol = sumaDivideYVenceras(v, 0, tam - 1, x);
-                sol = sumaDivideYVenceras(v, tam,x);
+                sol = sumaDivideYVenceras(v, 0, tam - 1, x);
+
+                // Algoritmo iterativo
+                //sol = sumaDivideYVenceras(v, tam,x);
             }
             tdespues = high_resolution_clock::now();
 
@@ -124,3 +122,5 @@ int main (int argc, char ** argv){
     }
 
 }
+
+/**********************************************************************/
