@@ -85,20 +85,16 @@ int main (int argc, char ** argv){
             int x = generador(v, tam);
             tantes = high_resolution_clock::now();
             pair<int,int> sol;
-            //if (opcion == 1)
-                //sol = sumaObvia(v, tam, x);
-            //else{
+            if (opcion == 1)
+               sol = sumaObvia(v, tam, x);
+            else{
                 quicksort(v, tam);
                 sol = sumaDivideYVenceras(v, 0, tam - 1, x);
-            //}
+            }
             tdespues = high_resolution_clock::now();
 
             transcurrido = duration_cast<duration<double>> (tdespues - tantes);
             sum += transcurrido.count();
-             // borrar despues
-             for (int k = 0 ; k < tam ; k++)
-                salida << v[k] << " ";
-            salida << endl << sol.first << " " << sol.second << " " << x << endl;  
         }
         salida << tam << " " << sum/VECES << endl;
         delete [] v;
