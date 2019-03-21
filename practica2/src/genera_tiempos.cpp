@@ -7,18 +7,20 @@ using namespace std::chrono;
 using namespace std;
 
 pair <int, int> sumaObvia(int * v, int n, int x){
+    pair <int, int> sol(0,0);
     for (int i = 0 ; i < n-1 ; i++)
         for (int j = i+1 ; j < n ; j++){
             if (v[i] + v[j] == x){
-                return pair<int,int>(v[i], v[j]);
+                sol.first = v[i];
+                sol.second = v[j];
             }
         }
-    return pair<int,int> (0,0);
+    return sol;
 }
 
 pair<int,int> sumaDivideYVenceras(int * v, int izda, int dcha, int x){
     int sum = v[izda] + v[dcha];
-    if (abs(izda - dcha) == 1 || sum == x)
+    if (dcha - izda == 1 || sum == x)
         return pair <int,int> (v[izda], v[dcha]);
     else if (sum > x)
         return sumaDivideYVenceras(v, izda, dcha - 1, x);
@@ -69,6 +71,10 @@ int main (int argc, char ** argv){
     
     cout << "¿Desde que tamaño?" << endl;
     cin >> desde;
+    while(desde<2){
+     cout << "Introduce un tamaño mayor que 2 " << endl;
+     cin >> desde;
+    }
     cout << "¿Hasta que tamaño?" << endl;
     cin >> hasta;
     cout << "¿Qué incremento?" << endl;
@@ -85,8 +91,9 @@ int main (int argc, char ** argv){
             int x = generador(v, tam);
             tantes = high_resolution_clock::now();
             pair<int,int> sol;
-            if (opcion == 1)
+            if (opcion == 1){
                sol = sumaObvia(v, tam, x);
+            }
             else{
                 quicksort(v, tam);
                 sol = sumaDivideYVenceras(v, 0, tam - 1, x);
