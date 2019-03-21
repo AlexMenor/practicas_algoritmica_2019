@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{float}
+\usepackage{amsmath}
 \graphicspath{{./img/}}
 
 \title{Práctica 2. Algoritmos divide y vencerás - Suma de dos elementos}
@@ -15,9 +16,6 @@
 		\and Jesús Torres Sánchez}
 \begin{document}
 	\maketitle
-	\tableofcontents
-	\
-	\
 	\section{Introduccion}
 	El objetivo de esta práctica es realizar dos algoritmos que desarrollen la siguiente tarea: partiendo de un valor inicial generado, deben buscar en una lista (en nuestro caso, usaremos un vector), dos elementos cuya suma resultante sea igual al valor inicial generado. 
 	
@@ -45,21 +43,13 @@
 	Además, hemos calculado la eficiencia teórica mediante el método de expansión. Este algoritmo consiste en desarrollar progresivamente la ecuación de recurrencia para diversos niveles sustituyendo cada aparición del valor de la función por la expresión que se especifica en la recurrencia. Es necesario identificar un patrón general, que en este caso hemos elegido ((n-1) + 2i) y aplicarlo para resolver.
 	
 
-	
-	$T(n) = T(n-1) + C$ 
-	
-	\
-	$T(n) = T(n-2) + 2*C$
-	
-	\
-	$T(n) = T(n-i) + 2*i$
-	
-	\
-	$T(n) = k + 2*(n-2)$
-	
-	\
-	$T(n) = k + 2*n - 4$
-	
+\begin{align*}
+	T(n) &= T(n-1) + c \\
+	T(n) &= T(n-2) + 2c \\
+	T(n) &= T(n-i) + ic \\
+	T(n) &= T(2) + (n-2)c \\
+	T(n) &= cn + k - 2c
+\end{align*}
 	\section{Análisis de eficiencia empírica}
 	Vamos a medir el tiempo que tardan en ejecutarse los dos algoritmos:
 	
