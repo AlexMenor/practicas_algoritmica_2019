@@ -10,6 +10,8 @@ using namespace std;
 
 /**********************************************************************/
 
+// Aproximación Obvia al problema O(n ^ 2)
+
 pair <int, int> sumaObvia(int * v, int n, int x){
     pair <int, int> sol(0,0);
     for (int i = 0 ; i < n-1 ; i++)
@@ -24,6 +26,8 @@ pair <int, int> sumaObvia(int * v, int n, int x){
 
 /**********************************************************************/
 
+// Aproximación divide y vencerás recursiva al problema O(n) (requiere que el algoritmo esté ordenado)
+
 pair<int,int> sumaDivideYVenceras(int * v, int izda, int dcha, int x){
     int sum = v[izda] + v[dcha];
     if (dcha - izda == 1 || sum == x)
@@ -36,6 +40,8 @@ pair<int,int> sumaDivideYVenceras(int * v, int izda, int dcha, int x){
 }
 
 /**********************************************************************/
+
+// Aproximación divide y vencerás iterativa al problema O(n) (requiere que el algoritmo esté ordenado)
 
 pair <int, int> sumaDivideYVenceras (int * v, int n, int x){
     int izda = 0;
