@@ -17,7 +17,7 @@
 \begin{document}
 	\maketitle
 	\section{Introducción}
-	El problema que se nos plantea en esta práctica es, a grandes rasgos, el de encontrar dos elementos en un vector que sumen un valor específico.
+	El problema que se nos plantea en esta práctica es, a grandes rasgos, el de encontrar dos elementos en un vector que sumen un valor específico. 
 	
 	
 	\subsection{Eficiencia teórica: algoritmo básico}
@@ -35,7 +35,7 @@
 	
 	\
 	
-	A partir de ahi pueden ocurrir tres cosas:
+	A partir de ahí pueden ocurrir tres cosas:
 	\begin{itemize}
 		\item Que la suma sea el valor que estamos buscando.
 		\item Que la suma sea menor que el valor que estamos buscando.
@@ -43,6 +43,9 @@
 	\end{itemize}
 
 	Si se da el primer caso devolvemos esta solución, de lo contrario, realizamos una llamada recursiva con los mismos elementos menos el primero o el último elemento respectivamente.
+	\
+	
+	A la hora de dividir en subproblemas, realmente, estamos ante una reducción puesto que en cada paso reducimos el problema a uno análogo de tamaño $n-1$. A causa de esto, la combinación de todos estos es trivial: hacemos uso de la pila de subrutinas para devolver la solución.
 	\
 	
 	Hemos calculado la eficiencia teórica de esta parte del algoritmo, mediante el método de expansión. Este método  consiste en desarrollar progresivamente la ecuación de recurrencia para diversos niveles sustituyendo cada aparición del valor de la función por la expresión que se especifica en la recurrencia. Es necesario identificar un patrón general, y aplicarlo para resolver.
@@ -61,13 +64,12 @@ Como acabamos de demostrar el orden de eficiencia de esta parte es $O(n)$.
 nuestro algoritmo por $O(n)$, \textbf{la eficiencia conjunta es de orden $O(n*log n)$} ya que este es 
 dominante.
 	\section{Análisis de eficiencia empírica}
-	Vamos a medir el tiempo que tardan en ejecutarse los dos algoritmos:
+	Vamos a medir el tiempo que tardan en ejecutarse los dos algoritmos.	Además, los compararemos entre ellos cuando sea interesante hacerlo.
+	
 	
 	\
-	Además, los compararemos entre ellos cuando sea interesante hacerlo.
 	
-	\
-	He aquí una tabla comparativa del tiempo que tarda cada algoritmo según el tamaño del vector a ordenar.
+	He aquí una tabla comparativa del tiempo que tarda cada algoritmo según el tamaño del vector a ordenar. Para elaborar esta tabla hemos usado tamaños de vector desde 2 hasta 10000, en intervalos de 50. Hemos medido para cada tamaño 100 veces el tiempo, hemos calculado la media de dichos tiempos y ese es el valor representado para tal tamaño.
 	
 	\begin{longtable}{|c|c|c|}
 		\hline
@@ -273,19 +275,51 @@ dominante.
 		9902	&  0.113998   	 &  0.00106406   \\ \hline                 
 		9952	&  0.112215   	 &  0.00106635   \\ \hline     
 	\end{longtable}
+
+	He aquí las gráficas correspondientes a dichos tiempos:
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=8cm]{img/tiempos_obvio}
+		\caption{Gráfica empírica del algoritmo obvio}
+		\label{fig:tiempos_obvio}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=8cm]{img/tiempos_dyv}
+		\caption{Gráfica empírica del algoritmo divide y vencerás}
+		\label{fig:tiempos_dyv}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=8cm]{img/comparacion}
+		\caption{Gráfica comparativa entre ambos algoritmos}
+		\label{fig:comparacion}
+	\end{figure}
+
+	Como se podía anticipar de las eficiencias teóricas, la diferencia entre ambos algoritmos es abismal. 
 	
 	\section{Análisis de eficiencia híbrida}
 	Ajuste de los algoritmos de acuerdo a su eficiencia teórica y los datos obtenidos en la eficiencia empírica.
 	
 	\subsection{Ajuste del algoritmo básico}
+	Hemos ajustado nuestros tiempos a una función $g(x)=a0x^2+a1x+a2$ (debido al orden de eficiencia $O(n^2)$) y hemos obtenido las siguientes constantes ocultas:
 	
 	\begin{longtable}{|c|c|c|}
 		\hline
 		Constante		& Valor			& Error estándar	\\ \hline
-		a0              & 1.12169e-09	& 0.9625 \\ \hline
-		a1              & 1.10848e-07	& 100.2	 \\ \hline
-		a2              & -0.000225747	& 106	 \\ \hline
+		a0              & 1.12169e-09	& 0.9625\% \\ \hline
+		a1              & 1.10848e-07	& 100.2\%	 \\ \hline
+		a2              & -0.000225747	& 106\%	 \\ \hline
 	\end{longtable}
+
+	Son unas constantes bastante pequeñas. Podemos mencionar el gran error que tienen las constantes a1 y a2, sin embargo esto no es muy importante ya que la constante "dominante" sería a0 y ésta tiene un error bajísimo.
+	
+	\
+	
+	Ahora mostramos la gráfica ajustada:
 	
 	\begin{figure}[H]
 		\centering
@@ -295,14 +329,17 @@ dominante.
 	\end{figure}
 	
 	\subsection{Ajuste del algoritmo Divide y Vencerás}
+	Los tiempos del algoritmo Divide y Vencerás los hemos ajustado a una funcion $f(x)=b0*x*log(x)+b1*x+b2$ y nos han dado las siguientes constantes ocultas:
 	
 	\begin{longtable}{|c|c|c|}
 		\hline
 		Constante		& Valor			& Error estándar	\\ \hline
-		b0              & 7.472e-09		& 22.27	 \\ \hline
-		b1              & 4.17793e-08 	& 37.34	 \\ \hline
-		b2              & -6.70324e-06	& 94.89	 \\ \hline
+		b0              & 7.472e-09		& 22.27\%	 \\ \hline
+		b1              & 4.17793e-08 	& 37.34\%	 \\ \hline
+		b2              & -6.70324e-06	& 94.89\%	 \\ \hline
 	\end{longtable}
+
+	Las constantes son bastante más grandes, pero tampoco son muy preocupantes. Aquí el error de b0 (la constante más importante) no ha dado un poco más alto, vamos a ver la gráfica ajustada para comprobar si los tiempos se desvían mucho:
 	
 	\begin{figure}[H]
 		\centering
@@ -311,7 +348,11 @@ dominante.
 		\label{fig:DyV_ajustada}
 	\end{figure}
 	
-	Comparativas entre funciones:
+	Como vemos, los tiempos están algo dispersos, pero sí que podemos decir que respetan la función original.
+	
+	\
+	
+	Ahora vamos a comparar las gráficas ajustadas:
 	
 	\begin{figure}[H]
 		\centering
@@ -319,8 +360,11 @@ dominante.
 		\caption{Ajustes comparativos}
 		\label{fig:ajustes_total}
 	\end{figure}
-	\section{El precio de la recurrencia}
 
+	Se sigue viendo la gran diferencia entre ambos algoritmos.
+
+	\section{El precio de la recurrencia}
+	Como actividad adicional, nos ha parecido interesante investigar cómo afectan las constantes ocultas en la recurrencia de este algoritmo. Para ello, en el archivo \textbf{genera\_tiempos.cpp} hemos añadido una función adicional, cuyo objetivo es realizar el mismo trabajo que nuestra función recursiva, pero con punteros y sin llamadas a sí misma, eso sí, siguiendo el mismo algoritmo. He aquí una tabla que ilustra los tiempos obtenidos:
 	\begin{longtable}{|c|c|c|c|}
 		\hline
 		Tamaño del vector & Tiempo con el alg. recursivo & Tiempo con el alg. iterativo & Cociente entre tiempos \\ \hline 
@@ -525,4 +569,19 @@ dominante.
 		9902	&   0.00106406	  & 0.00104296	 &  1.02023088133773   \\ \hline
 		9952	&   0.00106635	  & 0.00103605	 &  1.02924569277545   \\ \hline
 	\end{longtable}
+	He aquí una gráfica comparativa entre los tiempos del algoritmo recursivo y del iterativo:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=8cm]{img/iterativo_recursivo}
+		\caption{Gráfica comparativa entre el algoritmo iterativo y el recursivo}
+		\label{fig:iterativo_recursivo}
+	\end{figure}
+	Podemos observar que no hay mucha diferencia, no obstante, es interesante como conforme aumenta el tamaño del vector, al aumentar el número de llamadas recursivas, se van separando ambas gráficas poco a poco. Si dividimos ambos tiempos:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=6cm]{img/recursivo_entre_iterativo}
+		\caption{Gráfica cociente entre los tiempos del algoritmo recursivo y del iterativo}
+		\label{fig:cociente}
+	\end{figure} 
+	Efectivamente, nos sale una gráfica prácticamente constante en el 1. Lo podíamos anticipar de los resultados del apartado de eficiencia híbrida. Seguramente con unos tamaños de vector más grandes notaríamos más la diferencia.
 \end{document}
