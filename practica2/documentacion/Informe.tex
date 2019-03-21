@@ -16,40 +16,50 @@
 		\and Jesús Torres Sánchez}
 \begin{document}
 	\maketitle
-	\section{Introduccion}
-	El objetivo de esta práctica es realizar dos algoritmos que desarrollen la siguiente tarea: partiendo de un valor inicial generado, deben buscar en una lista (en nuestro caso, usaremos un vector), dos elementos cuya suma resultante sea igual al valor inicial generado. 
-	
-	Los algoritmos realizados son: uno básico, que es un algoritmo fuerza bruta que compara cada componente del vector hasta encontrar dos elementos que sumen lo mismo; y otro divide y vencerás, que primero ordena el vector, y después comprueba los valores extremos recursivamente, descartando uno de ellos dependiendo del valor umbral. 
+	\section{Introducción}
+	El problema que se nos plantea en esta práctica es, a grandes rasgos, el de encontrar dos elementos en un vector que sumen un valor específico.
 	
 	
 	\subsection{Eficiencia teórica: algoritmo básico}
 	
-	 Dado un vector de n enteros, para determinar si existen en el vector dos números cuya suma sea igual a un valor dado, el algoritmo desarrollado realiza la suma uno a uno de cada
-	 elemento del vector con sus consecutivos.
-	 Para ello hace uso de la anidación de dos bucles, de modo que la eficiencia de este algoritmo es de orden cuadrática $O(n^2)$.
+	El algoritmo obvio, utiliza dos bucles anidados para probar todas las posibilidades del vector hasta encontrar una pareja que sume el valor dado como parámetro.
+	Este algoritmo es de orden cuadrático $O(n^2)$.
 	
 	
 	\subsection{Eficiencia teórica: algoritmo DyV}
+	Para aplicar la técnica divide y vencerás necesitamos tener alguna certeza sobre los elementos del vector y así dividir el problema en subproblemas. Como estos son generados aleatoriamente, necesitamos ordenarlos.
+	Para esto, hacemos uso del algoritmo Quicksort.
 	
-	En este caso, para determinar si en el vector existen dos números cuya suma sea igual a un valor dado, primero se ordena dicho vector mediante el uso del algoritmo Quicksort.
-	Una vez ordenado el vector, el algoritmo desarrollado de Divide y Vencerás para la suma, toma los elementos de los extremos y los suma, si el resultado de la suma es el propio elemento, lo
-	devuelve. Si por el contrario el resultado es mayor que el número que buscamos, se vuelve a llamar al algoritmo de forma recursiva con el elemento de la izquierda, y el valor anterior al
-	último. Y en otro caso, es decir, si el resultado es menor, se hace una llamada recursiva, esta vez con el último valor, y el siguiente del de la izquierda. Así sucesivamente hasta que se
-	encuentre el valor o hasta que se haya recorrido todo el vector. Este algoritmo es de orden lineal $O(n)$.
-	Como resultado, el orden de eficiencia total es el máximo de los órdenes de los dos segmentos en los que hemos dividido el problema. Como Quicksort está acotado por $O(n*logn)$ y el de
-	nuestro algoritmo por $O(n)$, la eficiencia conjunta es de orden $O(n*logn)$ ya que este es el
-	dominante.
+	\
+	Una vez ordenado el vector, el algoritmo Divide y Vencerás realiza la suma del primer elemento y el último del vector.
 	
-	Además, hemos calculado la eficiencia teórica mediante el método de expansión. Este algoritmo consiste en desarrollar progresivamente la ecuación de recurrencia para diversos niveles sustituyendo cada aparición del valor de la función por la expresión que se especifica en la recurrencia. Es necesario identificar un patrón general, que en este caso hemos elegido ((n-1) + 2i) y aplicarlo para resolver.
+	\
+	
+	A partir de ahi pueden ocurrir tres cosas:
+	\begin{itemize}
+		\item Que la suma sea el valor que estamos buscando.
+		\item Que la suma sea menor que el valor que estamos buscando.
+		\item Que la suma sea mayor que el valor que estamos buscando.
+	\end{itemize}
+
+	Si se da el primer caso devolvemos esta solución, de lo contrario, realizamos una llamada recursiva con los mismos elementos menos el primero o el último elemento respectivamente.
+	\
+	
+	Hemos calculado la eficiencia teórica de esta parte del algoritmo, mediante el método de expansión. Este método  consiste en desarrollar progresivamente la ecuación de recurrencia para diversos niveles sustituyendo cada aparición del valor de la función por la expresión que se especifica en la recurrencia. Es necesario identificar un patrón general, y aplicarlo para resolver.
 	
 
 \begin{align*}
 	T(n) &= T(n-1) + c \\
 	T(n) &= T(n-2) + 2c \\
 	T(n) &= T(n-i) + ic \\
+		(i &= n - 2) \\
 	T(n) &= T(2) + (n-2)c \\
 	T(n) &= cn + k - 2c
 \end{align*}
+Como acabamos de demostrar el orden de eficiencia de esta parte es $O(n)$.
+	Como resultado, el orden de eficiencia total es el máximo de los dos segmentos en los que hemos dividido el problema. Como Quicksort está acotado por $O(n*log n)$ y el de
+nuestro algoritmo por $O(n)$, \textbf{la eficiencia conjunta es de orden $O(n*log n)$} ya que este es 
+dominante.
 	\section{Análisis de eficiencia empírica}
 	Vamos a medir el tiempo que tardan en ejecutarse los dos algoritmos:
 	
