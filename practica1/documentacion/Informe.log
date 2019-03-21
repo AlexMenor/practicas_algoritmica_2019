@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.24)  21 MAR 2019 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.10)  21 MAR 2019 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Informe.tex
 (./Informe.tex
-LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -29,14 +29,14 @@ Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@posthook=\toks15
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
-File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
-File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+File: t1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -248,17 +248,11 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+0219 (decimal 537)
    defining Unicode char U+021A (decimal 538)
    defining Unicode char U+021B (decimal 539)
-   defining Unicode char U+0232 (decimal 562)
-   defining Unicode char U+0233 (decimal 563)
-   defining Unicode char U+1E02 (decimal 7682)
-   defining Unicode char U+1E03 (decimal 7683)
+   defining Unicode char U+01E02 (decimal 7682)
+   defining Unicode char U+01E03 (decimal 7683)
    defining Unicode char U+200C (decimal 8204)
-   defining Unicode char U+2010 (decimal 8208)
-   defining Unicode char U+2011 (decimal 8209)
-   defining Unicode char U+2012 (decimal 8210)
    defining Unicode char U+2013 (decimal 8211)
    defining Unicode char U+2014 (decimal 8212)
-   defining Unicode char U+2015 (decimal 8213)
    defining Unicode char U+2018 (decimal 8216)
    defining Unicode char U+2019 (decimal 8217)
    defining Unicode char U+201A (decimal 8218)
@@ -270,14 +264,12 @@ File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
    defining Unicode char U+2039 (decimal 8249)
    defining Unicode char U+203A (decimal 8250)
    defining Unicode char U+2423 (decimal 9251)
-   defining Unicode char U+1E20 (decimal 7712)
-   defining Unicode char U+1E21 (decimal 7713)
 )
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
-File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+File: ot1enc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -318,7 +310,7 @@ Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
-File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+File: omsenc.dfu 2015/12/03 v1.1r UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
    defining Unicode char U+00B7 (decimal 183)
@@ -342,49 +334,51 @@ Now handling font encoding U ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2018/02/14 3.18 The Babel package
+Package: babel 2016/02/24 3.9q The Babel package
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2018/02/14 3.18 Babel switching mechanism
-)
 (/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
-Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
+Language: spanish.ldf 2016/01/15 v5.0o Spanish support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2018/02/14 3.18 Babel common definitions
+File: babel.def 2016/02/24 3.9q Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
-
-(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count88
 )
 \es@quottoks=\toks16
-\es@quotdepth=\count89
-Package babel Info: Making " an active character on input line 561.
-Package babel Info: Making . an active character on input line 662.
-Package babel Info: Making < an active character on input line 707.
-Package babel Info: Making > an active character on input line 707.
+\es@quotdepth=\count88
+Package babel Info: Making " an active character on input line 533.
+Package babel Info: Making . an active character on input line 634.
+Package babel Info: Making < an active character on input line 679.
+Package babel Info: Making > an active character on input line 679.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count89
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
@@ -435,7 +429,7 @@ LaTeX Font Info:    ... okay on input line 15.
 LaTeX Info: Redefining \. on input line 15.
 LaTeX Info: Redefining \% on input line 15.
 
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count96
 \scratchdimen=\dimen107
@@ -448,57 +442,49 @@ LaTeX Info: Redefining \% on input line 15.
 \MPnumerator=\count100
 \makeMPintoPDFobject=\count101
 \everyMPtoPDFconversion=\toks22
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)))
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
-)
-
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
+(grfext)             \AppendGraphicsExtensions on input line 452.
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
@@ -543,11 +529,11 @@ Overfull \hbox (75.52846pt too wide) in alignment at lines 72--84
  [] [] [] [] 
  []
 
-[2]
-<img/ordenacion_rapida.png, id=19, 549.55313pt x 360.59718pt>
+[2] <img/ordenacion_rapida.png, id=19, 549.55313pt x 360.59718pt>
 File: img/ordenacion_rapida.png Graphic file (type png)
+
 <use img/ordenacion_rapida.png>
-Package pdftex.def Info: img/ordenacion_rapida.png  used on input line 89.
+Package pdftex.def Info: img/ordenacion_rapida.png used on input line 89.
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
 Overfull \hbox (1.89952pt too wide) in paragraph at lines 89--90
@@ -592,11 +578,11 @@ Overfull \hbox (64.66734pt too wide) in alignment at lines 194--206
  [] [] [] [] 
  []
 
-[6]
-<img/ordenacion_lenta.png, id=32, 549.55313pt x 360.59718pt>
+[6] <img/ordenacion_lenta.png, id=32, 549.55313pt x 360.59718pt>
 File: img/ordenacion_lenta.png Graphic file (type png)
+
 <use img/ordenacion_lenta.png>
-Package pdftex.def Info: img/ordenacion_lenta.png  used on input line 209.
+Package pdftex.def Info: img/ordenacion_lenta.png used on input line 209.
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
 Overfull \hbox (1.89952pt too wide) in paragraph at lines 209--210
@@ -622,11 +608,11 @@ Overfull \hbox (8.41728pt too wide) in alignment at lines 255--267
  [] [] 
  []
 
-[8]
-<img/ordenacion.png, id=40, 549.55313pt x 360.59718pt>
+[8] <img/ordenacion.png, id=40, 549.55313pt x 360.59718pt>
 File: img/ordenacion.png Graphic file (type png)
+
 <use img/ordenacion.png>
-Package pdftex.def Info: img/ordenacion.png  used on input line 275.
+Package pdftex.def Info: img/ordenacion.png used on input line 275.
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
 Overfull \hbox (1.89952pt too wide) in paragraph at lines 275--276
@@ -635,8 +621,9 @@ Overfull \hbox (1.89952pt too wide) in paragraph at lines 275--276
 
 <img/ordenacion_zoom.png, id=41, 549.55313pt x 360.59718pt>
 File: img/ordenacion_zoom.png Graphic file (type png)
+
 <use img/ordenacion_zoom.png>
-Package pdftex.def Info: img/ordenacion_zoom.png  used on input line 281.
+Package pdftex.def Info: img/ordenacion_zoom.png used on input line 281.
 (pdftex.def)             Requested size: 346.89952pt x 227.62204pt.
 
 Overfull \hbox (1.89952pt too wide) in paragraph at lines 281--282
@@ -650,8 +637,8 @@ Underfull \vbox (badness 10000) detected at line 309
 [10 <./img/ordenacion_zoom.png (PNG copy)>]
 <img/floyd.png, id=49, 481.8pt x 361.35pt>
 File: img/floyd.png Graphic file (type png)
-<use img/floyd.png>
-Package pdftex.def Info: img/floyd.png  used on input line 345.
+ <use img/floyd.png>
+Package pdftex.def Info: img/floyd.png used on input line 345.
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
  [11]
 Underfull \vbox (badness 10000) detected at line 379
@@ -660,8 +647,8 @@ Underfull \vbox (badness 10000) detected at line 379
 [12 <./img/floyd.png (PNG copy)>]
 <img/fibonacci.png, id=56, 481.8pt x 361.35pt>
 File: img/fibonacci.png Graphic file (type png)
-<use img/fibonacci.png>
-Package pdftex.def Info: img/fibonacci.png  used on input line 416.
+ <use img/fibonacci.png>
+Package pdftex.def Info: img/fibonacci.png used on input line 416.
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
  [13]
 Underfull \vbox (badness 10000) detected at line 436
@@ -669,8 +656,9 @@ Underfull \vbox (badness 10000) detected at line 436
 
 <img/Mergesort_ajustada.png, id=61, 1003.75pt x 602.25pt>
 File: img/Mergesort_ajustada.png Graphic file (type png)
+
 <use img/Mergesort_ajustada.png>
-Package pdftex.def Info: img/Mergesort_ajustada.png  used on input line 440.
+Package pdftex.def Info: img/Mergesort_ajustada.png used on input line 440.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 440--441
@@ -683,8 +671,9 @@ Underfull \vbox (badness 10000) detected at line 453
 
 <img/Heapsort_ajustada.png, id=65, 1003.75pt x 602.25pt>
 File: img/Heapsort_ajustada.png Graphic file (type png)
+
 <use img/Heapsort_ajustada.png>
-Package pdftex.def Info: img/Heapsort_ajustada.png  used on input line 457.
+Package pdftex.def Info: img/Heapsort_ajustada.png used on input line 457.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 457--458
@@ -697,8 +686,9 @@ Underfull \vbox (badness 10000) detected at line 470
 
 <img/Quicksort_ajustada.png, id=70, 1003.75pt x 602.25pt>
 File: img/Quicksort_ajustada.png Graphic file (type png)
+
 <use img/Quicksort_ajustada.png>
-Package pdftex.def Info: img/Quicksort_ajustada.png  used on input line 476.
+Package pdftex.def Info: img/Quicksort_ajustada.png used on input line 476.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 476--477
@@ -708,9 +698,10 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 476--477
 [16 <./img/Heapsort_ajustada.png>]
 <img/AlgOrdenacionRapidos_ajustados.png, id=75, 1003.75pt x 602.25pt>
 File: img/AlgOrdenacionRapidos_ajustados.png Graphic file (type png)
+
 <use img/AlgOrdenacionRapidos_ajustados.png>
-Package pdftex.def Info: img/AlgOrdenacionRapidos_ajustados.png  used on input 
-line 484.
+Package pdftex.def Info: img/AlgOrdenacionRapidos_ajustados.png used on input l
+ine 484.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 484--485
@@ -723,8 +714,9 @@ Underfull \vbox (badness 10000) detected at line 504
 
 <img/Burbuja_ajustada.png, id=81, 1003.75pt x 602.25pt>
 File: img/Burbuja_ajustada.png Graphic file (type png)
+
 <use img/Burbuja_ajustada.png>
-Package pdftex.def Info: img/Burbuja_ajustada.png  used on input line 508.
+Package pdftex.def Info: img/Burbuja_ajustada.png used on input line 508.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 508--509
@@ -737,8 +729,9 @@ Underfull \vbox (badness 10000) detected at line 521
 
 <img/Insercion_ajustada.png, id=82, 1003.75pt x 602.25pt>
 File: img/Insercion_ajustada.png Graphic file (type png)
+
 <use img/Insercion_ajustada.png>
-Package pdftex.def Info: img/Insercion_ajustada.png  used on input line 525.
+Package pdftex.def Info: img/Insercion_ajustada.png used on input line 525.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 525--526
@@ -751,8 +744,9 @@ Underfull \vbox (badness 10000) detected at line 538
 
 <img/Seleccion_ajustada.png, id=87, 1003.75pt x 602.25pt>
 File: img/Seleccion_ajustada.png Graphic file (type png)
+
 <use img/Seleccion_ajustada.png>
-Package pdftex.def Info: img/Seleccion_ajustada.png  used on input line 542.
+Package pdftex.def Info: img/Seleccion_ajustada.png used on input line 542.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 542--543
@@ -762,9 +756,10 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 542--543
 [19 <./img/Insercion_ajustada.png>]
 <img/AlgOrdenacionLentos_ajustados.png, id=93, 1003.75pt x 602.25pt>
 File: img/AlgOrdenacionLentos_ajustados.png Graphic file (type png)
+
 <use img/AlgOrdenacionLentos_ajustados.png>
-Package pdftex.def Info: img/AlgOrdenacionLentos_ajustados.png  used on input l
-ine 549.
+Package pdftex.def Info: img/AlgOrdenacionLentos_ajustados.png used on input li
+ne 549.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 549--550
@@ -777,8 +772,9 @@ Underfull \vbox (badness 10000) detected at line 563
 
 <img/Fibonacci_ajustada.png, id=99, 1003.75pt x 602.25pt>
 File: img/Fibonacci_ajustada.png Graphic file (type png)
+
 <use img/Fibonacci_ajustada.png>
-Package pdftex.def Info: img/Fibonacci_ajustada.png  used on input line 567.
+Package pdftex.def Info: img/Fibonacci_ajustada.png used on input line 567.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 567--568
@@ -791,8 +787,9 @@ Underfull \vbox (badness 10000) detected at line 582
 
 <img/Floyd_ajustada.png, id=100, 1003.75pt x 602.25pt>
 File: img/Floyd_ajustada.png Graphic file (type png)
+
 <use img/Floyd_ajustada.png>
-Package pdftex.def Info: img/Floyd_ajustada.png  used on input line 586.
+Package pdftex.def Info: img/Floyd_ajustada.png used on input line 586.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 586--587
@@ -802,9 +799,10 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 586--587
 [21 <./img/Fibonacci_ajustada.png>]
 <img/ajusteFibonacci_cuadratico.png, id=105, 1003.75pt x 602.25pt>
 File: img/ajusteFibonacci_cuadratico.png Graphic file (type png)
+
 <use img/ajusteFibonacci_cuadratico.png>
-Package pdftex.def Info: img/ajusteFibonacci_cuadratico.png  used on input line
- 597.
+Package pdftex.def Info: img/ajusteFibonacci_cuadratico.png used on input line 
+597.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 597--598
@@ -814,9 +812,10 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 597--598
 [22 <./img/Floyd_ajustada.png>]
 <img/ajusteFloyd_cuadratico.png, id=110, 1003.75pt x 602.25pt>
 File: img/ajusteFloyd_cuadratico.png Graphic file (type png)
+
 <use img/ajusteFloyd_cuadratico.png>
-Package pdftex.def Info: img/ajusteFloyd_cuadratico.png  used on input line 604
-.
+Package pdftex.def Info: img/ajusteFloyd_cuadratico.png used on input line 604.
+
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 604--605
@@ -826,9 +825,10 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 604--605
 [23 <./img/ajusteFibonacci_cuadratico.png>]
 <img/ajusteInsercion_lineal.png, id=115, 1003.75pt x 602.25pt>
 File: img/ajusteInsercion_lineal.png Graphic file (type png)
+
 <use img/ajusteInsercion_lineal.png>
-Package pdftex.def Info: img/ajusteInsercion_lineal.png  used on input line 611
-.
+Package pdftex.def Info: img/ajusteInsercion_lineal.png used on input line 611.
+
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 611--612
@@ -838,9 +838,10 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 611--612
 [24 <./img/ajusteFloyd_cuadratico.png>]
 <img/ajusteMergesort_lineal.png, id=120, 1003.75pt x 602.25pt>
 File: img/ajusteMergesort_lineal.png Graphic file (type png)
+
 <use img/ajusteMergesort_lineal.png>
-Package pdftex.def Info: img/ajusteMergesort_lineal.png  used on input line 618
-.
+Package pdftex.def Info: img/ajusteMergesort_lineal.png used on input line 618.
+
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 618--619
@@ -850,8 +851,9 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 618--619
 [25 <./img/ajusteInsercion_lineal.png>]
 <img/compSeleccion.png, id=126, 1003.75pt x 602.25pt>
 File: img/compSeleccion.png Graphic file (type png)
+
 <use img/compSeleccion.png>
-Package pdftex.def Info: img/compSeleccion.png  used on input line 633.
+Package pdftex.def Info: img/compSeleccion.png used on input line 633.
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 633--634
@@ -860,9 +862,10 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 633--634
 
 <img/compSeleccion_cociente.png, id=127, 1003.75pt x 602.25pt>
 File: img/compSeleccion_cociente.png Graphic file (type png)
+
 <use img/compSeleccion_cociente.png>
-Package pdftex.def Info: img/compSeleccion_cociente.png  used on input line 639
-.
+Package pdftex.def Info: img/compSeleccion_cociente.png used on input line 639.
+
 (pdftex.def)             Requested size: 379.37663pt x 227.62204pt.
 
 Overfull \hbox (34.37663pt too wide) in paragraph at lines 639--640
@@ -873,32 +876,33 @@ Overfull \hbox (34.37663pt too wide) in paragraph at lines 639--640
 mpSeleccion_cociente.png>]
 <img/optimizacion_floyd.png, id=137, 481.8pt x 361.35pt>
 File: img/optimizacion_floyd.png Graphic file (type png)
+
 <use img/optimizacion_floyd.png>
-Package pdftex.def Info: img/optimizacion_floyd.png  used on input line 648.
+Package pdftex.def Info: img/optimizacion_floyd.png used on input line 648.
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
+
 <img/optimizacion_cociente.png, id=138, 481.8pt x 361.35pt>
 File: img/optimizacion_cociente.png Graphic file (type png)
-<use img/optimizacion_cociente.png>
-Package pdftex.def Info: img/optimizacion_cociente.png  used on input line 656.
 
+<use img/optimizacion_cociente.png>
+Package pdftex.def Info: img/optimizacion_cociente.png used on input line 656.
 (pdftex.def)             Requested size: 303.49884pt x 227.62204pt.
  [28 <./img/optimizacion_floyd.png (PNG copy)>]
 LaTeX Font Info:    Try loading font information for U+lasy on input line 673.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [29 <./img/optimizacion_cociente.png (PNG copy)>] [30] [31] (./Informe.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 2980 strings out of 492982
- 41286 string characters out of 6134896
- 132715 words of memory out of 5000000
- 6482 multiletter control sequences out of 15000+600000
+ 2924 strings out of 493029
+ 40258 string characters out of 6136234
+ 131845 words of memory out of 5000000
+ 6403 multiletter control sequences out of 15000+600000
  8347 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,30p,322b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,7n,30p,322b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/tex
@@ -911,7 +915,7 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/la
 sy10.pfb>
-Output written on Informe.pdf (31 pages, 593292 bytes).
+Output written on Informe.pdf (31 pages, 593293 bytes).
 PDF statistics:
  193 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams
