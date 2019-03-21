@@ -29,6 +29,21 @@ pair<int,int> sumaDivideYVenceras(int * v, int izda, int dcha, int x){
 
 }
 
+pair <int, int> sumaDivideYVenceras (int * v, int n, int x){
+    int izda = 0;
+    int dcha = n - 1;
+
+    while ((izda != dcha) && (v[izda] + v[dcha] != x)){
+        int sum = v[izda] + v[dcha];
+        if (sum > x)
+            dcha--;
+        else
+            izda++;
+    }
+
+    return izda == dcha ? pair<int,int> (0,0) : pair<int,int> (v[izda], v[dcha]);
+}
+
 double uniforme() //Genera un n�mero uniformemente distribuido en el
                   //intervalo [0,1) a partir de uno de los generadores
                   //disponibles en C.
@@ -96,7 +111,8 @@ int main (int argc, char ** argv){
             }
             else{
                 quicksort(v, tam);
-                sol = sumaDivideYVenceras(v, 0, tam - 1, x);
+                //sol = sumaDivideYVenceras(v, 0, tam - 1, x);
+                sol = sumaDivideYVenceras(v, tam,x);
             }
             tdespues = high_resolution_clock::now();
 
