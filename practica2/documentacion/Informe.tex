@@ -5,7 +5,34 @@
 \usepackage{longtable}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{listings}
 \graphicspath{{./img/}}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
 
 \title{Práctica 2. Algoritmos divide y vencerás - Suma de dos elementos}
 
@@ -43,8 +70,19 @@
 	\end{itemize}
 
 	Si se da el primer caso devolvemos esta solución, de lo contrario, realizamos una llamada recursiva con los mismos elementos menos el primero o el último elemento respectivamente.
-	\
 	
+	\begin{lstlisting}[caption=Pseudocódigo del algoritmo DyV]
+	sumaDyV(vector, izda, dcha, x){
+		sum = v[izda] + v[dcha]
+		if (dcha - izda == 1 || sum == x)
+			return solucion
+		else if (sum > x)
+			return sumaDyV(vector, izda, dcha - 1, x)
+		else
+			return sumaDyV(vector, izda + 1, dcha, x)
+	}
+	\end{lstlisting}
+
 	A la hora de dividir en subproblemas, realmente, estamos ante una reducción puesto que en cada paso reducimos el problema a uno análogo de tamaño $n-1$. A causa de esto, la combinación de todos estos es trivial: hacemos uso de la pila de subrutinas para devolver la solución.
 	\
 	
