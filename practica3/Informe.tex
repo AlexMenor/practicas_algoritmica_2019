@@ -20,31 +20,7 @@
 \begin{document}
 	\maketitle
 	
-	\section{Demostración 1 (Seguramente mal hecha)}
-	\begin{itemize}
-		\item Sean: $t_1,t_2,...,t_n$ los tiempos de inicio de las conferencias.
-		\item Sea: $t_1\leq t_2 \leq ... \leq t_n$.
-		\item Sean $a_1,a_2,...,a_n$ las aulas.
-		\item Sean $c_1,c_2,...,c_n$ las conferencias.
-		\item Sea $a_i-c_{t_j}-..-c_{t_x},...a_n-c_{t_k}-...-c_{t_z}$ una solución cualquiera que consiste en la asignación de aulas a las conferencias.
-		\item Sea $m$ el número de aulas que se ocupan.
-	\end{itemize}
-
-	Vamos a demostrar que existe una solución óptima con una asignación $a_1-c_{t_1}$.
-	
-	\begin{itemize}
-		\item Sea $A$ una solución óptima que contiene la asignación $a_1-c_{t_1}$. Entonces para el dominio que no contiene la conferencia $c_{t_1}$, existe una solución óptima $A_1$ contendrá la asignación $a_1-c_{t_2}$.
-		
-		\item Vamos a hacer reducción al absurdo, suponemos que para el dominio del probelma que excluye la conferencia $c_{t_1}$, la solución óptima no es $A_1$. Entonces existe una solución óptima $B$ para el dominio anterior tal que $m_B<m_{A_1}$
-		
-		\item Entonces llegamos a que $BU\{a_1-c_{t_1}\}$ es solución óptima del problema con el primer dominio que definimos.
-		
-		\item De esto deducimos que $m_{BU\{a_1-c_{t_1}\}}<m_A$ y esto es absurdo ya que $A$ ya era una solución óptima del problema.
-		
-		\item Luego A es una solución óptima al problema.
-	\end{itemize}
-
-	\section{Demostración 2 (Me convence más, pero falta pulirla)}
+	\section{Demostración (falta pulirla)}
 	En esta demostración debemos tener presente que la solución óptima tiene que abrir tantas aulas como conferencias se solapen a la vez (preguntar si esto hay que demostrarlo también por favor).
 	\begin{itemize}
 		
@@ -52,7 +28,7 @@
 		\item Sea $c_2$ la conferencia inmediatamente posterior y compatible con $c_1$
 		\item Con nuesro algoritmo $aula(c_1)=aula(c_2)$. Llamemos $A$ a la solución que logra esto.
 		\item Supongamos que en la solución óptima $aula(c_1) \neq aula(c_2)$
-		\item Entonces $n_{aulas}=n_{conferencias\ solapadas\ a\ la\ vez}+1$. Esto es absurdo ya que contradecimos la condición para que sea solución óptima.
+		\item Entonces se podría dar $n_{aulas}=n_{conferencias\ solapadas\ a\ la\ vez}+1$. Esto es absurdo ya que contradecimos la condición para que sea solución óptima.
 		\item Luego la solución $A$ es la óptima.
 	\end{itemize}
 	
