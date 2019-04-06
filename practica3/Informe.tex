@@ -19,6 +19,45 @@
 
 \begin{document}
 	\maketitle
+	\section{Descripción del problema}
+	El problema a resolver es el siguiente: 
+	\\ 
+	\\
+	\textit{Un centro educativo va a realizar un ciclo de n conferencias durante un día. Cada conferencia
+	tiene establecido su horario, la conferencia i empieza a la hora s i y termina a la hora f i . Se desea que esta actividad interfiera lo mínimo posible con las actividades normales del centro.}
+	\\
+	Por tanto, nuestro algoritmo debe ser capaz de planificar todas las conferencias en su horario establecido usando el menor número de aulas posibles, partiendo de que dos conferencias no se pueden planificar en el mismo aula si sus horarios se solapan.
+	
+	
+	\section{Planteamiento del algoritmo voraz}
+	En primer lugar debemos crear un algoritmo Greedy que pueda solucionar el problema. Tras un análisis e interpretación del enunciado, obtenemos esta primera aproximación:
+	
+	\begin{itemize}
+		\item Partimos de una cola/vector/lista de conferencias, y un vector de soluciones vacío.
+		\item Ordenamos la lista de conferencias de acuerdo a la hora-in.
+		\item Mientras queden elementos en la lista de conferencias candidatas:
+		 \begin{itemize}
+			\item Comparamos la hora-in de la primera conferencia de las candidatas con la hora-fin de la última conferencia de la lista de soluciones asociada a la componente del vector actual.
+			\item Si la actividad no se solapa, se incluye en la lista de soluciones y se extrae de la lista de candidatos.
+			\item Cuando hayamos recorrido los candidatos, si aún quedan, incrementamos la componente del vector (nueva aula) y repetimos el proceso para las conferencias restantes.
+		\end{itemize}
+	\end{itemize}
+	
+	\section{Identificación de elementos}
+	\begin{itemize}
+		\item \textit{Conjunto de Candidatos (C)}: el conjunto de candidatos está formado por todo el conjunto de conferencias a planificar; $Ci (i=0..n-1)$
+		
+		\item \textit{Conjunto de Seleccionados (S)}: inicialmente vacío, contendrá las todas las conferencias $Ci$ agrupadas en las distintas salas $Sj$
+		
+		\item \textit{Función Solución}: vector en el que cada componente se corresponde con un aula distinta, cada una de ellas con una lista de conferencias asociadas.
+		
+		\item \textit{Función de Factibilidad}: no se pueden seleccionar actividades que se solapen en el aula actual.
+		
+		\item \textit{Función de Selección}: en este caso, hemos decidido utilizar como criterio de selección la conferencia de \textbf{menor hora de inicio}. Posteriormente, estudiaremos su optimalidad.
+		
+		\item \textit{Función Objetivo}: planificar todas las conferencias en el menor número de aulas.
+	\end{itemize}
+
 	
 	\section{Demostración (falta pulirla)}
 	En esta demostración debemos tener presente que la solución óptima tiene que abrir tantas aulas como conferencias se solapen a la vez (preguntar si esto hay que demostrarlo también por favor).
@@ -32,5 +71,14 @@
 		\item Luego la solución $A$ es la óptima.
 	\end{itemize}
 	
+	\section{Demostración (versión 2)}
+	Según nuestro criterio de selección, el algoritmo va a ir comprobando y seleccionando aquellas actividades que tienen un menor tiempo de inicio. Para comprobar su optimalidad, podemos llevar a cabo una reducción al absurdo: \\
+	\\
+	Supongamos que nuestra solución no es óptima; esto implica que, si nuestro algoritmo voraz ha determinado que la solución es $n$ aulas, hay una solución minimal que puede planificar las conferencias en $k$ aulas, de modo que $k<n$. \\
+	\\
+	Como sabemos, en la primera iteración, el máximo número de conferencias solapadas es $k$ (máximo número de aulas necesarias). Por la naturaleza de nuestro algoritmo, al seleccionar primero la conferencia que menos tarda, tenemos que en cada iteración el número de solapamientos que tiene cada conferencia se reduce en una unidad (hasta ser seleccionada). De este modo, al llegar a la iteración $k$, como inicialmente el máximo número de conferencias solapadas era $k$, el número de solapamientos restantes equivale a 0. \\
+	\\
+	Al no quedar solapamientos, nuestro algoritmo puede planificar todas las actividades en un mismo aula. De este modo, el número de aulas obtenidas con nuestro algoritmo es $k$, que es el número óptimo de aulas, por lo que llegamos a un absurdo.
+	\\
 	
 \end{document}
