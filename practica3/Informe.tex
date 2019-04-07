@@ -25,60 +25,74 @@
 	\\
 	\textit{Un centro educativo va a realizar un ciclo de n conferencias durante un día. Cada conferencia
 	tiene establecido su horario, la conferencia i empieza a la hora s i y termina a la hora f i . Se desea que esta actividad interfiera lo mínimo posible con las actividades normales del centro.}
-	\\
+	
+	\
+	
 	Por tanto, nuestro algoritmo debe ser capaz de planificar todas las conferencias en su horario establecido usando el menor número de aulas posibles, partiendo de que dos conferencias no se pueden planificar en el mismo aula si sus horarios se solapan.
-	
-	
-	\section{Planteamiento del algoritmo voraz}
-	En primer lugar debemos crear un algoritmo Greedy que pueda solucionar el problema. Tras un análisis e interpretación del enunciado, obtenemos esta primera aproximación:
-	
-	\begin{itemize}
-		\item Partimos de una cola/vector/lista de conferencias, y un vector de soluciones vacío.
-		\item Ordenamos la lista de conferencias de acuerdo a la hora-in.
-		\item Mientras queden elementos en la lista de conferencias candidatas:
-		 \begin{itemize}
-			\item Comparamos la hora-in de la primera conferencia de las candidatas con la hora-fin de la última conferencia de la lista de soluciones asociada a la componente del vector actual.
-			\item Si la actividad no se solapa, se incluye en la lista de soluciones y se extrae de la lista de candidatos.
-			\item Cuando hayamos recorrido los candidatos, si aún quedan, incrementamos la componente del vector (nueva aula) y repetimos el proceso para las conferencias restantes.
-		\end{itemize}
-	\end{itemize}
 	
 	\section{Identificación de elementos}
 	\begin{itemize}
-		\item \textit{Conjunto de Candidatos (C)}: el conjunto de candidatos está formado por todo el conjunto de conferencias a planificar; $Ci (i=0..n-1)$
+		\item \textit{Conjunto de Candidatos (C)}: el conjunto de candidatos está formado por todo el conjunto de conferencias a planificar: $Ci (i=0..n-1)$
 		
-		\item \textit{Conjunto de Seleccionados (S)}: inicialmente vacío, contendrá las todas las conferencias $Ci$ agrupadas en las distintas salas $Sj$
+		\item \textit{Conjunto de Seleccionados (S)}: inicialmente vacío, contendrá las aulas necesarias para planificar todas las conferencias. Cada aula $Sj$ contiene todas las conferencias que se darán en esta aula.
 		
-		\item \textit{Función Solución}: vector en el que cada componente se corresponde con un aula distinta, cada una de ellas con una lista de conferencias asociadas.
+		\item \textit{Función Solución}: El conjunto de Candidatos $C$ está vacío.
 		
-		\item \textit{Función de Factibilidad}: no se pueden seleccionar actividades que se solapen en el aula actual.
+		\item \textit{Función de Factibilidad}: Es posible añadir la conferencia al aula actual sin que se solape con ninguna otra ya añadida. 
 		
 		\item \textit{Función de Selección}: en este caso, hemos decidido utilizar como criterio de selección la conferencia de \textbf{menor hora de inicio}. Posteriormente, estudiaremos su optimalidad.
 		
-		\item \textit{Función Objetivo}: planificar todas las conferencias en el menor número de aulas.
+		\item \textit{Función Objetivo}: planificar todas las conferencias usando el número de aulas mínimo.
 	\end{itemize}
-
 	
-	\section{Demostración (falta pulirla)}
-	En esta demostración debemos tener presente que la solución óptima tiene que abrir tantas aulas como conferencias se solapen a la vez (preguntar si esto hay que demostrarlo también por favor).
-	\begin{itemize}
+	\section{Descripción del algoritmo}
+	Proponemos la siguiente solución:
+	\begin{lstlisting}
+	Conjunto de Conferencias C; // Input 
+	Conjunto de aulas S; //Inicialmente empty
+	C.sort('tiempo de inicio ascendente')
+	
+	aulaActual; //Empty
+	
+	While C not empty{
+		conf = primer elemento de C compatible con a
 		
-		\item Sea $c_1$ una conferencia
-		\item Sea $c_2$ la conferencia inmediatamente posterior y compatible con $c_1$
-		\item Con nuesro algoritmo $aula(c_1)=aula(c_2)$. Llamemos $A$ a la solución que logra esto.
-		\item Supongamos que en la solución óptima $aula(c_1) \neq aula(c_2)$
-		\item Entonces se podría dar $n_{aulas}=n_{conferencias\ solapadas\ a\ la\ vez}+1$. Esto es absurdo ya que contradecimos la condición para que sea solución óptima.
-		\item Luego la solución $A$ es la óptima.
-	\end{itemize}
+		// Si no podemos planificar ninguna conferencia en el
+		// aula actual, abrimos otra nueva
+		if (conf no existe){
+			S.add(aulaActual)
+			aulaActual = vacia;
+		}
+		else{
+ 			aulaActual.add(conf);
+			C.borrar(conf)
+		}
+	}
+	\end{lstlisting}
 	
-	\section{Demostración (versión 2)}
-	Según nuestro criterio de selección, el algoritmo va a ir comprobando y seleccionando aquellas actividades que tienen un menor tiempo de inicio. Para comprobar su optimalidad, podemos llevar a cabo una reducción al absurdo: \\
-	\\
-	Supongamos que nuestra solución no es óptima; esto implica que, si nuestro algoritmo voraz ha determinado que la solución es $n$ aulas, hay una solución minimal que puede planificar las conferencias en $k$ aulas, de modo que $k<n$. \\
-	\\
-	Como sabemos, en la primera iteración, el máximo número de conferencias solapadas es $k$ (máximo número de aulas necesarias). Por la naturaleza de nuestro algoritmo, al seleccionar primero la conferencia que menos tarda, tenemos que en cada iteración el número de solapamientos que tiene cada conferencia se reduce en una unidad (hasta ser seleccionada). De este modo, al llegar a la iteración $k$, como inicialmente el máximo número de conferencias solapadas era $k$, el número de solapamientos restantes equivale a 0. \\
-	\\
-	Al no quedar solapamientos, nuestro algoritmo puede planificar todas las actividades en un mismo aula. De este modo, el número de aulas obtenidas con nuestro algoritmo es $k$, que es el número óptimo de aulas, por lo que llegamos a un absurdo.
-	\\
+	\section{Demostración del algoritmo}
+	 Antes de demostrar que nuestro algoritmo lleva a cabo una planificación correcta, tenemos que definir primero que es:
+	 
+	 \
+	 
+	\textbf{ Una planificación correcta para este problema no utiliza más aulas que el máximo de conferencias que se solapan en el tiempo.}
+	
+	\
+	
+	Introducimos ahora la forma de planificar incorrectamente:
+	
+	\
+	
+	
+	Sea $[x,y]$ una conferencia (x el instante de inicio e y el instante de fin) y $[x+c, k]$ otra conferencia ($c > 0$).
+	Ambas son planificables en la supuesta iteración actual de nuestro algoritmo $i$, que está planificando conferencias en un aula $i$, pero incompatibles entre sí ($y > x+c$).
+	Suponemos que elegimos planificar $[x+c, k]$ en vez de $[x, y]$, esta última quedará en la lista de candidatos (por lo que será planificada en una iteración posterior a $i$), al ser incompatible con la recién seleccionada.
+	
+	\
+	Esta decisión que hemos tomado en la iteración $i$ puede condicionar en una iteración $j$ ($j > i$) de esta manera: En la iteración $j$ se ha planificado una tercera conferencia $[q, w]$, esta conferencia no es compatible con $[x,y], w > x$ (que seguirá por tanto en la lista de candidatos y el algoritmo tendrá que iterar y por tanto utilizar por lo menos otro aula), sin embargo esta conferencia si es compatible con $[x+c, k]$ ($x+c > w$). Por las decisiones que hemos tomado, tenemos que planificar estas 3 conferencias en 3 aulas distintas, sin embargo, las podríamos haber planificado en solo 2 con el criterio de tomar la que empiece antes ya que $[x,y]$ se hubiese planificado en la iteración $i$ y las otras dos en la $j$.
+	
+	\
+	
+	Con esto último no afirmamos que no se pueda hacer una planificación correcta con un criterio distinto al de elegir siempre la que empiece antes. Sin embargo, con ciertos conjuntos de conferencias, se corre el riesgo de utilizar aulas extra sin necesidad, con nuestra función de selección esto no sucede.
 	
 \end{document}
