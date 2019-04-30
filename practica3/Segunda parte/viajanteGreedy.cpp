@@ -45,6 +45,7 @@ int vecinosCercanos (int ** distancias, int n, list<int> & resultado){
   }
 
   resultado = completados.begin() -> second;
+  return completados.begin() -> first;
 }
 
 void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
@@ -80,6 +81,18 @@ int main (int argc, char ** argv){
     exit (EXIT_FAILURE);
   }
 
+  cout << "****** VIAJANTE GREEDY *******" << endl << endl;
+  cout << "/tSelecciona una estrategia" << endl;
+  cout << "1) Vecino más cercano" << endl;
+  cout << "2) Inserción" << endl;
+  cout << "3) Una de nuestra cosecha" << endl;
+
+  int opcion;
+  cin >> opcion;
+
+  while (opcion < 1 || opcion > 3)
+    cin >> opcion;
+  
   entrada.ignore(256, ' ');
 
   int n;
@@ -96,20 +109,52 @@ int main (int argc, char ** argv){
   int ** distancias = new int * [n+1];
   for (int i = 0 ; i <= n ; i++)
     distancias[i] = new int[n+1];
-
+  
   calcularDistancias(distancias, ciudades);
 
   list <int> resultado;
+  int distanciaFinal;
+  string nombreDeSalida = argv[1];
 
-  int distanciaFinal = vecinosCercanos(distancias, n, resultado);
+  if (opcion == 1){
+    distanciaFinal = vecinosCercanos(distancias, n, resultado);
+    nombreDeSalida += "-> vecinosCercanos";
+  }
 
-  ofstream salida("salida");
+  ofstream salida(nombreDeSalida);
 
   salida << "DIMENSION: " << n << endl;
 
   for (int ciudad : resultado)
     salida << ciudad << endl;
   
+  cout << "Archivo " << nombreDeSalida << " creado!" << endl;
+  cout << "Distancia: " << distanciaFinal << endl;
+
+  string archivoSolucion;
+  cout << "Si quieres, introduce el nombre de un archivo solución para comparar: " << endl;
+  cin >> archivoSolucion;
+
+  ifstream entradaSolucion (archivoSolucion);
+
+  if (entradaSolucion){
+    entradaSolucion.ignore(256, '\n');
+    vector<int> ciudadesSolucion;
+    int c;
+    for (int i = 0 ; i < n ; i++){
+      entradaSolucion >> c;
+      ciudadesSolucion.push_back(c);
+    }
+
+    int distanciaSolucion = 0;
+
+    for (int i = 1 ; i <n ; i++)
+      distanciaSolucion += distancias[ciudadesSolucion[i]][ciudadesSolucion[i-1]];
+
+    cout << "La distancia de la solución es: " << distanciaSolucion << endl;
+  }
+
+  entradaSolucion.close();
   entrada.close();
   salida.close();
 
