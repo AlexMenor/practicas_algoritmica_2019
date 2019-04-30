@@ -8,6 +8,45 @@
 
 using namespace std;
 
+int insercion (int ** distancias, int n, list<int> & resultado, vector<pair<double, double>> ciudades){
+  // Lo primero formamos el circuito inicial: norte, sur y este
+  pair<int, double> norte;
+  pair<int, double> sur;
+  pair<int, double> este;
+
+  for (int i = 1 ; i <= n ; i++){
+    pair<double, double> c = ciudades[i-1];
+
+    if (i == 1 || c.second > norte.second){
+      norte.first = i;
+      norte.second = c.second;
+    }
+    if (i == 1 || c.second < sur.second){
+      sur.first = i;
+      sur.second = c.second;
+    }
+    if (i == 1 || c.first > este.second){
+      este.first = i;
+      este.second = c.first;
+    }
+  }
+
+  resultado.push_back(norte.first);
+  resultado.push_back(este.first);
+  resultado.push_back(sur.first);
+
+  set<int> candidatos;
+
+  for (int i = 1 ; i <= n ; i++)
+    if (i != norte.first && i != sur.first && i != este.first)
+      candidatos.insert(i);
+
+  while (!candidatos.empty()){
+    
+  }
+
+}
+
 int vecinosCercanos (int ** distancias, int n, list<int> & resultado){
   map <int, list<int>> completados;
   set <int> todasLasCiudades;
