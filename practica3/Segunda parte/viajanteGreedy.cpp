@@ -2,9 +2,49 @@
 #include <fstream>
 #include <vector>
 #include <set>
+#include <map>
 #include <cmath>
+#include <list>
 
 using namespace std;
+
+int vecinosCercanos (int ** distancias, int n, list<int> & resultado){
+  map <int, list<int>> completados;
+  set <int> todasLasCiudades;
+
+  for (int i = 1 ; i <= n ; i++)
+    todasLasCiudades.insert(i);
+
+  for (int i = 1 ; i <= n ; i++){
+    set<int> candidatos = todasLasCiudades;
+    candidatos.erase(i);
+    list<int> seleccionados;
+    seleccionados.push_back(i);
+    int distancia = 0;
+
+    while (!candidatos.empty()){
+      int actual = seleccionados.back();
+      int masCercano = *candidatos.begin();
+      int min = distancias[actual][masCercano];
+
+      for (int c : candidatos){
+        int d = distancias[actual][c];
+        if (d < min){
+          masCercano = c;
+          min = d;
+        }
+      }
+
+      seleccionados.push_back(masCercano);
+      distancia += min;
+      candidatos.erase(masCercano);
+    }
+
+    completados[distancia] = seleccionados;
+  }
+
+  resultado = completados.begin() -> second;
+}
 
 void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
   for (int i = 0 ; i < ciudades.size() ; i++){
@@ -58,9 +98,19 @@ int main (int argc, char ** argv){
 
   calcularDistancias(distancias, ciudades);
 
-  for (int i = 1 ; i <= n ; i++){
-    for (int j = 1 ; j <= n ; j++)
-      cout << distancias[i][j] << " ";
-    cout << endl;
-  }
+  list <int> resultado;
+
+  int distanciaFinal = vecinosCercanos(distancias, n, resultado);
+
+  ofstream salida("salida");
+
+  salida << "DIMENSION: " << n << endl;
+
+  for (int ciudad : resultado)
+    salida << ciudad << endl;
+  
+  entrada.close();
+  salida.close();
+
+
 }
