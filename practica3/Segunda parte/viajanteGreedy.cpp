@@ -39,6 +39,7 @@ int vecinosCercanos (int ** distancias, int n, list<int> & resultado){
       distancia += min;
       candidatos.erase(masCercano);
     }
+    distancia += (distancias[seleccionados.front()][seleccionados.back()]);
 
     completados[distancia] = seleccionados;
   }
