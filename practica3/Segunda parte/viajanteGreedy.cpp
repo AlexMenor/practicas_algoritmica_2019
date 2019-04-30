@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 #include <fstream>
 #include <vector>
 #include <set>
@@ -9,6 +10,7 @@
 using namespace std;
 
 int insercion (int ** distancias, int n, list<int> & resultado, vector<pair<double, double>> ciudades){
+
   // Lo primero formamos el circuito inicial: norte, sur y este
   pair<int, double> norte;
   pair<int, double> sur;
@@ -47,54 +49,66 @@ int insercion (int ** distancias, int n, list<int> & resultado, vector<pair<doub
 
   while (!candidatos.empty()){
 
-    /* Tenemos que saber la distancia, la ciudad y
-    donde se introduce, por eso, para solo hacer
-    los cálculos una vez, los guardamos en un map y 
-    una vez sabemos cuál es el mejor (el primero del map)
-    tenemos toda la información y podemos completar
-    las operaciones que quedan en tiempo constante */
+    // Almacenan candidato, coste y posición
+    // de la inserción mas "barata" actual
+    int calculoMinimo = INT_MAX;
+    int candidataMinima;
+    list<int>::iterator posicionMinima;
 
-    map<int, pair<int, list<int>::iterator>> calculos;
-
+    // Probamos para cada candidato
     for (int c : candidatos){
+      // Almacenan posición y coste 
+      // de la inserción más barata para el 
+      // candidato actual
       list<int>::iterator insercionMinima;
       int distanciaMinima;
+      // Probamos todas las posibles posiciones
       for (auto it = resultado.begin() ; it != resultado.end() ; it++){
         list<int>::iterator siguiente = it;
         siguiente++;
+        // Si es el último, cerramos el circuito con el primero 
         if (siguiente == resultado.end())
           siguiente = resultado.begin();
 
+        // Como vamos a eliminar la arista existente, 
+        // la restamos al costo final de la inserción
         int diferencia = -distancias[*it][*siguiente];
+        // Sumamos la distancia del primero al candidato
+        // y del candidato al siguiente
         diferencia += distancias[*it][c];
         diferencia += distancias[c][*siguiente];
+
+        // Actualizamos la mejor posición de este candidato
         if (it == resultado.begin() || diferencia < distanciaMinima){
           distanciaMinima = diferencia;
           insercionMinima = it;
         }
       }
-      calculos[distanciaMinima] = pair<int,list<int>::iterator>(c, insercionMinima);
+
+      if (distanciaMinima < calculoMinimo){
+        calculoMinimo = distanciaMinima;
+        posicionMinima = insercionMinima;
+        candidataMinima = c;
+      }
     }
     
-    int cuantoCuestaLaInsercion = calculos.begin()->first;
-    int ciudadAInsertar = (calculos.begin()->second).first;
-    list<int>::iterator dondeInserto = (calculos.begin()->second).second;
-    candidatos.erase(ciudadAInsertar);
+    // Borramos de candidatos
+    candidatos.erase(candidataMinima);
 
-    dondeInserto++;
+    // Insertamos 
+    posicionMinima++;
+    resultado.insert(posicionMinima, candidataMinima);
 
-    resultado.insert(dondeInserto, ciudadAInsertar);
-
-    distanciaFinal += cuantoCuestaLaInsercion;
-
+    // Actualizamos la distancia con la inserción
+    distanciaFinal += calculoMinimo;
   }
 
   return distanciaFinal;
-
 }
 
 int vecinosCercanos (int ** distancias, int n, list<int> & resultado){
-  map <int, list<int>> completados;
+  int distanciaOptima = INT_MAX;
+  list<int> listaOptima;
   set <int> todasLasCiudades;
 
   for (int i = 1 ; i <= n ; i++)
@@ -126,11 +140,14 @@ int vecinosCercanos (int ** distancias, int n, list<int> & resultado){
     }
     distancia += (distancias[seleccionados.front()][seleccionados.back()]);
 
-    completados[distancia] = seleccionados;
+    if (distancia < distanciaOptima){
+      distanciaOptima = distancia;
+      listaOptima = seleccionados;
+    }
   }
 
-  resultado = completados.begin() -> second;
-  return completados.begin() -> first;
+  resultado = listaOptima;
+  return distanciaOptima;
 }
 
 void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
@@ -166,11 +183,11 @@ int main (int argc, char ** argv){
     exit (EXIT_FAILURE);
   }
 
-  cout << "****** VIAJANTE GREEDY *******" << endl << endl;
-  cout << "/tSelecciona una estrategia" << endl;
-  cout << "1) Vecino más cercano" << endl;
-  cout << "2) Inserción" << endl;
-  cout << "3) Una de nuestra cosecha" << endl;
+  cout << endl << "\t****** VIAJANTE GREEDY *******" << endl << endl;
+  cout << "\tSelecciona una estrategia" << endl;
+  cout << "\t1) Vecino más cercano" << endl;
+  cout << "\t2) Inserción" << endl;
+  cout << "\t3) Una de nuestra cosecha" << endl;
 
   int opcion;
   cin >> opcion;
@@ -218,13 +235,17 @@ int main (int argc, char ** argv){
     salida << ciudad << endl;
 
   cout << "*************************************" << endl;
-  cout << "Archivo " << nombreDeSalida << " creado!" << endl;
+  cout << "Archivo:" << nombreDeSalida << " creado!" << endl;
   cout << "Distancia: " << distanciaFinal << endl;
   cout << "*************************************" << endl << endl;
 
-  string archivoSolucion;
-  cout << "Si quieres, introduce el nombre de un archivo solución para comparar: " << endl;
-  cin >> archivoSolucion;
+  string archivoSolucion (argv[1]);
+
+  int posPunto = archivoSolucion.find_first_of('.');
+
+  archivoSolucion = archivoSolucion.substr(0, posPunto);
+
+  archivoSolucion += ".opt.tour";
 
   ifstream entradaSolucion (archivoSolucion);
 
@@ -245,12 +266,10 @@ int main (int argc, char ** argv){
     distanciaSolucion += distancias[ciudadesSolucion[n-1]][ciudadesSolucion[0]];
 
     cout << "La distancia de la solución 'optima' es: " << distanciaSolucion << endl;
-
   }
 
   entradaSolucion.close();
   entrada.close();
   salida.close();
-
 
 }

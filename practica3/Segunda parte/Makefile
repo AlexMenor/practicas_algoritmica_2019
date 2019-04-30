@@ -5,3 +5,6 @@ viajanteGreedy: viajanteGreedy.cpp
 
 probar16: viajanteGreedy
 	./viajanteGreedy datosTSP/ulysses16.tsp
+
+probar1000: viajanteGreedy
+	./viajanteGreedy datosTSP/pr1002.tsp
