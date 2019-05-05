@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{pdfpages}
+\usepackage{longtable}
 \usepackage{hyperref}
 \usepackage{listings}
 \graphicspath{{./img/}}
@@ -337,6 +338,43 @@ Tras realizar este estudio, podemos observar los siguientes resultados:
 	\caption{Gráfica comparativa de resultados}
 	\label{fig:comparativa}
 \end{figure}
+
+He aquí la tabla con los resultados de las ejecuciones representadas en la gráfica anterior:
+
+\begin{longtable}{|c|c|c|c|c|c|}
+	\hline
+	NºCiudades	& Solución óptima	& Vecino más cercano	& Inserción	& Jarvis v1	& Jarvis v2 \\ \hline
+	16	                & 80	            & 84	                & 80	    & 80	            & 80 \\ \hline
+	22	                & 84	            & 96	                & 83	    & 83	            & 81 \\ \hline
+	29	                & 9091	            & 9981	                & 9317	    & 9402	            & 9325 \\ \hline
+	48	                & 33551	            & 37928	                & 35163	    & 36714	            & 35863 \\ \hline
+	51	                & 461	            & 535	                & 520	    & 523	            & 513 \\ \hline
+	52	                & 7570	            & 8207	                & 8598	    & 7799	            & 8174 \\ \hline
+	70	                & 715	            & 837	                & 779	    & 787	            & 784 \\ \hline
+	76	                & 585	            & 644	                & 629	    & 642	            & 638 \\ \hline
+	96	                & 548	            & 640	                & 586	    & 618	            & 615 \\ \hline
+	100	                & 21345	            & 24758	                & 24960	    & 24803	            & 24049 \\ \hline
+	101	                & 701	            & 809	                & 752	    & 757	            & 770 \\ \hline
+	105	                & 14418	            & 16976	                & 16324	    & 15204	            & 16045 \\ \hline
+	120	                & 1732	            & 1907	                & 1905	    & 1896	            & 1939 \\ \hline
+	130	                & 6179	            & 7076	                & 7128	    & 6972	            & 7081 \\ \hline
+	150	                & 6612	            & 7073	                & 7496	    & 7616	            & 7614 \\ \hline
+	225	                & 3854	            & 4682	                & 4346	    & 4458	            & 4523 \\ \hline
+	280	                & 2613	            & 3120	                & 3055	    & 3173	            & 3082 \\ \hline
+	442	                & 50850	            & 59016	                & 58747	    & 59908	            & 5850 \\ \hline
+	561	                & 19610	            & 18498	                & 17076	    & 18661	            & 18023 \\ \hline
+	666	                & 4238	            & 3973	                & 3784	    & 3965	            & 3957 \\ \hline
+	1002	            & 259439	        & 312609	            & 296711	& 325604	        & 309215 \\ \hline
+	2392	            & 378761	        & 459486	            & 451725	& 487131	        & 458975 \\ \hline
+\end{longtable}
+
+Y las medias de los costes:
+
+\begin{longtable}{|c|c|c|c|c|}
+	\hline
+	Óptima            & Vecino más cercano & Inserción     & Jarvis v1 & Jarvis v2 \\ \hline
+	37410,7727272727 &	44497,0454545455 &	43171,0909090909 &	46218 &	41690,7272727273 \\ \hline
+\end{longtable}
 
 Como conclusión, podemos observar como, aunque en general el algoritmo basado en la selección del vecino más cercano parece el más óptimo, no podemos afirmar que lo sea. Dependiendo del mapa obtenemos resultados muy variados; en algunos destaca el algoritmo del vecino, pero en muchos otros es menos óptimo que el resto. Esto ocurre debido a que la optimalidad de nuestros algoritmos no solo depende del tamaño del problema, sino que también depende de otros factores como la disposición de las ciudades en el mapa.
 
