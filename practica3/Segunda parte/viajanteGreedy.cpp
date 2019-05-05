@@ -120,6 +120,68 @@ int nuestroAlgoritmo(int ** distancias, int n, list<int> & resultado, vector<pai
   return distancia;
 }
   
+int nuestroAlgoritmoConOtraEstrategia(int ** distancias, int n, list<int> & resultado, vector<pair<double,double>> ciudades){
+  int distancia = convexHull(distancias, ciudades, resultado);
+
+  set<int> candidatos; 
+
+  for (int i = 1 ; i <= n ; i++)
+    candidatos.insert(i);
+  for (int r : resultado)
+    candidatos.erase(r);
+
+  
+  while (!candidatos.empty()){
+    
+    int ciudadMasCercana;
+    int minimaDistancia = INT_MAX;
+
+    for (int c : candidatos){
+      auto it = resultado.begin();
+      int dMasCercana = distancias[c][*it];
+      it++;
+      while (it != resultado.end()){
+        if (distancias[c][*it] < dMasCercana)
+          dMasCercana = distancias[c][*it];
+        it++;
+      }
+      
+      if (dMasCercana < minimaDistancia){
+        minimaDistancia = dMasCercana;
+        ciudadMasCercana = c;
+      }
+    }
+
+    list<int>::iterator insercionMasBarata;
+    int cuantoCuesta;
+
+    for (auto it = resultado.begin() ; it != resultado.end() ; it++){
+      auto siguiente = it;
+      siguiente++;
+
+      if (siguiente == resultado.end())
+        siguiente = resultado.begin();
+      
+      int coste = -distancias[*it][*siguiente];
+
+      coste += distancias[*it][ciudadMasCercana];
+      coste += distancias[ciudadMasCercana][*siguiente];
+
+      if (it == resultado.begin() || coste < cuantoCuesta){
+        insercionMasBarata = it;
+        cuantoCuesta = coste;
+      }
+    }
+
+    candidatos.erase(ciudadMasCercana);
+    distancia += cuantoCuesta;
+    insercionMasBarata++;
+    resultado.insert(insercionMasBarata, ciudadMasCercana);
+    
+  }
+  
+  return distancia;
+}
 
 int insercion (int ** distancias, int n, list<int> & resultado, vector<pair<double, double>> ciudades){
 
@@ -300,11 +362,12 @@ int main (int argc, char ** argv){
   cout << "\t1) Vecino más cercano" << endl;
   cout << "\t2) Inserción" << endl;
   cout << "\t3) Una de nuestra cosecha" << endl;
+  cout << "\t4) Una de nuestra cosecha V2" << endl;
 
   int opcion;
   cin >> opcion;
 
-  while (opcion < 1 || opcion > 3)
+  while (opcion < 1 || opcion > 4)
     cin >> opcion;
   
   entrada.ignore(256, ' ');
@@ -341,6 +404,10 @@ int main (int argc, char ** argv){
   else if (opcion == 3){
     distanciaFinal = nuestroAlgoritmo(distancias, n, resultado, ciudades);
     nombreDeSalida += "->nuestroAlgoritmo";
+  }
+  else if (opcion == 4){
+    distanciaFinal = nuestroAlgoritmoConOtraEstrategia(distancias, n, resultado, ciudades);
+    nombreDeSalida += "->nuestroV2";
   }
 
   ofstream salida(nombreDeSalida);
