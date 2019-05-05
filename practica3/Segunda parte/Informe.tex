@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{pdfpages}
+\usepackage{hyperref}
 \usepackage{listings}
 \graphicspath{{./img/}}
 
@@ -44,8 +45,8 @@
 	\maketitle
 	
 	\section{Vecino más cercano}
+	\subsection{Descripción}
 	La primera heurística que usaremos es bastante sencilla: escogeremos una ciudad inicial y a partir de ahí seleccionaremos la ciudad más cercana a la última escogida (que no haya sido seleccionada previamente) hasta que no queden ciudades por añadir al circuito. Haremos varias ejecuciones, empezando cada vez de una ciudad distinta, y escogeremos la opción con distancia mínima.
-	
 	\begin{lstlisting}[caption=Pseudocódigo de la primera heurística, language=c]
 	
 	VecinosCercanos(distancias, n, resultado){
@@ -88,11 +89,23 @@
 		}
 		resultado = completados.begin()->second;
 	}
+
 	\end{lstlisting}
+	\subsection{Resultados}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=8cm]{img/vecinos_cercanos}
+		\caption{Vecinos cercanos para tamaño 442}
+		\label{fig:vecinos_cercanos}
+	\end{figure}
+\subsection{Eficiencia}
+Este algoritmo es de orden $O(n^2)$, es bastante eficiente si tenemos en cuenta que en cada iteración hay menos ciudades entre las que hallar la ciudad más cercana. De todos los que analizaremos este es el más eficiente.
 	\section{Inserción más económica}
+	\subsection{Descripción}
 	En este segundo algoritmo, empezamos con un circuito que contiene tres ciudades y posteriormente añadimos las ciudades restantes al recorrido. En cada iteración del algoritmo se busca la ciudad que tenga la inserción con menos coste en el circuito ya existente. Entendiendo como coste, la distancia que hay entre la ciudad a (ya existente) c (a insertar) más la distancia entre c y b(ya existente) menos la que hay entre a y b.
 	
 	\begin{lstlisting}[caption=Pseudocódigo de la segunda heurística, language=c]
+		
 		Insercion(distancias, n, resultado, ciudades){
 			n = buscarCiudadNorte();
 			s = buscarCiudadSur();
@@ -144,20 +157,34 @@
 			return distanciaFinal;
 		}
 	\end{lstlisting}
+	\subsection{Resultados}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=8cm]{img/insercion_economica}
+		\caption{Inserción económica para tamaño 442}
+		\label{fig:insercion_economica}
+	\end{figure}
+	\subsection{Eficiencia}
+	Si bien la inserción económica representa en muchos casos una mejoría respecto a los vecinos cercanos en resultados, es peor en eficiencia. En este caso estamos hablando de un orden de $O(n^3)$
 \section{Estrategia adicional}
-	Hemos diseñado para este apartado dos algoritmos de inserción, la diferencia con respecto el segundo apartado es el circuito parcial del que partimos. \textbf{Los dos tienen en común la parte que describimos a continuación:}
+	Hemos diseñado para este apartado dos algoritmos de inserción, la diferencia con respecto el segundo apartado es el circuito parcial del que partimos. Además de la eficiencia, (ambos son de orden $O(n^2)$)
 	
 	
 	\
 	
-	En vez de elegir tres puntos (norte, sur y este), utilizamos el algoritmo de Jarvis para obtener la envolvente convexa, \textit{convex hull}, del conjunto de ciudades dadas.
+	En vez de elegir tres puntos (norte, sur y este), utilizamos el algoritmo de Jarvis para obtener la envolvente convexa, \textit{convex hull}, del conjunto de ciudades dadas. Este algoritmo pertenece al orden $O(n^2)$ de eficiencia.
 	
 	\
 	
-	Vamos a empezar definiendo qué es un \textbf{conjunto convexo}. Un conjunto es convexo si dados dos puntos cualesquiera, el segmento que los une está contenido en el conjunto. 
+	Vamos a empezar definiendo qué es un \textbf{conjunto convexo}:
+	
 	\
 	
-	Asímismo una \textbf{envolvente convexa} es el menor conjunto convexo de un conjunto de puntos que los contiene.
+	\textit{Un conjunto es convexo si dados dos puntos cualesquiera, el segmento que los une está contenido en el conjunto.} 
+	
+	\
+	
+\textit{	Una \textbf{envolvente convexa} es el menor conjunto convexo de un conjunto de puntos que los contiene.}
 	
 	\
 	
@@ -299,4 +326,24 @@ return distancia;
 	\caption{Resultado con estrategia de inserción ''más cercana'' y partiendo de la envolvente convexa de pr1002.tsp}
 	\label{fig:convex_second}
 	\end{figure}	
+
+
+\section{Comparación}
+Para acabar, mostramos una gráfica comparativa de los \textbf{resultados respecto a las soluciones} proporcionadas por el profesor:
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=6cm]{img/comparativa}
+	\caption{Gráfica comparativa de resultados}
+	\label{fig:comparativa}
+\end{figure}
+
+
+\section{Fuentes}
+Para acabar mencionar brévemente de dónde nos hemos informado para implementar los algoritmos del apartado 3:
+\begin{itemize}
+ \item \href{https://en.wikipedia.org/wiki/Convex_hull}{Página de wikipedia sobre la envoltura convexa}
+ \item \href{https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-203j-logistical-and-transportation-planning-methods-fall-2006/lecture-notes/lec16.pdf}{MIT Open Course Ware sobre heurísticas del TSP}
+ \item \href{https://en.wikipedia.org/wiki/Gift_wrapping_algorithm}{Página de la wikipedia sobre el algoritmo de Jarvis}
+\end{itemize}
+
 \end{document}
