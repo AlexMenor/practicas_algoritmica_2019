@@ -43,10 +43,11 @@
 \begin{document}
 	\maketitle
 	
-	\section{Primera heurística}
-	La primera heurística que usaremos es bastante sencilla: escogeremos una ciudad inicial y a partir de ahí seleccionaremos la ciudad más cercana a la última escogida (que no haya sido seleccionada previamente) hasta que no queden ciudades por añadir al circuito. Haremos varias ejecuciones, empezando cada vez de una ciudad distinta, y escogeremos la opción con menos coste.
+	\section{Vecino más cercano}
+	La primera heurística que usaremos es bastante sencilla: escogeremos una ciudad inicial y a partir de ahí seleccionaremos la ciudad más cercana a la última escogida (que no haya sido seleccionada previamente) hasta que no queden ciudades por añadir al circuito. Haremos varias ejecuciones, empezando cada vez de una ciudad distinta, y escogeremos la opción con distancia mínima.
 	
-	\begin{lstlisting}[caption=Pseudocódigo de la primera heurística]
+	\begin{lstlisting}[caption=Pseudocódigo de la primera heurística, language=c]
+	
 	VecinosCercanos(distancias, n, resultado){
 		completados;
 		todas_las_ciudades;
@@ -88,10 +89,10 @@
 		resultado = completados.begin()->second;
 	}
 	\end{lstlisting}
-	\section{Segunda Heurística}
-	La segunda heurística consiste en conseguir un recorrido parcial que contenga algunas ciudades y posteriormente añadir las ciudades restantes al recorrido. Nosotros hemos buscado la ciudad que esté más al Norte, la que esté más al Sur y la que esté más al Este y a partir de estas tres ciudades hemos formado el resto del circuito.
+	\section{Inserción más económica}
+	En este segundo algoritmo, empezamos con un circuito que contiene tres ciudades y posteriormente añadimos las ciudades restantes al recorrido. En cada iteración del algoritmo se busca la ciudad que tenga la inserción con menos coste en el circuito ya existente. Entendiendo como coste, la distancia que hay entre la ciudad a (ya existente) c (a insertar) más la distancia entre c y b(ya existente) menos la que hay entre a y b.
 	
-	\begin{lstlisting}[caption=Pseudocódigo de la segunda heurística]
+	\begin{lstlisting}[caption=Pseudocódigo de la segunda heurística, language=c]
 		Insercion(distancias, n, resultado, ciudades){
 			n = buscarCiudadNorte();
 			s = buscarCiudadSur();
@@ -143,4 +144,159 @@
 			return distanciaFinal;
 		}
 	\end{lstlisting}
+\section{Estrategia adicional}
+	Hemos diseñado para este apartado dos algoritmos de inserción, la diferencia con respecto el segundo apartado es el circuito parcial del que partimos. \textbf{Los dos tienen en común la parte que describimos a continuación:}
+	
+	
+	\
+	
+	En vez de elegir tres puntos (norte, sur y este), utilizamos el algoritmo de Jarvis para obtener la envolvente convexa, \textit{convex hull}, del conjunto de ciudades dadas.
+	
+	\
+	
+	Vamos a empezar definiendo qué es un \textbf{conjunto convexo}. Un conjunto es convexo si dados dos puntos cualesquiera, el segmento que los une está contenido en el conjunto. 
+	\
+	
+	Asímismo una \textbf{envolvente convexa} es el menor conjunto convexo de un conjunto de puntos que los contiene.
+	
+	\
+	
+	De esta envolvente convexa nos interesan las ciudades que hacen de límite para empezar con el circuito que forman, el algoritmo de inserción.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=8cm]{img/envolvente_convexa}
+		\caption{Envolvente convexa del conjunto de puntos pr1002.tsp}
+		\label{fig:envolvente_convexa}
+	\end{figure}
+	\subsection{Inserción de la ciudad más lejana}
+	Partiendo del circuito que acabamos de explicar, vamos a insertar ciudades del conjunto de candidatos (al principio las que no están en el circuito inicial) con la estrategia de insertar la ciudad más lejana respecto al conjunto de ciudades seleccionadas.
+	
+	\
+	
+	Es decir, primero iteramos por las seleccionadas para hallar la distancia a la que está la ciudad candidata de la ciudad mas lejana en el conjunto de seleccionadas.
+	Después, de todas estas distancias, escogemos la mayor y la insertamos en el lugar más óptimo posible igual que en el segundo apartado.
+	\begin{lstlisting}[language=c, caption =Pseudocódigo de inserción con envoltura convexa y ciudad más lejana]
+	
+	circuitoInicial = crearEnvolturaConvexa(ciudades)
+	
+	// Contiene todas las ciudades menos las que forman parte del circuito inicial
+	candidatos = crear.conjunto()
+	
+	mientras(!candidatos.empty()){
+		int ciudadMasLejana;
+		int maximaDistancia;
+		
+		// Hallamos la ciudad mas lejana respecto
+		// al conjunto de seleccionadas
+		for (int c :candidatos){
+			int dMasLejana;
+			for (int s : seleccionadas){
+				if (distancia(c,s) > dMasLejana)
+					dMasLejana = distancia(c,s);
+			}
+			if (dMasLejana > maximaDistancia)
+				ciudadMasLejana = c;
+		}
+		list<int>::iterator insercionMasBarata;
+		int cuantoCuesta;
+		
+		for (auto it = resultado.begin() ; it != resultado.end() ; it++){
+		auto siguiente = it;
+		siguiente++;
+		
+		if (siguiente == resultado.end())
+		siguiente = resultado.begin();
+		
+		int coste = -distancias[*it][*siguiente];
+		
+		coste += distancias[*it][ciudadMasLejana];
+		coste += distancias[ciudadMasLejana][*siguiente];
+		
+		if (it == resultado.begin() || coste < cuantoCuesta){
+			insercionMasBarata = it;
+			cuantoCuesta = coste;
+		}
+		
+		
+		candidatos.erase(ciudadMasLejana);
+		distancia += cuantoCuesta;
+		insercionMasBarata++;
+		resultado.insert(insercionMasBarata, ciudadMasLejana);	
+	}
+	return distancia;
+
+	\end{lstlisting}
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/convex_first}
+	\caption{Resultado con estrategia de inserción ''mas lejana'' y partiendo de la envolvente convexa de pr1002.tsp}
+	\label{fig:convex_first}
+	\end{figure}
+	\subsection{Inserción de la ciudad más cercana}
+De nuevo partimos del circuito que hemos obtenido con la envolvente convexa, pero ahora vamos a escoger para la inserción la ciudad que más cerca esté del conjunto de seleccionadas.
+
+\
+
+Igual que antes, primero iteramos por las seleccionadas para hallar la distancia a la que está la ciudad candidata de la ciudad mas cercana en el conjunto de seleccionadas.
+Después, de todas estas distancias, escogemos la menor y la insertamos en el lugar más óptimo posible igual que en el segundo apartado.
+\begin{lstlisting}[language=c, caption =Pseudocódigo de inserción con envoltura convexa y ciudad más lejana]
+
+circuitoInicial = crearEnvolturaConvexa(ciudades)
+
+// Contiene todas las ciudades menos las que forman parte del circuito inicial
+candidatos = crear.conjunto()
+
+mientras(!candidatos.empty()){
+int ciudadMasCercana;
+int minimaDistancia = INT_MAX;
+
+// Hallamos la ciudad mas cercana respecto
+// al conjunto de seleccionadas
+for (int c :candidatos){
+int dMasCercana;
+for (int s : seleccionadas){
+if (distancia(c,s) < dMasCercana)
+dMasCercana = distancia(c,s);
+}
+if (dMasCercana < minimaDistancia)
+ciudadMasCercana = c;
+}
+list<int>::iterator insercionMasBarata;
+int cuantoCuesta;
+
+for (auto it = resultado.begin() ; it != resultado.end() ; it++){
+auto siguiente = it;
+siguiente++;
+
+if (siguiente == resultado.end())
+siguiente = resultado.begin();
+
+int coste = -distancias[*it][*siguiente];
+
+coste += distancias[*it][ciudadMasLejana];
+coste += distancias[ciudadMasLejana][*siguiente];
+
+if (it == resultado.begin() || coste < cuantoCuesta){
+insercionMasBarata = it;
+cuantoCuesta = coste;
+}
+
+
+candidatos.erase(ciudadMasLejana);
+distancia += cuantoCuesta;
+insercionMasBarata++;
+resultado.insert(insercionMasBarata, ciudadMasLejana);	
+}
+return distancia;
+
+\end{lstlisting}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[totalheight=8cm]{img/convex_second}
+	\caption{Resultado con estrategia de inserción ''más cercana'' y partiendo de la envolvente convexa de pr1002.tsp}
+	\label{fig:convex_second}
+	\end{figure}	
 \end{document}
