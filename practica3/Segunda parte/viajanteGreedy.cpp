@@ -9,6 +9,117 @@
 
 using namespace std;
 
+int orientation (pair<double,double> a, pair<double,double> b, pair<double,double> c){
+
+  int val = (b.second - a.second) * (c.first - b.first) - 
+            (b.first - a.first) * (c.second - b.second);
+
+  if (val == 0)
+    return 0;
+  else
+    return (val > 0) ? 1 : 2;
+}
+
+int convexHull (int ** distancias, vector<pair<double,double>> ciudades, list<int> & resultado){
+  int toReturnDistancia = 0;
+  // Empezamos encontrando la ciudad más a la izquierda
+  int leftmost = 1;
+  int x = ciudades[0].first;
+  for (int i = 2 ; i <= ciudades.size() ; i++){
+    if (ciudades[i-1].first < x){
+      leftmost = i;
+      x = ciudades[i-1].first;
+    }
+  }
+
+  resultado.push_back(leftmost);
+
+  bool hemosTerminado = false;
+  while (!hemosTerminado){
+    int actual = resultado.back();
+    int seleccionado = (actual + 1) % ciudades.size();
+    // Seleccionamos el siguiente
+    for (int i = 1 ; i <= ciudades.size() ; i++){
+      if (orientation (ciudades[actual-1], ciudades[i-1], ciudades[seleccionado-1]) == 2)
+        seleccionado = i;
+    }
+
+    toReturnDistancia += distancias[actual][seleccionado];
+
+    hemosTerminado = seleccionado == leftmost;
+
+    if (!hemosTerminado)
+      resultado.push_back(seleccionado);
+    
+  }
+
+  return toReturnDistancia;
+}
+
+int nuestroAlgoritmo(int ** distancias, int n, list<int> & resultado, vector<pair<double,double>> ciudades){
+  int distancia = convexHull(distancias, ciudades, resultado);
+
+  set<int> candidatos; 
+
+  for (int i = 1 ; i <= n ; i++)
+    candidatos.insert(i);
+  for (int r : resultado)
+    candidatos.erase(r);
+
+  
+  while (!candidatos.empty()){
+    
+    int ciudadMasLejana;
+    int maximaDistancia = 0;
+
+    for (int c : candidatos){
+      auto it = resultado.begin();
+      int dMasLejana = distancias[c][*it];
+      it++;
+      while (it != resultado.end()){
+        if (distancias[c][*it] > dMasLejana)
+          dMasLejana = distancias[c][*it];
+        it++;
+      }
+      
+      if (dMasLejana > maximaDistancia){
+        maximaDistancia = dMasLejana;
+        ciudadMasLejana = c;
+      }
+    }
+
+    list<int>::iterator insercionMasBarata;
+    int cuantoCuesta;
+
+    for (auto it = resultado.begin() ; it != resultado.end() ; it++){
+      auto siguiente = it;
+      siguiente++;
+
+      if (siguiente == resultado.end())
+        siguiente = resultado.begin();
+      
+      int coste = -distancias[*it][*siguiente];
+
+      coste += distancias[*it][ciudadMasLejana];
+      coste += distancias[ciudadMasLejana][*siguiente];
+
+      if (it == resultado.begin() || coste < cuantoCuesta){
+        insercionMasBarata = it;
+        cuantoCuesta = coste;
+      }
+    }
+
+    candidatos.erase(ciudadMasLejana);
+    distancia += cuantoCuesta;
+    insercionMasBarata++;
+    resultado.insert(insercionMasBarata, ciudadMasLejana);
+    
+  }
+  
+  return distancia;
+}
+  
+
 int insercion (int ** distancias, int n, list<int> & resultado, vector<pair<double, double>> ciudades){
 
   // Lo primero formamos el circuito inicial: norte, sur y este
@@ -164,124 +275,6 @@ void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
   }
 }
 
-int generarResultados (list<pair<int, int>> & s, list<int> & r, int ** d, int n){
-	list<pair<int, int>>::iterator it;
-
-	// Buscamos un iterador a uno de los extremos para poder empezar la búsqueda:
-	bool encontrado=false;
-	int apariciones;
-	int buscado, a_insertar;
-	for (int i=1; i<=n && !encontrado; i++){
-		apariciones=0;
-
-		for (auto tmp = s.begin(); tmp != s.end(); tmp++){
-			if (tmp->first == i || tmp->second == i){
-				if (tmp->first == i){
-					buscado = tmp->second;
-					a_insertar = tmp->first;
-				}
-				else {
-					buscado = tmp->first;
-					a_insertar = tmp->second;
-				}
-				apariciones++;
-				it = tmp;
-			}
-		}
-		encontrado = (apariciones==1);
-	}
-	
-	// Inicializamos variables a partir del primer elemento seleccionado:
-	r.push_back(a_insertar);
-	int distancia = d[buscado][a_insertar];
-	s.erase(it);
-	it = s.begin();
-
-	// Añadimos el resto al r:
-	while (!s.empty()){
-		if (it->first == buscado || it->second == buscado){
-			if (it->first == buscado){
-				buscado = it->second;
-				r.push_back(it->first);
-			}
-			else {
-				buscado = it->first;
-				r.push_back(it->second);
-			}
-			distancia+=d[it->first][it->second];
-			s.erase(it);
-			it = s.begin();
-		}
-		else	it++;
-		//if (it == s.end())
-			//it = s.begin();
-	}
-	distancia+=d[r.front()][r.back()];
-
-	return (distancia);
-}
-
-//*********************************************************************************
-
-void cambiarComponenteConexa (vector<int> & c, pair<int, int> x){
-	int nuevo = c[x.first];
-	int a_cambiar = c[x.second];
-
-	for (int i=1; i<c.size(); i++)
-		if (c[i] == a_cambiar)
-			c[i] = nuevo;
-}
-
-//*********************************************************************************
-
-bool esFactibleKruskal (list<pair<int, int>> s, pair<int, int> x, vector<int> cc){
-	int flag_f = 0, flag_s=0;
-
-	if (cc[x.first] == cc[x.second])
-		flag_f = 2; //Para invalidarlo autom.
-
-	for (auto it=s.begin(); it!=s.end() && flag_f < 2 && flag_s < 2; it++){
-		if (x.first == it->first || x.first == it->second)
-			flag_f++;
-		if (x.second == it->first || x.second == it->second)
-			flag_s++;
-	}
-	
-	return (flag_f != 2 && flag_s != 2);
-}
-
-//*********************************************************************************
-
-int kruskal (int ** distancias, int n, list<int> & resultado){
-	multimap<int, pair<int, int>> candidatos;	// Los ordenará por distancia
-	list<pair<int, int>> seleccionados;	
-
-	for (int i=1; i<=n; i++){
-		for (int j=i+1; j<=n; j++)
-			candidatos.insert(pair<int,pair<int,int>>(distancias[i][j], pair<int,int>(i,j)));
-	}
-
-	vector<int>componentesConexas;
-	componentesConexas.push_back(-1); // Valor basura para la casilla 0 (no usada)
-
-	for (int i=1; i<=n; i++)
-		componentesConexas.push_back(i);
-
-	while (!candidatos.empty()){
-		multimap<int,pair<int,int>>::iterator it = candidatos.begin();
-		pair<int,pair<int,int>> val = *it;
-		candidatos.erase(it);
-
-		if (esFactibleKruskal (seleccionados, val.second, componentesConexas)){
-			seleccionados.push_back(pair<int, int>(val.second));
-			cambiarComponenteConexa (componentesConexas, val.second);
-		}
-	}
-
-	int distancia = generarResultados(seleccionados, resultado, distancias, n);
-	return distancia;
-}
-
 // El programa tiene como argumento el fichero
 // con el "mapa", después se podrá seleccionar
 // una de las alternativas, se generará en el
@@ -345,8 +338,8 @@ int main (int argc, char ** argv){
     nombreDeSalida += "->insercion";
   }
   else if (opcion == 3){
-   distanciaFinal = kruskal(distancias, n, resultado); 
-   nombreDeSalida += "->kruskal";
+    distanciaFinal = nuestroAlgoritmo(distancias, n, resultado, ciudades);
+    nombreDeSalida += "->nuestroAlgoritmo";
   }
 
   ofstream salida(nombreDeSalida);

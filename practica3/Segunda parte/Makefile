@@ -8,3 +8,6 @@ probar16: viajanteGreedy
 
 probar1000: viajanteGreedy
 	./viajanteGreedy datosTSP/pr1002.tsp
+
+debugging: viajanteGreedy.cpp
+	g++ -g $< -o viajanteGreedy -std=c++11
