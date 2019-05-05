@@ -93,11 +93,54 @@
 	
 	\begin{lstlisting}[caption=Pseudocódigo de la segunda heurística]
 		Insercion(distancias, n, resultado, ciudades){
-			for(i=1; i<=n; i++){
-				c = ciudades[i-1];
-				
-				if()
+			n = buscarCiudadNorte();
+			s = buscarCiudadSur();
+			e = buscarCiudadEste();
+			
+			resultado.aniade(n,s,e);
+			distanciaFinal = distancias[n][e]+distancias[e][s]+distancias[s][n];
+			
+			for(int i=1;i<=n;i++){
+				if(i!=n && i!=s && i!=e){
+					candidates.insert(i);
+				}
 			}
+			
+			while(!candidatos.empty()){
+				for(c:candidatos){
+					for(it=resultado.begin(); it!=resultado.end();it++){
+						siguiente = it;
+						siguiente++;
+						
+						if(siguiente == resultado.end())
+							siguiente = resultado.begin();
+							
+						diferencia = -distancias[*it][*siguiente];
+						diferencia += distancias[*it][c];
+						diferencia += distancias[c][*siguiente];
+						
+						 if (it == resultado.begin() || diferencia < distanciaMinima){
+						distanciaMinima = diferencia;
+						insercionMinima = it;
+						}
+					}
+					if (distanciaMinima < calculoMinimo){
+					calculoMinimo = distanciaMinima;
+					posicionMinima = insercionMinima;
+					candidataMinima = c;
+					}
+				}
+				// Borramos de candidatos
+				candidatos.erase(candidataMinima);
+				
+				// Insertamos 
+				posicionMinima++;
+				resultado.insert(posicionMinima, candidataMinima);
+				
+				// Actualizamos la distancia con la insercion
+				distanciaFinal += calculoMinimo;
+			}
+			return distanciaFinal;
 		}
 	\end{lstlisting}
 \end{document}
