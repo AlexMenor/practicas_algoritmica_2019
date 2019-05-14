@@ -4,7 +4,6 @@
 #include <fstream>
 #include <stdlib.h>
 #include <vector>
-#include <map>
 
 using namespace std::chrono;
 using namespace std;
@@ -27,8 +26,6 @@ void generarAfinidades(vector<vector<int>> & afinidades, int n){
       afinidades[j][i] = afinidad;
     }
   }
-
-
 }
 
 class Solucion {
@@ -39,22 +36,43 @@ class Solucion {
     int maximoValor;
     vector<int> solucionOptima;
     int afinidadActual;
-    vector<int> comensalesYaSentados;
+    vector<bool> comensalesYaSentados;
+    vector<int> afinidadesOptimistas;
+    int afinidadAcabarMesa;
   public:
     Solucion(vector<vector<int>> & afinidadesDadas, int nDada)
-    : afinidades(afinidadesDadas), n(nDada), 
-    maximoValor(0), afinidadActual(0), comensalesYaSentados(0, n)
+    : afinidades(afinidadesDadas), n(nDada), maximoValor(0), 
+    afinidadActual(0), comensalesYaSentados(nDada, false), x(nDada, 21)
     {
       // TODO: Solución óptima y maximoValor deberían ajustarse
       // de inicio a una solución con el algoritmo greedy
 
 
-      x.reserve(n);
-
       // Empezamos con el comensal 0 ya sentado
       // para no tener soluciones equivalentes
       x[0] = 0;
-      comensalesYaSentados[0] = 1;
+      comensalesYaSentados[0] = true;
+      
+      // Afinidad optimista de cerrar la mesa
+      afinidadAcabarMesa = 0;
+      for (int i = 0 ; i < n ; i++)
+        if (afinidades[0][i] > afinidadAcabarMesa)
+          afinidadAcabarMesa = afinidades[0][i];
+
+      // Afinidades optimistas al sentar cada comensal
+      // las precalculamos al empezar
+      // para no hacerlo en cada ejecución de la cota local
+
+      for (int i = 0 ; i < n ; i++){
+        pair<int,int> tuplaDelComensal (0,0);
+        for (int j = 0 ; j < n ; j++){
+          if (afinidades[i][j] > tuplaDelComensal.first)
+            tuplaDelComensal.first = afinidades[i][j];
+          else if (afinidades[i][j] > tuplaDelComensal.second)
+            tuplaDelComensal.second = afinidades[i][j];
+        }
+        afinidadesOptimistas.push_back(ceil((tuplaDelComensal.first + tuplaDelComensal.second) / 2));
+      }
     }
 
     bool hemosTerminado (int k){
@@ -71,30 +89,73 @@ class Solucion {
       if (comensalesYaSentados[x[k]])
         return false;
 
-      // TODO: Comprobar que la cota local > cota global
-
-      // Sumamos la afinidad del actual y el anterior
+      // Lo sentamos temporalmente (o no)
+      // para la función cotaLocal
+      
+      comensalesYaSentados[x[k]] = true;
       afinidadActual += afinidades[x[k]][x[k-1]];
+
+      if (cotaLocal(k) + afinidadActual > maximoValor)
+        return true;
+      
+      // Lo acabamos levantando si no se cumple la condición
+      // de arriba
+      comensalesYaSentados[x[k]] = false;
+      afinidadActual -= afinidades[x[k]][x[k-1]];
+      return false;
     }
     bool todosGenerados(int k){
       return x[k] == n; // END
     }
-    int decision(int k) const {
-      return k < n && k >= 0 ? x[k] : -1;
-    }
 
     void procesaSolucion(){
-      //TODO: Acordarse de sumar la afinidad entre el primer y último comensal
+      // Sumamos la afinidad del último con el primero
+      afinidadActual += afinidades[0][x[n-1]];
+
+      // Actualizamos la cota global si encontramos una
+      // solución mejor
+      if (afinidadActual > maximoValor){
+        maximoValor = afinidadActual;
+        solucionOptima = x;
+      }
+
+      afinidadActual -= afinidades[0][x[n-1]];
     }
     void imprimeSolucion (){
+      cout << "Con esta matriz de afinidades:" << endl;
 
+      for (int i = 0 ; i < n ; i++){
+        for(int j = 0 ; j < n ; j++)
+          cout << afinidades[i][j] << " ";
+        cout << endl;
+      }
+
+      cout << "La mejor asignación de asientos, con afinidad: "
+      << maximoValor*2 << " es:" << endl;
+
+      for (int i = 0 ; i < n ; i++)
+        cout << solucionOptima[i] << " ";
+      cout << endl;
     }
 
     void vueltaAtras (int k){
       afinidadActual -= afinidades[x[k]][x[k-1]];
+      comensalesYaSentados[x[k]] = false;
     }
 
     int cotaLocal (int k){
+      int toReturn = 0;
+
+      // Sumamos la afinidad optimista que "esperamos"
+      // de los comensales no sentados aún
+      for (int i = 0 ; i < n ; i++){
+        if (!comensalesYaSentados[i])
+          toReturn += afinidadesOptimistas[i];
+      }
+
+      // Sumamos la afinidad optimista del
+      // último con el primero
+      return toReturn + afinidadAcabarMesa;
     }
 };
 
@@ -140,7 +201,9 @@ int main (int argc, char ** argv){
       time_point<high_resolution_clock> tantes;
       time_point<high_resolution_clock> tdespues;
       tantes = high_resolution_clock::now();
-
+      Solucion sol(afinidades, n);
+      backtracking(sol, 1);
+      sol.imprimeSolucion();
       tdespues = high_resolution_clock::now();
 
       duration<double> t = duration_cast<duration<double>> (tdespues - tantes);
