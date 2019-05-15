@@ -4,6 +4,8 @@
 #include <fstream>
 #include <stdlib.h>
 #include <vector>
+#include <map>
+#include <set>
 
 using namespace std::chrono;
 using namespace std;
@@ -28,6 +30,47 @@ void generarAfinidades(vector<vector<int>> & afinidades, int n){
   }
 }
 
+int cenaDeGalaGreedy (const vector<vector<int>> & afinidades, vector<int> & resultado){
+	set<int> posiblesCandidatos;
+	int afin_global=0;
+
+	// Generamos todos los candidatos posibles.
+	for (int i=0; i<afinidades.size(); i++)
+		posiblesCandidatos.insert(i);
+
+	for (int i=0; i<afinidades.size(); i++){
+		set<int> candidatos = posiblesCandidatos;
+		vector<int> seleccionados;
+		int suma_afin=0;
+
+		candidatos.erase(i);
+		seleccionados.push_back(i);
+
+		// Generamos una solución partiendo del comensal i.
+		while (!candidatos.empty()){
+			int actual = seleccionados.back();
+			int pos_mafin = *(candidatos.begin());
+			int max_afin = afinidades[actual][pos_mafin];
+
+			for (auto it = candidatos.begin(); it != candidatos.end(); it++){
+				if (afinidades[actual][*it] > max_afin){
+					max_afin = afinidades[actual][*it];
+					pos_mafin = *it;
+				}
+			}
+			candidatos.erase(pos_mafin);
+			seleccionados.push_back(pos_mafin);
+			suma_afin+=max_afin;
+		}
+		if (suma_afin>afin_global){
+			afin_global=suma_afin;
+			resultado=seleccionados;
+		}
+	}
+	
+	return (afin_global);
+}
+
 class Solucion {
   private:
     vector<int> x;
@@ -44,9 +87,7 @@ class Solucion {
     : afinidades(afinidadesDadas), n(nDada), maximoValor(0), 
     afinidadActual(0), comensalesYaSentados(nDada, false), x(nDada, 21)
     {
-      // TODO: Solución óptima y maximoValor deberían ajustarse
-      // de inicio a una solución con el algoritmo greedy
-
+      maximoValor = cenaDeGalaGreedy (afinidades, solucionOptima);
 
       // Empezamos con el comensal 0 ya sentado
       // para no tener soluciones equivalentes
@@ -192,6 +233,11 @@ int main (int argc, char ** argv){
     cout << "¿Qué incremento?" << endl;
     cin >> incremento;
     cout << "Empezamos: \n" << endl;
+
+	if (desde<2){
+		cout << "El valor tamaño inicial debe ser mayor que 1." << endl;
+		exit(1);	
+	}
 
 
     for (int n = desde ; n <= hasta ; n++){
