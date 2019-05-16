@@ -72,7 +72,19 @@
 	En nuestra solución, hemos usado dos tipos de cotas: una \textbf{cota global}, que determina la máxima afinidad global encontrada hasta el momento. Si aún no se ha encontrado ninguna solución, estará inicializada de acuerdo a una versión Greedy del algoritmo. Por otro lado, también necesitamos una \textbf{cota local} (tal y como se ha mencionado anteriormente), necesaria para poder podar una rama en el caso de que la cota local (cota optimista) no supere a la cota global. La poda se puede realizar debido a que, si una cota local optimista genera peores resultados que una solución ya encontrada, esa rama no va a contener una solución mejor, por lo que no tiene sentido recorrerla.
 	
 	\section{Estudio empírico}
-	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=7cm]{grafica1}
+		\caption{Tiempos de ejecución del algoritmo, desde tamaño 2 a 22}
+		\label{fig:eficiencia_empirica}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=7cm]{grafica_intervalo_peque}
+		\caption{Tiempos de ejecución del algoritmo con zoom en X en [0-20] y zoom en Y en [-1,2]}
+		\label{fig:eficiencia_empirica_zoom}
+	\end{figure}
 	\section{Conclusiones}
 	
 \end{document}
