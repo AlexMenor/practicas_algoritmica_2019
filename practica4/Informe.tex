@@ -27,39 +27,41 @@
 	
 	\
 	
-	Por tanto, nuestro algoritmo debe ser capaz de encontrar la asignación de invitados a partir de la cual podamos maximizar la convenienca global.
+	Por tanto, nuestro algoritmo debe ser capaz de encontrar la asignación de invitados que maximice la afinidad de cada comensal con los otros dos comensales que tiene a su lado.
 	
 	\section{Representación de la solución}
-	A la hora de representar el problema, hemos usado un TDA $Solucion$, que almacena la solución y otra información relevante de la clase, además de todas las operaciones básicas para la gestión las soluciones (necesarias para el algoritmo Backtracking):
+	A la hora de representar el problema, hemos usado un TDA $Solucion$, para implementar nuestro algoritmo de \textit{backtracking} de una manera clara.
 	\begin{itemize}
 		\item \textbf{Información almacenada en el TDA $Solucion$}:
 		\begin{itemize}
-			\item \textit {x}: almacena la solución que se va generando en cada momento. Se representa por medio de un vector de enteros (conceptualmente es un vector circular), en el que cada componente está asociada a un comensal.
-			\item \textit{afinidades}: se representan como una matriz, en la que cada elemento m[i][j] tiene asociado la conveniencia de sentar juntos al invitado i con el invitado j. Por tanto, deben coincidir m[i][j] con m[j][i].
-			\item \textit {n}: contiene el número de comensales.
+			\item \textit {x}: almacena la solución generada en cada momento. Se representa por medio de un vector de enteros (conceptualmente es un vector circular, representando la mesa para cenar), en el que cada componente toma el valor que representa el comensal que está sentado ahí.
+			\item \textit{afinidades}: implementadas con una matriz, en la que cada elemento m[i][j] tiene asociado la conveniencia de sentar juntos al invitado i con el invitado j. Por tanto, deben coincidir m[i][j] con m[j][i].
+			\item \textit {n}: es el número de comensales.
 			\item \textit {solucionOptima}: almacena la mejor solución encontrada hasta el momento, es decir, la que tiene una mayor afinidad global.
-			\item \textit {comensalesYaSentados}: representado por un vector de booleanos, almacena la información de qué comensales están ya sentados. Este vector será necesario a la hora de comprobar la factibilidad. 
-			\item \textit {afinidadActual}: contiene la afinidad acumulada para los comensales seleccionados. Esta variable es necesaria para el cálculo y comprobaciones de cotas. 
-			\item \textit {Afinidades optimistas}: se representa por un vector que tiene asociado, para cada comensal, una estimación optimista de su afinidad.
-			\item \textit {AfinidadAcabarMesa}: esta variable almacena una afinidad optimista entre el primer asiento seleccionado y el último. Es necesaria para que, al determinar el cálculo de las cotas locales, al ser al mesa un vector circular, poder cerrar el ciclo.
+			\item \textit {comensalesYaSentados}: es un vector de valores booleanos, su componente \textit{i} será \textit{true} si el comensal \textit{i} está ya sentado. Este vector nos permite comprobar la factibilidad en tiempo constante.
+			\item \textit {afinidadActual}: contiene la afinidad acumulada para los comensales seleccionados en ese momento. Se usa para el cálculo de la afinidad de una solución obtenida y de la cota local de un nodo.
+			\item \textit {Afinidades optimistas}: es un vector en el que su elemento \textit{i} es el promedio de sus dos mejores afinidades con otros dos comensales.
+			\item \textit {AfinidadAcabarMesa}: Almacena la mejor afinidad del primer comensal seleccionado (que forzamos al comensal 0, para evitar soluciones equivalentes). La usamos para el cálculo de la cota local de un nodo.
 		\end{itemize}
 		\item \textbf{Operaciones del TDA Solucion}:
 		\begin{itemize}
 			\item \textit {Constructor}: realiza una serie de operaciones:
 			\begin{itemize}
 				\item Inicializa las variables del TDA a sus valores por defecto.
+				\item Seleccionamos en primer lugar el comensal 0 para no generar soluciones equivalentes y reducir así el número de nodos hoja de $n!$ a $(n-1)!$.
 				\item Inicializamos $solucionOptima$ y $maximoValor$ a partir de la versión Greedy (no óptima) del algoritmo.
 				\item Calcula las $afinidadesOptimistas$ y la $afinidadAcabarMesa$ para evitar hacerlo posteriormente en el cálculo de las cotas locales. El proceso de estimación es bastante sencillo: para cada comensal, buscamos las dos mayores afinidades que tenga y le asociamos el promedio de ambas.
 			\end{itemize}
-			\item \textit {hemosTerminado(k)}: devuelve si ya hemos recorrido el total de comensales ($k==n$).
-			\item \textit {iniaComp(k)}: inicializamos la componente k al valor NULO, que en nuestro caso es 0.
+			\item \textit {hemosTerminado(k)}: devuelve si ya hemos seleccionado el total de comensales ($k==n$).
+			\item \textit {iniciaComp(k)}: inicializamos la componente k al valor NULO, que en nuestro caso es 0.
 			\item \textit{sigValComp(k)}: asignamos a la componente k de la solución actual el siguiente valor ($x[k]++$).
-			\item \textit{factible(k)}: para determinar su factibilidad, debemos comprobar si el comensal $x[k]$ ya estaba sentado en otro sitio, y si la cota local más la afinidad actual (afinidad entre el comensal $x[k]$ y el anterior) es mayor que la cota global. Debemos controlar la correcta actualización de las variables. 
-			\item \textit{todosGenerados(k)}: devuelse si se han generado todos los posibles comensales para $x[k], (x[k]==n)$. 
-			\item \textit{procesaSolucion}: actualizamos la afinidad actual, y la cota global y la solución óptima en el caso de que la afinidad actual sea mayor que la global.
-			\item \textit{imprimeSolucion}: devuelve la información asoicada a las afinidades, y la solución óptima. 
-			\item \textit{vueltaAtras(k)}: restaura los valores de la afinidadActual y de comensalesYaSentados (necesario para cuando damos una vuelta atrás en el algoritmo de Backtracking).
-			\item \textit{cotaLocal(k)}: genera la cota local a partir de k. Para ello, obtiene la suma de las afinidadesOptimistas asociadas a los comensales ya sentados más la afinidadAcabarMesa para cerrar el ciclo.
+			\item \textit{factible(k)}: para determinar su factibilidad, debemos comprobar si el comensal $x[k]$ ya estaba sentado en otro sitio, y si la afinidad acumulada hasta el momento y la estimación optimista de los comensales que quedan por seleccionar, es mayor que la cota global. 
+			Si es factible, actualizamos la afinidad acumulada y el vector solución \textit{x}.
+			\item \textit{todosGenerados(k)}: devuelve si se han generado todos los posibles comensales para $x[k], (x[k]==n)$. 
+			\item \textit{procesaSolucion}: actualizamos la afinidad actual (sumándo la afinidad del último y el primero, para ''cerrar'' la mesa), la cota global y la solución óptima en el caso de que la afinidad actual sea mayor que la mejor solución obtenida.
+			\item \textit{imprimeSolucion}: la utilizamos para comprobar que nuestro algoritmo funciona correctamente, imprime la mejor solución obtenida y su afinidad.
+			\item \textit{vueltaAtras(k)}: deshace los cambios en la afinidadActual y en comensalesYaSentados (necesario para cuando damos una vuelta atrás en el algoritmo de Backtracking).
+			\item \textit{cotaLocal(k)}: genera la cota local a partir de k. Para ello, obtiene la suma de las afinidadesOptimistas asociadas a los comensales que quedan por seleccionar.
 		\end{itemize}
 	\end{itemize}
 
