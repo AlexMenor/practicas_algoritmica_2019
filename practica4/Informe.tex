@@ -122,19 +122,28 @@
 	
 	
 	\section{Estudio empírico}
+	Hemos ejecutado el algoritmo con distintos tamaños: desde un problema de tamaño 2 a uno de tamaño 22. Se nos ha hecho imposible probar con tamaños más grandes ya que el tiempo aumentaba a pasos agigantados como se puede apreciar en la siguiente gráfica:
 	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=7cm]{grafica1}
 		\caption{Tiempos de ejecución del algoritmo, desde tamaño 2 a 22}
 		\label{fig:eficiencia_empirica}
 	\end{figure}
-
+	En la siguiente figura podemos apreciar los tiempos para tamaños de 2 a 20, que en la anterior imagen no se apreciaban muy bien. Como vemos no varían mucho.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=7cm]{grafica_intervalo_peque}
 		\caption{Tiempos de ejecución del algoritmo con zoom en X en [0-20] y zoom en Y en [-1,2]}
 		\label{fig:eficiencia_empirica_zoom}
 	\end{figure}
+
+	Nuestro algoritmo tiene una eficiencia teórica de $(n-1)!$. Si ajustamos nuestra gráfica de tiempos a $f(x)=(ax-1)!$, obtenemos $a=0.337065$ con un error de $0.6055\%$. He aquí la curva ajustada.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=7cm]{ajuste}
+		\caption{Tiempos de ejecución del algoritmo ajustados a f(x)=(n-1)!}
+		\label{fig:eficiencia_ajustada}
+	\end{figure}
 	\section{Conclusiones}
-	
+	Los algoritmos de backtracking nos ayudan a alcanzar la solución óptima de un problema (cosa que con algunos algoritmos como los greedy no nos era posible). Sin embargo, esto nos da una penalización enorme en eficiencia, nuestro tamaño máximo de problema ha sido 22.
 \end{document}
