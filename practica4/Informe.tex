@@ -28,6 +28,38 @@
 	\
 	
 	Por tanto, nuestro algoritmo debe ser capaz de encontrar la asignación de invitados que maximice la afinidad de cada comensal con los otros dos comensales que tiene a su lado.
+	\section{Representación del problema}
+	La descripción del problema nos puede recordar mucho al problema del viajante de comercio.
+	De hecho, se podría considerar el mismo problema con diferente enunciado.
+	\
+	
+	Aquí en vez de ciudades, tenemos comensales. En vez de distancias, afinidades. En vez de minimizar, maximizar.
+	
+	\
+	
+	Para un número $n$ de comensales tenemos una tupla $(x_0, ..., x_{n-1})$ de ''sitios'' en la mesa. Siendo la afinidad global de la configuración: $\sum_{i=1}^{n-1} afinidad(x_i, x_{i-1}) + afinidad(x_i, x_{i+1})$, además de sumar la afinidad de $x_0$ y $x_{n-1}$ y viceversa.
+	
+	\section{Restricciones}
+	Ya hemos visto como representar las decisiones que vamos haciendo (y deshaciendo) en el algoritmo. Es momento de hablar sobre que valores pueden tomar los elementos de la tupla.
+	
+	\
+	
+	\textbf{Restricciones explícitas}: Cada $x_i$ de la tupla que representa un estado del problema puede tomar un valor de $0$ a $n-1$ o $null$ si todavía no hemos llegado a esa decisión. Obviamente, en un estado solución no es posible este valor nulo, tenemos que sentar a todos los comensales en la mesa.
+
+	\
+	
+	En cuanto a las \textbf{restricciones implícitas}: Una solución al problema tiene que ser una permutación de todos los comensales de $0$ a $n-1$, de forma que no podamos sentar al mismo comensal en dos sitios distintos de la mesa.
+	
+	\section{Descripción de las cotas usadas}
+	En nuestra solución, hemos usado dos tipos de cotas: una \textbf{cota global}, que determina la máxima afinidad global encontrada hasta el momento. Si aún no se ha encontrado ninguna solución, estará inicializada de acuerdo a una versión Greedy del algoritmo. 
+	
+	\
+	
+	Por otro lado, también necesitamos una \textbf{cota local} (tal y como se ha mencionado anteriormente), necesaria para podar una rama en el caso de que la cota local (cota optimista) no supere a la cota global. La poda se puede realizar debido a que, si una cota local optimista genera peores resultados que una solución ya encontrada, esa rama no va a contener una solución mejor, por lo que no tiene sentido recorrerla.
+	
+	\
+	
+	Como detallaremos más adelante, para el cálculo de las afinidades optimistas de los comensales que quedan por seleccionar. Usaremos el promedio de sus dos mejores afinidades, como hemos visto de forma análoga en clase para el problema del viajante de comercio.
 	
 	\section{Representación de la solución}
 	A la hora de representar el problema, hemos usado un TDA $Solucion$, para implementar nuestro algoritmo de \textit{backtracking} de una manera clara.
@@ -66,10 +98,28 @@
 	\end{itemize}
 
 	\section{Algoritmo Backtracking}
-	El algoritmo sigue el esquema básico de los algoritmos Backtracking vistos en clase: *INSERTAR ESQUEMA ALGORITMO BACKTRACKING*
+	El algoritmo sigue el esquema básico de los algoritmos Backtracking vistos en clase: 
 	
-	\section{Descripción de las cotas usadas}
-	En nuestra solución, hemos usado dos tipos de cotas: una \textbf{cota global}, que determina la máxima afinidad global encontrada hasta el momento. Si aún no se ha encontrado ninguna solución, estará inicializada de acuerdo a una versión Greedy del algoritmo. Por otro lado, también necesitamos una \textbf{cota local} (tal y como se ha mencionado anteriormente), necesaria para poder podar una rama en el caso de que la cota local (cota optimista) no supere a la cota global. La poda se puede realizar debido a que, si una cota local optimista genera peores resultados que una solución ya encontrada, esa rama no va a contener una solución mejor, por lo que no tiene sentido recorrerla.
+	\begin{lstlisting}
+	void backtracking(Solucion & sol, int k = 0){
+		if (sol.hemosTerminado(k))
+			sol.procesaSolucion();
+		else{
+			sol.iniciaComp(k);
+			sol.sigValComp(k);
+			while (!sol.todosGenerados(k)){
+				if (sol.factible(k)){
+					backtracking(sol, k+1);
+					sol.vueltaAtras(k);
+				}
+				sol.sigValComp(k);
+			}
+		}
+	}
+	
+	\end{lstlisting}
+	
+	
 	
 	\section{Estudio empírico}
 	\begin{figure}[H]
