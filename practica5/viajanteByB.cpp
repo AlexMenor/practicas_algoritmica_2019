@@ -16,7 +16,8 @@ class Solucion {
       // atributos de clase
     static vector<int> mejorSolucion;
     static int cotaGlobal;
-  private:
+
+    private:
 
       // Atributos de instancia
     vector <int> x;
@@ -25,6 +26,7 @@ class Solucion {
     int cotaLocal; 
     int distanciaActual;
     vector<bool> ciudadesYaSeleccionadas;
+
   public:
     Solucion (int ** distanciasDadas, int nDada)
     : n(nDada), cotaLocal(0), distanciaActual(0), ciudadesYaSeleccionadas(nDada+1, false)
@@ -44,7 +46,7 @@ class Solucion {
         distancias.push_back(fila);
       }
 
-      // Seleccionamos la primera ciudad para reducir el número de posibles nodos hoja
+      // Seleccionamos la primera ciudad para reducir el número de nodos hoja posibles
       x.push_back(1);
       ciudadesYaSeleccionadas[1] = true;
     }
@@ -66,6 +68,7 @@ class Solucion {
           // por seleccionar una ciudad, la metemos también y actualizamos
           //la distancia acumulada)
           if (hijo.x.size() == n-1){
+            // Encontramos la última que queda
             for (int j = 1 ; j <= n ; j++)
               if (!hijo.ciudadesYaSeleccionadas[j]){
                 hijo.x.push_back(j);
@@ -126,8 +129,8 @@ class Solucion {
         return false;
 
       // Si hemos llegado aquí es porque es un nodo hoja
-      // y además a superado el test de factibilidad
-      // teniendo en su cota local su distancia.
+      // y además ha superado el test de factibilidad
+      // teniendo en su cota local su distancia final.
       // Es decir, sabemos que es una solución mejor que la
       // encontrada hasta el momento
 
@@ -135,7 +138,7 @@ class Solucion {
       Solucion::mejorSolucion = x;
     }
 
-    bool operator < (const Solucion & otra) const{
+    bool operator < (const Solucion & otra) const {
       if (this->cotaLocal < otra.cotaLocal)
         return true;
       else if (this->cotaLocal > otra.cotaLocal)
@@ -250,6 +253,9 @@ class Solucion {
   static void inicializarCotaGlobal(int ** distancias, vector<pair<double, double>> ciudades, int n){
     list<int> resultado;
     cotaGlobal = insercion(distancias, n, resultado, ciudades);
+    mejorSolucion.clear();
+    for (int c : resultado)
+      mejorSolucion.push_back(c);
   }
 
   static vector<int> obtenerSolucionOptima(){
@@ -277,13 +283,13 @@ void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
 }
 
 void branchAndBound (Solucion sol){
-  priority_queue<Solucion> cola;
-  cola.push(sol);
+  set<Solucion> cola;
+  cola.insert(sol);
   bool fin = false;
 
   while (!cola.empty() && !fin){
-    Solucion enodo = cola.top();
-    cola.pop();
+    Solucion enodo = *cola.begin();
+    cola.erase(cola.begin());
 
     fin = !enodo.factible();
 
@@ -293,10 +299,15 @@ void branchAndBound (Solucion sol){
       for (Solucion hijo : hijosDelEnodo){
         if (hijo.factible()){
           if (!hijo.esSolucion())
-            cola.push(hijo);
+            cola.insert(hijo);
         }
       }
     }
+    else
+    {
+      cout << "elfin" << endl;
+    }
+    
   }
 }
 
