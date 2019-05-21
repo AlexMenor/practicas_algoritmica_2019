@@ -1,6 +1,9 @@
-all: viajanteByB
+all: viajanteByB viajanteBack
 
 viajanteGreedy: viajanteByB.cpp
+	g++ $< -o $@ -std=c++11
+	
+viajanteBack: viajanteBack.cpp
 	g++ $< -o $@ -std=c++11
 
 probar16: viajanteByB
