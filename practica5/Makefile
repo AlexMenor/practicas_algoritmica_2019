@@ -8,6 +8,9 @@ viajanteBack: viajanteBack.cpp
 
 probar16: viajanteByB
 	./$< datosTSP/ulysses16.tsp
+	./a.out datosTSP/ulysses16.tsp datosTSP/ulysses16.tsp-byb > paraplotear
+	gnuplot plot-script.p
+	display 'ulysses16byb.png'
 
 
 debugging: viajanteByB.cpp

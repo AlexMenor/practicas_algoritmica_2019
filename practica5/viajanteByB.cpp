@@ -136,6 +136,8 @@ class Solucion {
 
       Solucion::cotaGlobal = distanciaActual;
       Solucion::mejorSolucion = x;
+
+      return true;
     }
 
     bool operator < (const Solucion & otra) const {
@@ -258,7 +260,8 @@ class Solucion {
       mejorSolucion.push_back(c);
   }
 
-  static vector<int> obtenerSolucionOptima(){
+  static vector<int> obtenerSolucionOptima(int & distanciaFinal){
+    distanciaFinal = cotaGlobal;
     return mejorSolucion;
   }
 };
@@ -303,11 +306,6 @@ void branchAndBound (Solucion sol){
         }
       }
     }
-    else
-    {
-      cout << "elfin" << endl;
-    }
-    
   }
 }
 
@@ -350,17 +348,20 @@ int main (int argc, char ** argv){
   
   calcularDistancias(distancias, ciudades);
 
-  Solucion::inicializarCotaGlobal(distancias, ciudades, n);
+  //Solucion::inicializarCotaGlobal(distancias, ciudades, n);
 
   Solucion sol (distancias, n);
 
   branchAndBound(sol);
 
-  vector <int> resultado = Solucion::obtenerSolucionOptima();
+  int distanciaFinal;
+  vector <int> resultado = Solucion::obtenerSolucionOptima(distanciaFinal);
+
+  cout << "Distancia calculada: " << distanciaFinal << endl;
 
   string nombreDeSalida = argv[1];
 
-  nombreDeSalida += "-b&b";
+  nombreDeSalida += "-byb";
 
   ofstream salida(nombreDeSalida);
 
