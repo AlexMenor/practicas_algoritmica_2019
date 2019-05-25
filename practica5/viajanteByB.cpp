@@ -1,4 +1,5 @@
 #include <iostream>
+#include <functional>
 #include <climits>
 #include <fstream>
 #include <vector>
@@ -141,12 +142,7 @@ class Solucion {
     }
 
     bool operator < (const Solucion & otra) const {
-      if (this->cotaLocal < otra.cotaLocal)
-        return true;
-      else if (this->cotaLocal > otra.cotaLocal)
-        return false;
-      else
-        return this->x.back() < otra.x.back();
+      return this->cotaLocal > otra.cotaLocal;
     }
 
     // Métodos de clase, los utilizamos para inicializar
@@ -269,8 +265,6 @@ class Solucion {
 vector<int> Solucion::mejorSolucion;
 int Solucion::cotaGlobal = INT_MAX;
 
-
-
 void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
   for (int i = 0 ; i < ciudades.size() ; i++){
     int xi = ciudades[i].first;
@@ -279,8 +273,8 @@ void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
       int xj = ciudades[j].first;
       int yj = ciudades[j].second;
       double distancia = sqrt(pow(xi-xj,2) + pow(yi-yj,2));
-      m[i+1][j+1] = (int) ceil(distancia);
-      m[j+1][i+1] = (int) ceil(distancia);
+      m[i+1][j+1] = (int) round(distancia);
+      m[j+1][i+1] = (int) round(distancia);
     }
   }
 }
