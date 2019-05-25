@@ -6,7 +6,6 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{listings}
-\graphicspath{{./img/}}
 \usepackage{color}
 
 \title{Práctica 4. Parte 2. Algoritmos ByB - Backtracking - Problema del viajante de comercio}
@@ -121,7 +120,7 @@ void branchAndBound (Solucion sol){
 		Ulysses16 & 611.917 & \\ \hline
 	\end{longtable}
 
-	También hemos hecho un estudio del número de podas y otras cuestiones interesantes en el algoritmo Branch \& Bound:
+	También hemos hecho un estudio del número de podas y nodos expandidos en los distintos mapas con el algoritmo Branch \& Bound.
 	
 	\begin{longtable}{|c|c|c|c|}
 		\hline
@@ -131,5 +130,42 @@ void branchAndBound (Solucion sol){
 		Burma14 & 30627 & 25991 & 172553 \\ \hline
 		Ulysses16 & 11018039 & 4878674 & 58457207 \\ \hline
 	\end{longtable}
+
+	Para obtener el número de podas, simplemente hemos usado una variable \textit{npoda} que se incrementa en una unidad cuando encontramos un hijo no factible y que se incrementa en el tamaño de la cola de prioridad cuando encontramos el mejor nodo de ésta y no es solución.
+	\
+	
+	Para obtener el número de nodos expandidos hemos usado una variable \textit{n\_nodos} que se incrementa en una unidad cada vez que exploramos un nuevo nodo.
+	
+	\
+	
+	Por supuesto, también hemos dibujado las diferentes soluciones a los mapas, he aquí los circuitos hallados:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=6cm]{ulysses10byb}
+		\caption{Circuito Ulysses 10 con Branch \& Bound}
+		\label{fig:u10byb}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=6cm]{ulysses14byb}
+		\caption{Circuito Ulysses 14 con Branch \& Bound}
+		\label{fig:u14byb}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=6cm]{ulysses16byb}
+		\caption{Circuito Ulysses 16 con Branch \& Bound}
+		\label{fig:u16byb}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=6cm]{burma14byb}
+		\caption{Circuito Burma 14 con Branch \& Bound}
+		\label{fig:b14byb}
+	\end{figure}
 	
 \end{document}
