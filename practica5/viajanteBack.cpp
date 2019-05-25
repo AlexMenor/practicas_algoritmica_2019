@@ -263,6 +263,7 @@ int main (int argc, char ** argv){
 
   backtracking(sol);
   vector <int> resultado = sol.obtenerSolucionOptima();
+  sol.imprimeSolucion();
 
   string nombreDeSalida = argv[1];
 
