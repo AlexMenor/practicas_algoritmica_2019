@@ -24,6 +24,12 @@ probar10: viajanteByB
 	gnuplot plot-script-10.p
 	display 'ulysses10byb.png'
 
+probarburma: viajanteByB
+	./$< datosTSP/burma14.tsp
+	./a.out datosTSP/burma14.tsp datosTSP/burma14.tsp-byb > paraplotear
+	gnuplot plot-script-burma.p
+	display 'burma14byb.png'
+
 
 debugging: viajanteByB.cpp
 	g++ -g $< -o viajanteByB -std=c++11
