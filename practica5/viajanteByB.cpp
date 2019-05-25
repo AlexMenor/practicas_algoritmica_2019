@@ -17,35 +17,20 @@ class Solucion {
       // atributos de clase
     static vector<int> mejorSolucion;
     static int cotaGlobal;
+    static vector<vector<int>> distancias;
 
     private:
-
       // Atributos de instancia
     vector <int> x;
     int n;
-    vector<vector<int>> distancias;
     int cotaLocal; 
     int distanciaActual;
     vector<bool> ciudadesYaSeleccionadas;
 
   public:
-    Solucion (int ** distanciasDadas, int nDada)
+    Solucion (int nDada)
     : n(nDada), cotaLocal(0), distanciaActual(0), ciudadesYaSeleccionadas(nDada+1, false)
     {
-      // Inicializamos la matriz de distancias a partir de la
-      // que usa el algoritmo greedy (de esta forma no tenemos que implementar un constructor de copia)
-
-      vector<int> fila;
-      // Fila basura para poder acceder con índices que empiezan en 1
-      distancias.push_back(fila);
-
-      for (int i = 1 ; i <= n ; i++){
-        fila.clear();
-        fila.push_back(0);
-        for (int j = 1 ; j <= n ; j++)
-          fila.push_back(distanciasDadas[i][j]);
-        distancias.push_back(fila);
-      }
 
       // Seleccionamos la primera ciudad para reducir el número de nodos hoja posibles
       x.push_back(1);
@@ -264,6 +249,7 @@ class Solucion {
 
 vector<int> Solucion::mejorSolucion;
 int Solucion::cotaGlobal = INT_MAX;
+vector<vector<int>> Solucion :: distancias;
 
 void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
   for (int i = 0 ; i < ciudades.size() ; i++){
@@ -336,15 +322,28 @@ int main (int argc, char ** argv){
     ciudades.push_back(pair<double, double>(x,y));
   }
 
-  int ** distancias = new int * [n+1];
+  int ** distanciasDadas = new int * [n+1];
   for (int i = 0 ; i <= n ; i++)
-    distancias[i] = new int[n+1];
+    distanciasDadas[i] = new int[n+1];
   
-  calcularDistancias(distancias, ciudades);
+  calcularDistancias(distanciasDadas, ciudades);
 
-  Solucion::inicializarCotaGlobal(distancias, ciudades, n);
+  vector<int> fila;
+  vector<vector<int>> distancias;
+  // Fila basura para poder acceder con índices que empiezan en 1
+  distancias.push_back(fila);
 
-  Solucion sol (distancias, n);
+  for (int i = 1 ; i <= n ; i++){
+    fila.clear();
+    fila.push_back(0);
+    for (int j = 1 ; j <= n ; j++)
+      fila.push_back(distanciasDadas[i][j]);
+    distancias.push_back(fila);
+  }
+  Solucion::inicializarCotaGlobal(distanciasDadas, ciudades, n);
+
+  Solucion::distancias = distancias;
+  Solucion sol (n);
 
   branchAndBound(sol);
 
