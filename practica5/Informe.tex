@@ -20,30 +20,41 @@
 \begin{document}
 	\maketitle
 	\section{Descripción del problema}
-	En este caso, hemos propuesto una solución para el problema del viajante de comercio por medio de un algortimo Branch and Bound, y después hemos creado la versión Backtracking para comparar como varía la eficiencia entre ambos algoritmos.
+	En este caso, hemos propuesto una solución para el problema del viajante de comercio implementando un algoritmo \textit{Branch and Bound}. Además, hemos ejecutado la versión con técnica de \textit{Backtracking} para comparar la eficiencia entre ambos algoritmos.
 	
 	\section{Cotas global y cota local}
-	Como para cada algoritmo Branch and Bound, necesitamos dos cotas: \\
-	Por un lado tenemos la \textbf{cota global}, que determina la mínima distancia encontrada hasta el momento para un circuito generado. Si aún no se ha encontrado ninguna solución, estará inicializada de acuerdo a una versión Greedy del algoritmo (en este caso, se ha usado la aproximación basada en Inserción).
+	Para implementar el algoritmo de \textit{Branch and Bound}, necesitamos dos cotas: 
+	\\
+	
+	Por un lado tenemos la \textbf{cota global}, que determina la mínima distancia encontrada hasta el momento para un circuito generado. Si aún no se ha encontrado ninguna solución, estará inicializada de acuerdo a una versión \textit{Greedy} del problema (en este caso, se ha usado la aproximación basada en Inserción).
 	
 	\
 	
-	Por otro lado, también necesitamos una \textbf{cota local}, que nos servirá de referencia tanto a la hora de comprobar la factibilidad (criterio de poda), como a la hora de insertar los nodos en la pila, de modo que los nodos se almacenarán con una prioridad de menor a mayor cota local.
-	
+	Por otro lado, también necesitamos una \textbf{cota local}, que nos servirá a la hora de comprobar la factibilidad (criterio de poda) y en la extracción de los nodos en la cola, de modo que exploraremos antes los nodos más prometedores.
+	\subsection{Cálculo de la cota local}
+	La cota local consta de tres sumandos:
+	\begin{itemize}
+		\item Distancia actual: Para todas las ciudades ya seleccionadas, la suma de la distancia entre ellas (sin cerrar el circuito).
+		\item La distancia mínima entre la última ciudad seleccionada y cualquiera de las ciudades no seleccionadas aún.
+		\item Para cada ciudad no seleccionada, la mínima distancia entre ella y cualquiera de las otras no seleccionadas o la primera ciudad seleccionada.
+	\end{itemize}
 	
 	\section{Representación de la solución}
 	A la hora de representar el problema, hemos usado un TDA $Solucion$, para implementar nuestro algoritmo de \textit{Branch and Bound} de forma más clara y organizada.
 	\begin{itemize}
 		\item \textbf{Información almacenada en el TDA Solucion}:
 		\begin{itemize}
-			\item \textit {x}: almacena la solución generada hasta el momento. Se representa por medio de un vector de enteros que contendrá el conjunto de ciudades seleccionadas en cada instante.
+			\item \textit {x}: almacena la solución generada hasta el momento. Se representa por medio de un vector de enteros, de modo que la componente $x_i$ del mismo será la ciudad iésima que visitaremos. 
 			\item \textit {n}: es el número de ciudades.
 			\item \textit{distancias}: representadas con una matriz, en la que cada elemento d[i][j] tiene asociado la distancia entre la ciudad i y la ciudad j. Por tanto, deben coincidir d[i][j] con d[j][i].
-			\item \textit {cotaLocal}: contiene la cota local de acuerdo a las ciudades seleccionadas hasta el momento. La cota local es una distancia optimista calculada a partir de la distancia entre las ciudades ya seleccionadas y una estimación de aquellas que están aún por seleccionar.
-			\item \textit {distanciaActual}: contiene la distancia acumulada para las ciudades seleccionadas hasta el momento. Se usa para el cálculo de la cota local.
-			\item \textit {ciudadesYaSeleccionadas}: representadas como un vector de booleanos, almacena si la ciudad i ya ha sido seleccionada $(true)$ o no $(false).$
-			\item \textit {mejorSolución}: es un atributo de clase (público), y por tanto único, representado por medio de un vector que almacena la mejor solución encontrada hasta el momento. Este valor se puede inicializar a partir de una solución Greedy del problema.
-			\item \textit {cotaGlobal}: almacena la menor distancia de las soluciones generadas hasta el momento, es decir, la distancia de la mejor solución encontrada.
+			\item \textit {cotaLocal}: contiene la cota local de acuerdo a las ciudades seleccionadas hasta el momento. La hemos descrito con más detalle en la sección anterior.
+			\item \textit {distanciaActual}: es la distancia acumulada para las ciudades ya seleccionadas hasta el momento. 
+			\item \textit {ciudadesYaSeleccionadas}: representadas como un vector de booleanos, su componente $x_i$ será $true$ si la ciudad $i$ está ya seleccionada y por tanto almacenada en el vector solucion $x$.
+			\item \textbf{Atributos de clase}
+			\begin{itemize} 
+			\item \textit {mejorSolución}: es un vector de $n$ elementos que representa la mejor solución encontrada hasta el momento. Este valor se inicializa a partir de una solución Greedy del problema.
+			\item \textit {cotaGlobal}: almacena la distancia de la mejor solución descrita en el apartado anterior.
+			\end{itemize}
 		\end{itemize}
 		\item \textbf{Operaciones del TDA Solucion}:
 		\begin{itemize}
@@ -52,12 +63,13 @@
 				\item Inicializa las variables del TDA a sus valores por defecto. Debemos tener en cuenta que, a la hora de inicializar la matriz distancias, el primer elemento es el $d[1][1]$, por lo que debemos añadirle una fila y columna basura para poder acceder con índices que empiecen por 1.
 				\item Seleccionamos en primer lugar la ciudad 0 para no generar soluciones equivalentes y reducir así el número de nodos hoja de $n!$ a $(n-1)!$.
 			\end{itemize}
-			\item \textit {factible(k)}: únicamente comprueba si la cotaLocal es menor que la cotaGlobal. No es necesario comprobar si el hijo estaba ya seleccionado o no, ya que esto se garantiza por la naturaleza de nuestro algoritmo ByB.
-			\item \textit {generaHijos(k)}: este método devuelve un vector con todos los hijos derivados de añadir cualquiera de las ciudades no seleccionadas al vector solución. En el caso de que a la solución generada le falte solamente una ciudad, se completa con la ciudad en cuestión. Debemos tener en cuenta la correcta actualización de los atributos de los nodos hijos generados (cotaLocal, ciudadesYaSeleccionadas, etc).
-			\item \textit{actualizarCotaLocal()}: provisional.
-			\item \textit{esSolucion()}: devuelve si hemos llegado a una solución, es decir, si el tamaño del vector solución coincide con el número de ciudades a explorar. En este caso, siempre se actualiza la cota global y la mejor solución encontrada, ya que para que se invoque al método antes se ha debido comprobar la factibilidad en nuestro algoritmo ByB.
-			\item \textit{operator <}: necesario para almacenar las soluciones en la cola con prioridad dentro del algoritmo ByB. Devuelve si la cota local del objeto implícito es menor que la del objeto pasado como parámetro. En caso de que las cotas locales sean iguales, usa como criterio de ordenación el que tenga una ciudad anterior.
-			\item \textit{inicializarCotaGlobal}: inicializa la cotaGlobal y la mejorSolucion a partir de una solución Greedy del problema (en nuestro caso, hemos usado la aproximación basada en Inserción).
+			\item \textit {factible()}: únicamente comprueba si la cotaLocal es menor que la cotaGlobal. No es necesario comprobar si el hijo estaba ya seleccionado o no, ya que esto se garantiza por la implementación de nuestra función $generaHijos()$.
+			\item \textit {generaHijos()}: este método devuelve un vector con todos los hijos del nodo que lo ejecuta, al añadir cualquiera de las ciudades \textbf{no seleccionadas} al vector solución. En el caso de que a la solución generada le falte solamente una ciudad (y la primera), se completa con la ciudad en cuestión. Actualizamos correctamente los atributos de los nodos hijos (ciudadesYaSeleccionadas, distanciaActual, cotaLocal, etc...)
+			\item \textit{actualizarCotaLocal()}: Se llama desde $generaHijos()$ en caso de que no quede sólamente una ciudad más por añadir (como hemos explicado antes), hemos escrito esta función para extraer la lógica del método $generaHijos()$ y poder hacer un poco más mantenible el código.
+			\item \textit{esSolucion()}: devuelve si hemos llegado a una solución, es decir, si el tamaño del vector solución coincide con el número de ciudades a explorar. En ese caso, siempre se actualiza la cota global y la mejor solución encontrada. Esto es así, porque en nuestro algoritmo ByB, comprobamos la factibilidad al sacar el nodo de la cola, y antes de llamar a $esSolucion()$. 
+			De esta forma, si es factible y es solución, significa que es una solución mejor que la mejor encontrada, ya que en la variable cota local se almacena la distancia real si es un nodo hoja.
+			\item \textit{operator 'menor que'}: necesario para almacenar ordenádamente las soluciones en la cola con prioridad que utilizamos en el algoritmo ByB. Para explorar primero los nodos más prometedores, estos se ordenan en la cola de forma ascendente en función de su cota local.
+			\item \textit{inicializarCotaGlobal}: inicializa la cotaGlobal y la mejorSolucion a mediante una solución Greedy del problema (en nuestro caso, hemos usado la aproximación basada en Inserción).
 			\item \textit{obtenerSoluciónÓptima}: devuelve la solución óptima.
 		\end{itemize}
 	\end{itemize}
