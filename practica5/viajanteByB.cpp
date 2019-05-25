@@ -267,7 +267,7 @@ void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
   }
 }
 
-void branchAndBound (Solucion sol, int & n_nodos, int & tamq, int & npoda){
+void branchAndBound (Solucion sol, unsigned long & n_nodos, unsigned long & tamq, unsigned long & npoda){
   priority_queue<Solucion> cola;
   cola.push(sol);
   bool fin = false;
@@ -357,7 +357,7 @@ int main (int argc, char ** argv){
   Solucion::distancias = distancias;
   Solucion sol (n);
   
-  int n_nodos, tamq, npoda;
+  unsigned long n_nodos, tamq, npoda;
   time_point<high_resolution_clock> tini;
   time_point<high_resolution_clock> tfin;
   
