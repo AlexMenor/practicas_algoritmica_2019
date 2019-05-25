@@ -1,6 +1,5 @@
 #include <chrono>
 #include <iostream>
-#include <functional>
 #include <climits>
 #include <fstream>
 #include <vector>
