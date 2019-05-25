@@ -81,7 +81,7 @@ class Solucion {
   public:
     Solucion(vector<vector<int>> & distanciasDadas, int nDada)
     : distancias(distanciasDadas), n(nDada), cotaGlobal(0), 
-    distanciaActual(0), ciudadesYaSituadas(nDada+1, false), x(nDada, 21)
+    distanciaActual(0), ciudadesYaSituadas(nDada+1, false), x(nDada)
     {
       cotaGlobal = viajanteGreedy_vecinosCercanos (distancias, solucionOptima);
 

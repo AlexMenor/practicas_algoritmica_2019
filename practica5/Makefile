@@ -23,6 +23,12 @@ probar10: viajanteByB
 	./a.out datosTSP/ulysses10.tsp datosTSP/ulysses10.tsp-byb > paraplotear
 	gnuplot plot-script-10.p
 	display 'ulysses10byb.png'
+	
+probar22: viajanteByB
+	./$< datosTSP/ulysses22.tsp
+	./a.out datosTSP/ulysses22.tsp datosTSP/ulysses22.tsp-byb > paraplotear
+	gnuplot plot-script-22.p
+	display 'ulysses22byb.png'
 
 probarburma: viajanteByB
 	./$< datosTSP/burma14.tsp
