@@ -286,13 +286,13 @@ void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
 }
 
 void branchAndBound (Solucion sol){
-  set<Solucion> cola;
-  cola.insert(sol);
+  priority_queue<Solucion> cola;
+  cola.push(sol);
   bool fin = false;
 
   while (!cola.empty() && !fin){
-    Solucion enodo = *cola.begin();
-    cola.erase(cola.begin());
+    Solucion enodo = cola.top();
+    cola.pop();
 
     fin = !enodo.factible();
 
@@ -302,7 +302,7 @@ void branchAndBound (Solucion sol){
       for (Solucion hijo : hijosDelEnodo){
         if (hijo.factible()){
           if (!hijo.esSolucion())
-            cola.insert(hijo);
+            cola.push(hijo);
         }
       }
     }
@@ -348,7 +348,7 @@ int main (int argc, char ** argv){
   
   calcularDistancias(distancias, ciudades);
 
-  //Solucion::inicializarCotaGlobal(distancias, ciudades, n);
+  Solucion::inicializarCotaGlobal(distancias, ciudades, n);
 
   Solucion sol (distancias, n);
 
