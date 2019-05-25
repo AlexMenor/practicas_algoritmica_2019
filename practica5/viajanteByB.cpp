@@ -258,8 +258,8 @@ void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
     int xi = ciudades[i].first;
     int yi = ciudades[i].second;
     for (int j = i+1 ; j < ciudades.size() ; j++){
-      int xj = ciudades[j].first;
-      int yj = ciudades[j].second;
+      double xj = ciudades[j].first;
+      double yj = ciudades[j].second;
       double distancia = sqrt(pow(xi-xj,2) + pow(yi-yj,2));
       m[i+1][j+1] = (int) round(distancia);
       m[j+1][i+1] = (int) round(distancia);

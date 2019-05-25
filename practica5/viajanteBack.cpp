@@ -61,8 +61,8 @@ void calcularDistancias (vector<vector<int>> & m, vector<pair<double, double>> &
     int xi = ciudades[i].first;
     int yi = ciudades[i].second;
     for (int j = i+1 ; j < ciudades.size() ; j++){
-      int xj = ciudades[j].first;
-      int yj = ciudades[j].second;
+      double xj = ciudades[j].first;
+      double yj = ciudades[j].second;
       double distancia = sqrt(pow(xi-xj,2) + pow(yi-yj,2));
       m[i+1][j+1] = (int) round(distancia);
       m[j+1][i+1] = (int) round(distancia);
@@ -110,6 +110,7 @@ class Solucion {
       // Seleccionamos la ciudad temporalmente (o no)
       // para la función cotaLocal
       ciudadesYaSituadas[x[k]] = true;
+	  distanciaActual += distancias[x[k]][x[k-1]];
       
       if (cotaLocal(k) < cotaGlobal)
         return true;
@@ -166,7 +167,7 @@ class Solucion {
     }
 
     int cotaLocal (int k){
-       int cotaL = distanciaActual + distancias[x[k]][x[k-1]];
+       int cotaL = distanciaActual;
 
       // Ahora sumamos para cada ciudad no seleccionada la mínima distancia
       // de todas las otras ciudades no seleccionadas, la primera o la última
