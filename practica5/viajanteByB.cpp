@@ -292,7 +292,7 @@ void branchAndBound (Solucion sol, int & n_nodos, int & tamq, int & npoda){
       }
     }
     else
-        npoda++;
+        npoda += cola.size();
     
     if (cola.size() > tamq)
         tamq=cola.size();
