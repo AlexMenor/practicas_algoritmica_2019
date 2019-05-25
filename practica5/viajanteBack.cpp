@@ -1,3 +1,4 @@
+#include <chrono>
 #include <iostream>
 #include <climits>
 #include <fstream>
@@ -8,6 +9,7 @@
 #include <queue>
 
 using namespace std;
+using namespace std::chrono;
 
 int viajanteGreedy_vecinosCercanos (vector<vector<int>> & distancias, vector<int> & resultado){
   int distanciaOptima = INT_MAX;
@@ -244,8 +246,18 @@ int main (int argc, char ** argv){
   
   calcularDistancias(distancias, ciudades);
   Solucion sol (distancias, n);
+  
+  time_point<high_resolution_clock> tini;
+  time_point<high_resolution_clock> tfin;
+  
+  tini = high_resolution_clock::now();
 
   backtracking(sol);
+  
+  tfin = high_resolution_clock::now();
+  
+  duration<double> t = duration_cast<duration<double>> (tfin - tini);
+  
   vector <int> resultado = sol.obtenerSolucionOptima();
   sol.imprimeSolucion();
 
@@ -293,6 +305,7 @@ int main (int argc, char ** argv){
     cout << "La distancia de la solución 'optima' es: " << distanciaSolucion << endl;
   }
 
+  cout << "Tiempo: " << t.count() << endl;
   entradaSolucion.close();
   entrada.close();
   salida.close();

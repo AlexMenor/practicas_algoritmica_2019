@@ -38,15 +38,21 @@ probarburma: viajanteByB
 	
 probar10back: viajanteBack
 	./$< datosTSP/ulysses10.tsp
-	./a.out datosTSP/ulysses10.tsp datosTSP/ulysses10.tsp-byb > paraplotear
+	./a.out datosTSP/ulysses10.tsp datosTSP/ulysses10.tsp-back > paraplotear
 	gnuplot plot-script-10back.p
 	display 'ulysses10back.png'
 	
 probar14back: viajanteBack
 	./$< datosTSP/ulysses14.tsp
-	./a.out datosTSP/ulysses14.tsp datosTSP/ulysses14.tsp-byb > paraplotear
+	./a.out datosTSP/ulysses14.tsp datosTSP/ulysses14.tsp-back > paraplotear
 	gnuplot plot-script-14back.p
 	display 'ulysses14back.png'
+	
+probar16back: viajanteBack
+	./$< datosTSP/ulysses16.tsp
+	./a.out datosTSP/ulysses16.tsp datosTSP/ulysses16.tsp-back > paraplotear
+	gnuplot plot-script-16back.p
+	display 'ulysses16back.png'
 
 
 debugging: viajanteByB.cpp
