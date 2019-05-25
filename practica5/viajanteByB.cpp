@@ -1,3 +1,4 @@
+#include <chrono>
 #include <iostream>
 #include <functional>
 #include <climits>
@@ -9,6 +10,8 @@
 #include <queue>
 
 using namespace std;
+using namespace std::chrono;
+
 
 class Solucion {
 
@@ -265,10 +268,11 @@ void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
   }
 }
 
-void branchAndBound (Solucion sol){
+void branchAndBound (Solucion sol, int & n_nodos, int & tamq, int & npoda){
   priority_queue<Solucion> cola;
   cola.push(sol);
   bool fin = false;
+  n_nodos = tamq = npoda = 0;
 
   while (!cola.empty() && !fin){
     Solucion enodo = cola.top();
@@ -284,8 +288,17 @@ void branchAndBound (Solucion sol){
           if (!hijo.esSolucion())
             cola.push(hijo);
         }
+        else   
+            npoda++;
       }
     }
+    else
+        npoda++;
+    
+    if (cola.size() > tamq)
+        tamq=cola.size();
+    
+    n_nodos++;
   }
 }
 
@@ -344,13 +357,26 @@ int main (int argc, char ** argv){
 
   Solucion::distancias = distancias;
   Solucion sol (n);
+  
+  int n_nodos, tamq, npoda;
+  time_point<high_resolution_clock> tini;
+  time_point<high_resolution_clock> tfin;
+  
+  tini = high_resolution_clock::now();
+  branchAndBound(sol, n_nodos, tamq, npoda);
+  tfin = high_resolution_clock::now();
 
-  branchAndBound(sol);
+  duration<double> t = duration_cast<duration<double>> (tfin - tini);
 
   int distanciaFinal;
   vector <int> resultado = Solucion::obtenerSolucionOptima(distanciaFinal);
 
   cout << "Distancia calculada: " << distanciaFinal << endl;
+  cout << "Numero de nodos expandidos: " << n_nodos << endl;
+  cout << "Tamaño máximo de la cola con prioridad: " << tamq << endl;
+  cout << "Número de veces que realiza poda: " << npoda << endl;
+  cout << "Tiempo: " << t.count() << endl;
+  
 
   string nombreDeSalida = argv[1];
 
