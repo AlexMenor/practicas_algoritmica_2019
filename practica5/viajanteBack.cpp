@@ -74,45 +74,21 @@ class Solucion {
     vector<int> x;
     vector<vector<int>> & distancias;
     int n;
-    int minimoValor;
+    int cotaGlobal;
     vector<int> solucionOptima;
     int distanciaActual;
     vector<bool> ciudadesYaSituadas;
-    vector<int> distanciasOptimistas;
-    int distanciaFinCircuito;
   public:
     Solucion(vector<vector<int>> & distanciasDadas, int nDada)
-    : distancias(distanciasDadas), n(nDada), minimoValor(0), 
+    : distancias(distanciasDadas), n(nDada), cotaGlobal(0), 
     distanciaActual(0), ciudadesYaSituadas(nDada+1, false), x(nDada, 21)
     {
-      minimoValor = viajanteGreedy_vecinosCercanos (distancias, solucionOptima);
+      cotaGlobal = viajanteGreedy_vecinosCercanos (distancias, solucionOptima);
 
       // Empezamos con la ciudad 0 ya situada
       // para no tener soluciones equivalentes
       x[0] = 1;
       ciudadesYaSituadas[1] = true;
-      
-      // Distancia optimista al finalizar el circuito
-      distanciaFinCircuito = 0;
-      for (int i = 0 ; i < n ; i++)
-        if (distancias[1][i+1] < distanciaFinCircuito)
-          distanciaFinCircuito = distancias[1][i+1];
-
-      // Distancias optimistas al seleccionar cada ciudad
-      // las precalculamos al empezar
-      // para no hacerlo en cada ejecución de la cota local
-
-      distanciasOptimistas.push_back(0); // Valor basura; no usaremos la componente 0
-      for (int i = 1 ; i <= n ; i++){
-        pair<int,int> tuplaDeLaCiudad (INT_MAX,INT_MAX);
-        for (int j = i+1 ; j <= n ; j++){
-          if (distancias[i][j] < tuplaDeLaCiudad.first)
-            tuplaDeLaCiudad.first = distancias[i][j];
-          else if (distancias[i][j] < tuplaDeLaCiudad.second)
-            tuplaDeLaCiudad.second = distancias[i][j];
-        }
-        distanciasOptimistas.push_back(ceil((tuplaDeLaCiudad.first + tuplaDeLaCiudad.second) / 2));
-      }
     }
 
     bool hemosTerminado (int k){
@@ -131,11 +107,9 @@ class Solucion {
 
       // Seleccionamos la ciudad temporalmente (o no)
       // para la función cotaLocal
-      
       ciudadesYaSituadas[x[k]] = true;
-      distanciaActual += distancias[x[k]][x[k-1]];
-
-      if (cotaLocal(k) + distanciaActual < minimoValor)
+      
+      if (cotaLocal(k) < cotaGlobal)
         return true;
       
       // Deseleccionamos la ciudad si no se cumple la condición
@@ -144,6 +118,7 @@ class Solucion {
       distanciaActual -= distancias[x[k]][x[k-1]];
       return false;
     }
+
     bool todosGenerados(int k){
       return x[k] == n+1; // END
     }
@@ -154,13 +129,14 @@ class Solucion {
 
       // Actualizamos la cota global si encontramos una
       // solución mejor
-      if (distanciaActual < minimoValor){
-        minimoValor = distanciaActual;
+      if (distanciaActual < cotaGlobal){
+        cotaGlobal = distanciaActual;
         solucionOptima = x;
       }
 
       distanciaActual -= distancias[1][x[n-1]];
     }
+
     void imprimeSolucion (){
       cout << "Con esta matriz de distancias:" << endl;
 
@@ -171,7 +147,7 @@ class Solucion {
       }
 
       cout << "La mejor asignación de ciudades, con distancia: "
-      << minimoValor << " es:" << endl;
+      << cotaGlobal << " es:" << endl;
 
       for (int i = 0 ; i < n ; i++)
         cout << solucionOptima[i] << " ";
@@ -188,19 +164,27 @@ class Solucion {
     }
 
     int cotaLocal (int k){
-      int toReturn = 0;
+       int cotaL = distanciaActual + distancias[x[k]][x[k-1]];
 
-      // Sumamos la distancia optimista que "esperamos"
-      // de las ciudades no seleccionadas aún
-      for (int i = 1 ; i <= n ; i++){
-        if (!ciudadesYaSituadas[i])
-          toReturn += distanciasOptimistas[i];
+      // Ahora sumamos para cada ciudad no seleccionada la mínima distancia
+      // de todas las otras ciudades no seleccionadas, la primera o la última
+
+      for (int i = 2 ; i <= n ; i++){
+        if (!ciudadesYaSituadas[i]){
+          // Lo inicializamos a la primera o a la última seleccionada por si
+          // fuese su mínima
+            int minimo = distancias[i][1]; 
+			minimo = minimo > distancias[x[k]][i] ? distancias[x[k]][i] : minimo;
+
+          for (int j = 2 ; j <= n ; j++)
+            if (!ciudadesYaSituadas[j] && i != j && distancias[i][j] < minimo)
+              minimo = distancias[i][j];
+
+          cotaL += minimo;
+        }
       }
-
-      // Sumamos la distancia optimista de la
-      // última ciudad con la primera
-      return toReturn + distanciaFinCircuito;
-    }
+	  return (cotaL);
+	}
 };
 
 void backtracking(Solucion & sol, int k = 0){
