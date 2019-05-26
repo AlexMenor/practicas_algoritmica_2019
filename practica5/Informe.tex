@@ -113,7 +113,26 @@ void branchAndBound (Solucion sol){
 	\end{lstlisting}
 	
 	\section{Estudio empírico}
-	Hemos decidido comparar el algoritmo Branch \& Bound con una versión Backtracking que también hemos construido ya no solo en implementación, sino también en tiempo. He aquí una comparativa de los tiempos en los distintos mapas:
+	Hemos decidido comparar el algoritmo Branch \& Bound con una versión Backtracking que también hemos construido ya no solo en implementación, sino también en tiempo. 
+	
+	\
+	
+	Además, hemos preparado unos scripts y escrito un \textit{Makefile}, para compilar, ejecutar y pintar para los dos algoritmos los siguientes mapas con estos comandos:
+	
+	\begin{itemize}
+		\item \textbf{make probar10:} Algoritmo Branch and Bound y el ''mapa'' Ulysses10
+		\item \textbf{make probar14:} Algoritmo Branch and Bound y el ''mapa'' Ulysses14
+		\item \textbf{make probar16:} Algoritmo Branch and Bound y el ''mapa'' Ulysses16
+		\item \textbf{make probarburma:} Algoritmo Branch and Bound y el ''mapa'' Burma14
+		\item \textbf{make probar10back:} Algoritmo Backtracking y el ''mapa'' Ulysses10
+		\item \textbf{make probar14back:} Algoritmo Backtracking y el ''mapa'' Ulysses14
+		\item \textbf{make probar16back:} Algoritmo Backtracking y el ''mapa'' Ulysses16
+		\item \textbf{make probarburmaback:} Algoritmo Backtracking y el ''mapa'' Burma14
+	\end{itemize}
+	
+	\
+	
+	He aquí una comparativa de los tiempos en los distintos mapas:
 	
 	\begin{longtable}{|c|c|c|}
 		\hline
