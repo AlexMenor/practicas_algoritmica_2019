@@ -107,17 +107,16 @@ void branchAndBound (Solucion sol){
 }
 	\end{lstlisting}
 	
-	\section{Algoritmo Backtracking VS ByB}
 	\section{Estudio empírico}
 	Hemos decidido comparar ambos algoritmos ya no solo en implementación, sino también en tiempo. He aquí una comparativa de los tiempos en los distintos mapas:
 	
 	\begin{longtable}{|c|c|c|}
 		\hline
 		Mapa & Branch \& Bound & Backtracking \\ \hline
-		Ulysses10 & 0.0531704 & 0.831073  \\ \hline
-		Ulysses14 & 28.1875 & 283.243 \\ \hline
-		Burma14 & 1.69153 & \\ \hline
-		Ulysses16 & 611.917 & \\ \hline
+		Ulysses10 & 0.0561154 & 0.032728  \\ \hline
+		Ulysses14 & 27.554 & 38.1479 \\ \hline
+		Burma14 & 2.30142 & 4.7288\\ \hline
+		Ulysses16 & 745.77 & 1232.72\\ \hline
 	\end{longtable}
 
 	También hemos hecho un estudio del número de podas y nodos expandidos en los distintos mapas con el algoritmo Branch \& Bound.
@@ -125,10 +124,10 @@ void branchAndBound (Solucion sol){
 	\begin{longtable}{|c|c|c|c|}
 		\hline
 		Mapa & Nodos expandidos & Tamaño máximo de la cola & Número de podas \\ \hline
-		Ulysses10 & 1797 & 1002 & 5860  \\ \hline
-		Ulysses14 & 631219 & 293139 & 2920816 \\ \hline
-		Burma14 & 30627 & 25991 & 172553 \\ \hline
-		Ulysses16 & 11018039 & 4878674 & 58457207 \\ \hline
+		Ulysses10 & 1937 & 1673 & 6227  \\ \hline
+		Ulysses14 & 655875 & 378692 & 3050716 \\ \hline
+		Burma14 & 45714 & 18446 & 248076 \\ \hline
+		Ulysses16 & 13504373 & 10020741 & 71153628 \\ \hline
 	\end{longtable}
 
 	Para obtener el número de podas, simplemente hemos usado una variable \textit{npoda} que se incrementa en una unidad cuando encontramos un hijo no factible y que se incrementa en el tamaño de la cola de prioridad cuando encontramos el mejor nodo de ésta y no es solución.
@@ -143,29 +142,60 @@ void branchAndBound (Solucion sol){
 	\begin{figure}[H]
 		\centering
 		\includegraphics[totalheight=6cm]{ulysses10byb}
-		\caption{Circuito Ulysses 10 con Branch \& Bound}
+		\caption{Circuito Ulysses 10 con Branch \& Bound. Distancia: 45}
 		\label{fig:u10byb}
 	\end{figure}
 
 	\begin{figure}[H]
 		\centering
+		\includegraphics[totalheight=6cm]{ulysses10back}
+		\caption{Circuito Ulysses 10 con Backtracking. Distancia: 45}
+		\label{fig:u10back}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
 		\includegraphics[totalheight=6cm]{ulysses14byb}
-		\caption{Circuito Ulysses 14 con Branch \& Bound}
+		\caption{Circuito Ulysses 14 con Branch \& Bound. Distancia: 68}
 		\label{fig:u14byb}
 	\end{figure}
 
 	\begin{figure}[H]
 		\centering
+		\includegraphics[totalheight=6cm]{ulysses14back}
+		\caption{Circuito Ulysses 14 con Backtracking. Distancia: 68}
+		\label{fig:u14back}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
 		\includegraphics[totalheight=6cm]{ulysses16byb}
-		\caption{Circuito Ulysses 16 con Branch \& Bound}
+		\caption{Circuito Ulysses 16 con Branch \& Bound. Distancia: 71}
 		\label{fig:u16byb}
 	\end{figure}
 
 	\begin{figure}[H]
 		\centering
+		\includegraphics[totalheight=6cm]{ulysses16back}
+		\caption{Circuito Ulysses 16 con Backtracking. Distancia: 71}
+		\label{fig:u16back}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
 		\includegraphics[totalheight=6cm]{burma14byb}
-		\caption{Circuito Burma 14 con Branch \& Bound}
+		\caption{Circuito Burma 14 con Branch \& Bound. Distancia: 30}
 		\label{fig:b14byb}
 	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[totalheight=6cm]{burma14back}
+		\caption{Circuito Burma 14 con Backtracking. Distancia: 30}
+		\label{fig:b14back}
+	\end{figure}
+
+	\section{Algoritmo Backtracking VS ByB}
+	Como vemos en el estudio anterior, al explorar ramas más prometedoras, el algoritmo Branch \& Bound nos da unos tiempos mucho más bajos. No obstante, la complejidad en espacio es mucho mayor.
 	
 \end{document}

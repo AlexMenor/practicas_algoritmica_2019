@@ -36,6 +36,12 @@ probarburma: viajanteByB
 	gnuplot plot-script-burma.p
 	display 'burma14byb.png'
 	
+probarburmaback: viajanteBack
+	./$< datosTSP/burma14.tsp
+	./a.out datosTSP/burma14.tsp datosTSP/burma14.tsp-back > paraplotear
+	gnuplot plot-script-burmaback.p
+	display 'burma14back.png'
+	
 probar10back: viajanteBack
 	./$< datosTSP/ulysses10.tsp
 	./a.out datosTSP/ulysses10.tsp datosTSP/ulysses10.tsp-back > paraplotear
