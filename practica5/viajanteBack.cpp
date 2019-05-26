@@ -58,8 +58,8 @@ int viajanteGreedy_vecinosCercanos (vector<vector<int>> & distancias, vector<int
 
 void calcularDistancias (vector<vector<int>> & m, vector<pair<double, double>> & ciudades){
   for (int i = 0 ; i < ciudades.size() ; i++){
-    int xi = ciudades[i].first;
-    int yi = ciudades[i].second;
+    double xi = ciudades[i].first;
+    double yi = ciudades[i].second;
     for (int j = i+1 ; j < ciudades.size() ; j++){
       double xj = ciudades[j].first;
       double yj = ciudades[j].second;
@@ -82,7 +82,7 @@ class Solucion {
     vector<bool> ciudadesYaSituadas;
   public:
     Solucion(vector<vector<int>> & distanciasDadas, int nDada)
-    : distancias(distanciasDadas), n(nDada), cotaGlobal(0), 
+    : distancias(distanciasDadas), n(nDada), 
     distanciaActual(0), ciudadesYaSituadas(nDada+1, false), x(nDada)
     {
       cotaGlobal = viajanteGreedy_vecinosCercanos (distancias, solucionOptima);
@@ -110,7 +110,7 @@ class Solucion {
       // Seleccionamos la ciudad temporalmente (o no)
       // para la función cotaLocal
       ciudadesYaSituadas[x[k]] = true;
-	  distanciaActual += distancias[x[k]][x[k-1]];
+	    distanciaActual += distancias[x[k]][x[k-1]];
       
       if (cotaLocal(k) < cotaGlobal)
         return true;
@@ -186,7 +186,7 @@ class Solucion {
           cotaL += minimo;
         }
       }
-	  return (cotaL);
+	    return (cotaL);
 	}
 };
 
@@ -253,7 +253,7 @@ int main (int argc, char ** argv){
   
   tini = high_resolution_clock::now();
 
-  backtracking(sol);
+  backtracking(sol, 1);
   
   tfin = high_resolution_clock::now();
   

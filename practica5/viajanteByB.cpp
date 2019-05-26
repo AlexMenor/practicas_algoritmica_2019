@@ -255,8 +255,8 @@ vector<vector<int>> Solucion :: distancias;
 
 void calcularDistancias (int ** m, vector<pair<double, double>> & ciudades){
   for (int i = 0 ; i < ciudades.size() ; i++){
-    int xi = ciudades[i].first;
-    int yi = ciudades[i].second;
+    double xi = ciudades[i].first;
+    double yi = ciudades[i].second;
     for (int j = i+1 ; j < ciudades.size() ; j++){
       double xj = ciudades[j].first;
       double yj = ciudades[j].second;
