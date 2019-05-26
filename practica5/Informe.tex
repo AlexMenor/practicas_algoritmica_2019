@@ -78,13 +78,14 @@
 	
 	\begin{lstlisting}
 void branchAndBound (Solucion sol){
-  set<Solucion> cola;
-  cola.insert(sol);
+  priority_queue<Solucion> cola;
+  cola.push(sol);
   bool fin = false;
+  n_nodos = tamq = npoda = 0;
 
   while (!cola.empty() && !fin){
 	Solucion enodo = *cola.begin();
-	cola.erase(cola.begin());
+	cola.pop();
 
 	fin = !enodo.factible();
 
@@ -95,14 +96,18 @@ void branchAndBound (Solucion sol){
 		for (Solucion hijo : hijosDelEnodo){
 			if (hijo.factible()){
 				if (!hijo.esSolucion())
-				   cola.insert(hijo);
+				   cola.push(hijo);
 			}
+			else
+				npoda++
 		}
 	}
 	else
-	{
-		cout << "elfin" << endl;
-	}
+		npoda += cola.size();
+	if (cola.size() > tamq)
+		tamq = cola.size();
+		
+	n_nodos++;
   }
 }
 	\end{lstlisting}
@@ -130,7 +135,7 @@ void branchAndBound (Solucion sol){
 		Ulysses16 & 13504373 & 10020741 & 71153628 \\ \hline
 	\end{longtable}
 
-	Para obtener el número de podas, simplemente hemos usado una variable \textit{npoda} que se incrementa en una unidad cuando encontramos un hijo no factible y que se incrementa en el tamaño de la cola de prioridad cuando encontramos el mejor nodo de ésta y no es solución.
+	Para obtener el número de podas, simplemente hemos usado una variable \textit{npoda} que se incrementa en una unidad cuando encontramos un hijo no factible y que se incrementa en el tamaño de la cola de prioridad cuando encontramos el mejor nodo de ésta y no es solución. Esto último ocurre ya que cuando sacamos de la cola el nodo más prometedor y este tiene una cota local mayor que la global, no tiene sentido seguir explorando, entonces todos los nodos restantes de la cola que no son explorados son podados también.
 	\
 	
 	Para obtener el número de nodos expandidos hemos usado una variable \textit{n\_nodos} que se incrementa en una unidad cada vez que exploramos un nuevo nodo.
@@ -196,6 +201,6 @@ void branchAndBound (Solucion sol){
 	\end{figure}
 
 	\section{Algoritmo Backtracking VS ByB}
-	Como vemos en el estudio anterior, al explorar ramas más prometedoras, el algoritmo Branch \& Bound nos da unos tiempos mucho más bajos. No obstante, la complejidad en espacio es mucho mayor.
+	Como vemos en el estudio anterior, al explorar ramas más prometedoras, el algoritmo Branch \& Bound nos da unos tiempos mucho más bajos. No obstante, la complejidad en espacio es mucho mayor. Como ambos algoritmos encuentran una solución óptima, la distancia del circuito es la misma para ambos recorridos, aunque en algunos casos no se halle el mismo camino.
 	
 \end{document}
